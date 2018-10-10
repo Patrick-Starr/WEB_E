@@ -10,8 +10,12 @@
 	
 		<div class="lostPassword">
 			<script type="text/javascript">
-    			alert("BIST DU DUMM?");
-			</script>
+			
+// If (E-mail) { send new Password } else { type in email }
+			
+    			alert("Eine?");
+
+    		</script>
 		</div>
 		
 	<?php 

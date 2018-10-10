@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	
 	<head>
-		<title>Login</title>
-		<h4>Login</h4>
+		<title>FH - Kurse</title>
+		<h1>Login</h1>
 		
 		<link rel = "stylesheet" href = "login.css">
 	</head>

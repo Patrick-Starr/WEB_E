@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	
 	<head>
-		<title>Startseite</title>
-		<h4>HOME</h4>
+		<title>FH - Kurse</title>
+		<h1>HOME</h1>
 		<link rel = "stylesheet" href = "index.css">
 	</head>
 	
