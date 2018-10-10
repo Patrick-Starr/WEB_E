@@ -10,29 +10,29 @@
 	</head>
 	
 	<body>
-		<div>
+		<div id="table">
 			<table class="info">
 				<tr>
-					<td>Nachname:</td>
-    				<td><input type="Nachname" name="Nachname" size="50" /><td> 
+					<td height="45">Nachname:</td>
+    				<td height="45"><input type="Nachname" name="Nachname" size="50" /><td> 
 				</tr>
 				<tr> 
-        			<td>Vorname:</td>
-        			<td><input type="Vorname" name="Vorname" size="50" /></td>
+        			<td height="45">Vorname:</td>
+        			<td height="45"><input type="Vorname" name="Vorname" size="50" /></td>
 				</tr>
 				<tr> 
-        			<td>E-mail Adresse:</td>
-        			<td><input type="email" name="email" size="50" /></td>
+        			<td height="45">E-mail Adresse:</td>
+        			<td height="45"><input type="email" name="email" size="50" /></td>
 				</tr>
 				<tr> 
-        			<td>Passwort: </td>
-        			<td><input type="password" name="password" size="50" /></td>
+        			<td height="45">Passwort:</td>
+        			<td height="45"><input type="password" name="password" size="50" /></td>
 				</tr>
 				<tr> 
-        			<td>Passwort wiederholen:</td>
-        			<td><input type="password" name="passwordAgain" size="50" /></td>
+        			<td height="45">Passwort wiederholen:</td>
+        			<td height="45"><input type="password" name="passwordAgain" size="50" /></td>
 				</tr>
-			</table>
+			</table> </br> </br>
 	
 			<input type="Submit" name="OK" value="Senden" />
 			<input type="reset" name="zur&uuml;cksetzen" value="Zur&uuml;cksetzen" />
