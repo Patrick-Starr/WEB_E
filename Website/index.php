@@ -6,13 +6,21 @@
 	<head>
 		<title>Startseite</title>
 		<h4>HOME</h4>
+		<link rel = "stylesheet" href = "index.css">
 	</head>
 	
 	<body>
-	
-		<a href = "../Website/login.php">Login</a>
-	
-	
+		<header class="navigation">
+			<p>
+				<a href = "../Website/login.php">Login</a>
+			</p>
+		</header>
+		
+		
+
+		<div class="search">
+    		Suche: <input type="search" name="searchfield" size="20" /> </br>
+		</div>
 	
 		<?php
 // 		// show the table (courses) which are available (data from DB)

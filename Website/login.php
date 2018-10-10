@@ -6,6 +6,8 @@
 	<head>
 		<title>Login</title>
 		<h4>Login</h4>
+		
+		<link rel = "stylesheet" href = "login.css">
 	</head>
 	
 	<body>
@@ -16,9 +18,17 @@
 		<input type="submit" name="submit" value="einloggen" />
 		<input type="reset" value="nochmals" />
 		</form><br/>
-		<a href="login_erf.php">Login erfassen </a><br/>
-		<a href="login-reset-form.php">Passwort vergessen?</a><br/>
-	
+		
+        <!-- Link to register a new e-mail-adress -->
+		<div class="register">
+			<a href = "../Website/register.php">Registrieren</a>
+		</div>
+		
+        <!-- Link if someone lost the password -->
+		<div class="lostPassword">
+			<a href = "../Website/lostPassword.php">Passwort vergessen?</a>
+		</div>
+		
 		<?php
 	
 	    ?>
