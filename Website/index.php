@@ -6,14 +6,19 @@
 	<head>
 		<title>FH - Kurse</title>
 		<h1>HOME</h1>
-		<link rel = "stylesheet" href = "index.css">
+		<link rel = "stylesheet" href = "../CSS_Files/index.css">
 	</head>
 	
 	<body>
-		<header class="navigation">
-			<p>
-				<a href = "../Website/login.php">Login</a>
-			</p>
+		<header>
+			<nav>
+				<a href = "../Website/index.php">Home</a>
+				<a href = "../Website/register.php">Register</a>
+			
+				<p>
+					<a href = "../Website/login.php">Login</a>
+				</p>
+			</nav>
 		</header>
 		
 		

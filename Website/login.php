@@ -7,10 +7,18 @@
 		<title>FH - Kurse</title>
 		<h1>Login</h1>
 		
-		<link rel = "stylesheet" href = "login.css">
+		<link rel = "stylesheet" href = "../CSS_Files/login.css">
 	</head>
 	
 	<body>
+		<nav>
+			<a href = "../Website/index.php">Home</a>
+			<a href = "../Website/register.php">Register</a>
+			
+			<p>
+				<a href = "../Website/login.php">Login</a>
+			</p>
+		</nav>
 	
 		<form action="login_b.php" method="POST">
 		<input type="text" name="email" value="" size="40" /> E-Mail <br/>
