@@ -6,7 +6,7 @@
 	<head>
 		<title>FH - Kurse</title>
 		<h1>Registrierung</h1>
-		<link rel = "stylesheet" href = "register.css">
+		<link rel = "stylesheet" href = "../CSS_Files/register.css">
 	</head>
 	
 	<body>
