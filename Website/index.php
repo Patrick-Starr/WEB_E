@@ -18,7 +18,7 @@
 				<p>
 					<a href = "../Website/login.php">Login</a>
 				</p>
-			</nav>
+			</nav> 
 		</header>
 		
 		
