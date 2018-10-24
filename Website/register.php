@@ -11,6 +11,7 @@
 	
 	<body>
 		<div id="table">
+                    <form action="index.php">
 			<table class="info">
 				<tr>
 					<td height="45">Nachname:</td>
@@ -34,10 +35,19 @@
 				</tr>
 			</table> </br> </br>
 	
-			<input type="Submit" name="OK" value="Senden" />
+                        
+                        <input type="Submit" name="OK" value="Senden" onclick="funktion()"/>
 			<input type="reset" name="zur&uuml;cksetzen" value="Zur&uuml;cksetzen" />
+                        </form>	
 		</div>
-		
+            
+            <script type="text/javascript">
+            function funktion(){
+                alert("Sie werden registriert"); 
+            }
+            </script> 
+            
+            
         <!-- alert mit "gesendet"	 -->
 
 	<?php 
