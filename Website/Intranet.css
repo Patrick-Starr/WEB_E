@@ -1,0 +1,11 @@
+header p {
+	background-color: orange;
+	padding-right: 15px;
+	text-align: right;
+	font-weight: bold;
+}
+
+body hl {
+    background-color: orange;
+    padding-right: 10px;
+}
