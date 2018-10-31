@@ -14,7 +14,7 @@
                     <form action="index.php">
 			<table class="info">
 				<tr>
-					<td height="45">Nachname:</td>
+                                <td height="45">Nachname:</td>
     				<td height="45"><input type="Nachname" name="Nachname" size="50" /><td> 
 				</tr>
 				<tr> 
