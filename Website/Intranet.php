@@ -15,7 +15,7 @@
 
         <form action="CreateNewModul.php">
           
-            <button class ="Kurshinzufüen"> Kurs hinzufügen</button>
+            <button class ="kurshinzufügen"> Kurs hinzufügen</button>
             
             
         </form>

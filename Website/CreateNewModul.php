@@ -19,7 +19,7 @@
                     </tr>
                      <tr> 
                         <td height="45">Startdatum</td> 
-                        <td height="45"><input type= "date" value="2018-07-22" min="2018-01-01" max="2018-12-31" size="50"/></td> 
+                        <td height="45"><input type= "date" value="2018-07-22" min="1900-01-01" max="3000-12-31" size="50"/></td> 
                      </tr>
                      <tr> 
                         <td height="45">Dauer</td> 
