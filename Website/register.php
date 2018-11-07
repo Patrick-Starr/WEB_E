@@ -8,7 +8,7 @@
 		<h1>Registrierung</h1>
 		<link rel = "stylesheet" href = "../CSS_Files/register.css">
 	</head>
-
+<!--agajgaj-->
           
 		<div id="table">
             <form action="index.php">
