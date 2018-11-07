@@ -13,14 +13,6 @@
 		<div id="table">
                     <form action="index.php">
 			<table class="info">
-				<tr>
-                                <td height="45">Nachname:</td>
-    				<td height="45"><input type="Nachname" name="Nachname" size="50" /><td> 
-				</tr>
-				<tr> 
-        			<td height="45">Vorname:</td>
-        			<td height="45"><input type="Vorname" name="Vorname" size="50" /></td>
-				</tr>
 				<tr> 
         			<td height="45">E-mail Adresse:</td>
         			<td height="45"><input type="email" name="email" size="50" /></td>
@@ -41,17 +33,26 @@
                         </form>	
 		</div>
             
+            
+            
+            <?php
+// Send an E-Mail with the Registration-Data
+// Mail cannot be send while using localhost. Find an exception to hide this!!
+            $to = 'sojo.nagaroor@students.fhnw.ch';
+            $subject = 'Registrierung Schule';
+            $message = 'E-Mail Adresse: '.$email.'\nGewünschtes Passwort: '.$UserPassword; // Get Input from Forms above!
+
+            mail($to, $subject, $message);
+            ?> 
+            
+            
             <script type="text/javascript">
             function funktion(){
-                alert("Sie werden registriert"); 
+                alert("Ihre Daten werden verarbeitet, Sie werden per E-Mail informiert falls die Registrierung erfolgreich war. Dies kann einige Tage dauern."); 
             }
             </script> 
             
             
-        <!-- alert mit "gesendet"	 -->
-
-	<?php 
-	?>
 	</body>
 	
 </html>
