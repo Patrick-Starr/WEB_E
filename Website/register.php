@@ -37,7 +37,7 @@
             
             <script type="text/javascript">
             function funktion(){
-            	$.ajax({url:"sendMail.php"})
+//             	$.ajax({url:"sendMail.php"})
                 alert("Ihre Daten werden verarbeitet, Sie werden per E-Mail informiert falls die Registrierung erfolgreich war. Dies kann einige Tage dauern."); 
             }
             </script> 
