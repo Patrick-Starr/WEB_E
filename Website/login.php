@@ -11,6 +11,8 @@
 	</head>
 	
 	<body>
+            
+            
 		<nav>
 			<a href = "../Website/index.php">Home</a>
 			<a href = "../Website/register.php">Register</a>
@@ -21,8 +23,8 @@
 		</nav>
 	
 		<form action="login_b.php" method="POST">
-		<input type="text" name="email" value="" size="40" /> E-Mail <br/>
-		<input type="password" name="passwort" value="" size="40" /> Passwort <br/>
+		<input type="email" name="E-Mail" id="E-Mail" value="" size="40" /> E-Mail <br/>
+		<input type="password" name="Passwort" id="Password" value="" size="40" /> Passwort <br/>
 		<input type="submit" name="submit" value="einloggen" />
 		<input type="reset" value="nochmals" />
 		</form><br/>
@@ -40,6 +42,7 @@
 		<?php
 	
 	    ?>
-	</body>
+
+        </body>
 	
 </html>

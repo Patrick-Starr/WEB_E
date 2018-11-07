@@ -8,50 +8,53 @@
 		<h1>Registrierung</h1>
 		<link rel = "stylesheet" href = "../CSS_Files/register.css">
 	</head>
-	
-	<body>
+
+          
 		<div id="table">
-                    <form action="index.php">
+                    <form action="mailto:sojo.nagaroor@sutdents.fhnw.ch?Subject=Anmelden" method="GET">
 			<table class="info">
 				<tr>
-                                <td height="45">Nachname:</td>
-    				<td height="45"><input type="Nachname" name="Nachname" size="50" /><td> 
+                                <td height="45">UID:</td>
+                                <td height="45"><input type="text" name="uid" size="50" /><td> 
 				</tr>
 				<tr> 
-        			<td height="45">Vorname:</td>
-        			<td height="45"><input type="Vorname" name="Vorname" size="50" /></td>
+        			<td height="45">School:</td>
+        			<td height="45"><input type="text" name="school" id="school" size="50" /></td>
 				</tr>
 				<tr> 
-        			<td height="45">E-mail Adresse:</td>
-        			<td height="45"><input type="email" name="email" size="50" /></td>
+        			<td height="45">Place:</td>
+        			<td height="45"><input type="text" name="place" size="50" /></td>
 				</tr>
 				<tr> 
-        			<td height="45">Passwort:</td>
+        			<td height="45">E-mail:</td>
+                                <td height="45"><input type="email" name="email" size="50" /></td>
+				</tr>
+				<tr> 
+        			<td height="45">Passwort :</td>
         			<td height="45"><input type="password" name="password" size="50" /></td>
 				</tr>
-				<tr> 
-        			<td height="45">Passwort wiederholen:</td>
-        			<td height="45"><input type="password" name="passwordAgain" size="50" /></td>
-				</tr>
 			</table> </br> </br>
-	
-                        
-                        <input type="Submit" name="OK" value="Senden" onclick="funktion()"/>
+               
+                       
+                        <input type="Submit" name="OK" value="Senden" action="index.php"/>
 			<input type="reset" name="zur&uuml;cksetzen" value="Zur&uuml;cksetzen" />
-                        </form>	
+                    
+             
+                    
+                    </form>	
 		</div>
+   
             
-            <script type="text/javascript">
+            
+<!--       <script type="text/javascript">
             function funktion(){
                 alert("Sie werden registriert"); 
             }
-            </script> 
+         </script> -->
             
             
         <!-- alert mit "gesendet"	 -->
 
-	<?php 
-	?>
 	</body>
 	
 </html>
