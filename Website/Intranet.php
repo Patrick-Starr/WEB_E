@@ -7,6 +7,35 @@
 
     <body>
         
+        <!--muss noch weiter bearbeitet werden, -> login daten auslesen aus der Datenbank-->
+<!--         <?php 
+        $username = $Post['E-Mail']; 
+        $password = $Post['Password']; 
+        
+        $username = stripslashes($username); 
+        $password = stripslashes($password); 
+        $username = mysql_real_escape_string($username);
+        $password = mysql_real_escape_string($password);
+        
+        
+        include "db.inc.php";
+        $link = mysqli_connect("localhost", $benutzer, $passwort, $dbname);
+        mysqli_select_db($link, $dbname); 
+        mysqli_query($link, "SET NAMES 'utf8'");
+        
+        $result = mysqli_query("select * from users where E-Mail = '$username' and Password = '$password'")
+                    or die("Failed to query database ".mysqli_error());
+        
+        $row = mysqli_fetch_array($result); 
+        if($row['E-Mail'] == $username && $row['Password'] == $password){
+            echo 'Login sucess';
+        }else{
+            echo 'failt to login'; 
+        }
+      
+          ?> -->
+        
+        
         <!--Oberer Navigationsbereich-->
         <header class="navigation">
             <p>
@@ -18,13 +47,13 @@
         <form action="CreateNewModul.php">
             <button class ="kurshinzufügen"> Kurs hinzufügen</button>
         </form>
-
+        
         <!--DatenBankGrundlagen-->
         <?php 
-        include "db.inc.php";
-        $link = mysqli_connect("localhost", $benutzer, $passwort, $dbname);
-        mysqli_select_db($link, $dbname); 
-        mysqli_query($link, "SET NAMES 'utf8'");
+//        include "db.inc.php";
+//        $link = mysqli_connect("localhost", $benutzer, $passwort, $dbname);
+//        mysqli_select_db($link, $dbname); 
+//        mysqli_query($link, "SET NAMES 'utf8'");
         
         $abfrage = "select * from courses"; 
         $result = mysqli_query($link, $abfrage) or die(mysqli_error($link)); 
