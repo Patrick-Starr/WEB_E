@@ -5,7 +5,7 @@
 	
 	<head>
 	<?php 
-	?>
+	?>$
 	</head>
 	
 	<body>

@@ -1,5 +1,5 @@
 <?php
 $benutzer="root";
 $passwort="";
-$dbname="logins";
+$dbname="web_e";
 ?>
