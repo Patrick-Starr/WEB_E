@@ -11,16 +11,9 @@
 
           
 		<div id="table">
-                    <form action="mailto:sojo.nagaroor@sutdents.fhnw.ch?Subject=Anmelden" method="GET">
+            <form action="index.php">
+			
 			<table class="info">
-				<tr>
-                                <td height="45">UID:</td>
-                                <td height="45"><input type="text" name="uid" size="50" /><td> 
-				</tr>
-				<tr> 
-        			<td height="45">School:</td>
-        			<td height="45"><input type="text" name="school" id="school" size="50" /></td>
-				</tr>
 				<tr> 
         			<td height="45">Place:</td>
         			<td height="45"><input type="text" name="place" size="50" /></td>
@@ -34,27 +27,23 @@
         			<td height="45"><input type="password" name="password" size="50" /></td>
 				</tr>
 			</table> </br> </br>
-               
-                       
-                        <input type="Submit" name="OK" value="Senden" action="index.php"/>
+	
+                        
+            <input type="Submit" name="OK" value="Senden" onclick="funktion()"/>
 			<input type="reset" name="zur&uuml;cksetzen" value="Zur&uuml;cksetzen" />
-                    
-             
-                    
-                    </form>	
+			
+			</form>	
 		</div>
    
             
             
 <!--       <script type="text/javascript">
             function funktion(){
-                alert("Sie werden registriert"); 
+            	$.ajax({url:"sendMail.php"})
+                alert("Ihre Daten werden verarbeitet, Sie werden per E-Mail informiert falls die Registrierung erfolgreich war. Dies kann einige Tage dauern."); 
             }
          </script> -->
             
             
-        <!-- alert mit "gesendet"	 -->
-
 	</body>
 	
-</html>
