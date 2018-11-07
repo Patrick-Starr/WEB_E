@@ -61,7 +61,7 @@
 
                         </div>
                         <div class="forgot">
-                            <a href="../Website/lostPassword.php">Forgot password?</a>
+                            <a href="view/lostPassword.php">Forgot password?</a>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
 

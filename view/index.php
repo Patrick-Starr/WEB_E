@@ -36,13 +36,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-                    <a class="nav-link active" href="../Website/index.php">Home</a>
+                    <a class="nav-link active" href="view/index.php">Home</a>
                 </li>
       <li class="nav-item">
-                    <a class="nav-link disabled" href="../Website/login.php">Login</a>
+                    <a class="nav-link disabled" href="view/login.php">Login</a>
                 </li>
        <li class="nav-item">
-                    <a class="nav-link" href="../Website/register.php">Register</a>
+                    <a class="nav-link" href="view/register.php">Register</a>
                 </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

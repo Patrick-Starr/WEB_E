@@ -10,7 +10,7 @@
         <!--Oberer Navigationsbereich-->
         <header class="navigation">
             <p>
-                <a href = "../Website/Index.php">Home</a>
+                <a href = "view/index.php">Home</a>
             </p>
         </header>
         
