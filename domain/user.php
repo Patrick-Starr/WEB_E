@@ -6,7 +6,7 @@ namespace domain;
  * @access private
  * @author andreas.martin
  */
-class College {
+class user {
 	/**
 	 * @AttributeType int
 	 */
