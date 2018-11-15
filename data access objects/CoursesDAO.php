@@ -12,8 +12,8 @@ class CoursesDAO extends BasicDAO{
     
     public function create(Courses $cours){
         $stmt = $this ->pdoInstance ->prepate(' INSERT INTO courses
-                (CID, UID, Course, Link, Duration, Start, Form Place, Created'); 
-        
+        (CID, UID, Course, Link, Duration, Start, Form Place, Created'); 
+        //test
     }
     
     
