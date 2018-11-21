@@ -22,7 +22,7 @@
         $result = mysqli_query($link, $abfrage) or die(mysqli_error($link));
         
         //Tabellenkopf darstellen
-        echo "<table border = \"1\">";
+        echo "<table border = \"1\">";//
         $anzahl_spalten = mysqli_num_fields($result);
         echo "<tr>";
         for ($i = 0; $i < $anzahl_spalten; $i++) {
