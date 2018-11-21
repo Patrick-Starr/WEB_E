@@ -1,10 +1,10 @@
-<?php 
+<?php
 $host = 'localhost';
 $benutzer="root";
 $passwort="";
 $dbname="web_e";
 
-mysqli_connect($host, $benutzer, $passwort, $dbname) or die(mysqli_error());
+$link = mysqli_connect($host, $benutzer, $passwort, $dbname) or die(mysqli_error());
 
 function createTable($name, $query)
 {
