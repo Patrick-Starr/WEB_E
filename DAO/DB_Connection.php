@@ -1,12 +1,10 @@
 <?php
 
-namespace dao; 
-
 class Database
 {
 
     // initialize the DB - Usage
-    private static $dbName = 'web_e.sql';
+    private static $dbName = 'web_e';
     private static $dbHost = 'localhost';
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
@@ -22,19 +20,18 @@ class Database
         // One connection through whole application
         if (null == self::$cont) {
             try {
-                self::$cont = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
-            } catch (PDOException $e) {
+                self::$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
+            } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
         return self::$cont;
     }
-
+        
     public static function disconnect()
     {
         self::$cont = null;
     }
-    
     
 }
 
