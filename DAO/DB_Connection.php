@@ -4,11 +4,11 @@ class Database
 {
 
     // initialize the DB - Usage
-    private static $dbName = 'web_e';
-    private static $dbHost = 'localhost';
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
-    private static $cont = null;
+     static $dbName = 'web_e';
+     static $dbHost = 'localhost';
+     static $dbUsername = 'root';
+     static $dbUserPassword = '';
+    public static $cont = null;
 
     public function __construct()
     {
