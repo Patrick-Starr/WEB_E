@@ -38,7 +38,8 @@
 ?>
 
 <?php
-use domain\Courses;
+
+ include '../DAO/CoursesDAO.php';
 
 if ( !empty($_POST)) {
     // keep track validation errors
@@ -106,6 +107,8 @@ if ( !empty($_POST)) {
 
     }
     // insert data
+
+
 
 }
 
