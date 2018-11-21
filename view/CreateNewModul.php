@@ -4,18 +4,18 @@
 </head>
 
 <body>
-    <?php
+    <?php 
     if (! empty($_POST)) {
 
-        $feld1 = $_POST['CID'];
-        $feld2 = $_POST['UID'];
-        $feld3 = $_POST['Course'];
-        $feld4 = $_POST['Link'];
-        $feld5 = $_POST['Duration'];
-        $feld6 = $_POST['Start'];
-        $feld7 = $_POST['Form'];
-        $feld8 = $_POST['Place'];
-        $feld9 = $_POST['Created'];
+        $field1 = $_POST['CID'];
+        $field2 = $_POST['UID'];
+        $field3 = $_POST['Course'];
+        $field4 = $_POST['Link'];
+        $field5 = $_POST['Duration'];
+        $field6 = $_POST['Start'];
+        $field7 = $_POST['Form'];
+        $field8 = $_POST['Place'];
+        $field9 = $_POST['Created'];
 
         include "db.inc.php";
 
@@ -23,7 +23,7 @@
         mysqli_select_db($link, $dbname);
         mysqli_query($link, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
 
-        $insert = "INSERT INTO `courses` (`CID`,`UID`,`Course`,`Link`,`Duration`,`Start`,`Form`,`Place`,`Created`) " . "VALUES('$feld1','$feld2','$feld3','$feld4','$feld5','$feld6','$feld7','$feld8','$feld9')";
+        $insert = "INSERT INTO `courses` (`CID`,`UID`,`Course`,`Link`,`Duration`,`Start`,`Form`,`Place`,`Created`) " . "VALUES('$field1','$field2','$field3','$field4','$field5','$field6','$field7','$field8','$field9')";
 
         $db = mysqli_query($link, $insert) or die(mysqli_error($link));
 
