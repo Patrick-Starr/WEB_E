@@ -1,13 +1,11 @@
 <?php
 
+include 'db.inc.php';
+
 class Database
 {
 
     // initialize the DB - Usage
-     static $dbName = 'web_e';
-     static $dbHost = 'localhost';
-     static $dbUsername = 'root';
-     static $dbUserPassword = '';
     public static $cont = null;
 
     public function __construct()
