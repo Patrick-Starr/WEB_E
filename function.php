@@ -14,7 +14,7 @@ function createTable($name, $query)
 }
 
 function queryMysql($query){//
-    $result = mysqli_query($query) or die (mysql_error()); 
+    $result = mysqli_query($query) or die (mysql_error());
     return $result; 
 }
 

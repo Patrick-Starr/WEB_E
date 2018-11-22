@@ -19,8 +19,8 @@
             <button class ="kurshinzufügen"> Kurs hinzufügen</button>
         </form>
 
-        <!--DatenBankGrundlagen-->
-        <?php 
+       <!-- <!--DatenBankGrundlagen-->
+        <?php /*
         include "db.inc.php";
         $link = mysqli_connect("localhost", $benutzer, $passwort, $dbname);
         mysqli_select_db($link, $dbname); 
@@ -50,8 +50,8 @@
         echo "</table>"; 
         
         mysqli_close($link); 
-        ?> 
-        
+        */?>
+
         
         
         
