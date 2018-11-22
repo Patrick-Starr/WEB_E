@@ -47,8 +47,10 @@ class Courses {
      * readSearched = get all chosen data from Database (chosen from Dropdown)
      */
     public function readAll() {
-        $insert = 'SELECT users. FROM courses';
-        
+        $insert = 'SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
+                   FROM users
+                   INNER JOIN courses
+                   ON users.UID = courses.UID';
         
         $result = mysqli_query(Database::$cont, $insert) or die(mysqli_error(Database::$cont));
         
