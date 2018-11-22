@@ -14,8 +14,10 @@
 include_once 'DB_Connection.php';
 Database::connect();
 
-// get creation-date
-// Set timezone to safe the creation date of a new course
+/*
+ * get creation-date
+ * Set timezone to safe the creation date of a new course
+ */
 date_default_timezone_set("Europe/Zurich");
 $timestamp = time();
 $date = date("d.m.Y", $timestamp);
@@ -23,9 +25,10 @@ $date = date("d.m.Y", $timestamp);
 class Courses {
 
     // CREATE
-    // $date delivers the actual date <!-- !!!!!! Don't forget to put in UID / CID !!!!!!!! -->
+    /*
+     *  $date delivers the actual date                          !!!!! Don't forget to put in UID / CID !!!!!!!!
+     */
     public function create($UID, $course, $link, $duration, $start, $form, $place) {
-        
         $insert = "INSERT INTO `courses` (`CID`, `UID`, `Course`, `Link`, `Duration`, `Start`, `Form`, `Place`, `Created`)".
         " VALUES (NULL, '$UID', '$course', '$link', '$duration', '$start', '$form', '$place', '$date')";
         
@@ -35,12 +38,29 @@ class Courses {
         $db = mysqli_query(Database::$cont, $insert) or die(mysqli_error(Database::$cont));
         
         mysqli_close(Database::$cont);
+    }
+    
+    // READ
+    /*
+     * Get searched querys from sql
+     * readAll = get all data from Database except UID
+     * readSearched = get all chosen data from Database (chosen from Dropdown)
+     */
+    public function readAll() {
+        $insert = 'SELECT users. FROM courses';
+        
+        
+        $result = mysqli_query(Database::$cont, $insert) or die(mysqli_error(Database::$cont));
+        
+        mysqli_close(Database::$cont);
+        return $result;
+    }
+    
+    public function readSearched() {
         
     }
     
     
-    // READ
-
     // UPDATE
 
     // DELETE
