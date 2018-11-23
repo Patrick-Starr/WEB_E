@@ -44,11 +44,12 @@ function sanitizeString($var)
 function showProfile($user)
 {
     $result = queryMysql("SELECT * FROM users WHERE School='$user'");
-    if (mysql_num_rows($result))
+    if ($result->num_rows)
     {
-        $row = mysql_fetch_row($result);
-        echo stripslashes($row[1]) . "<br clear=left /><br/>";
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
     }
+    else echo "<p>Nothing to see here, yet</p><br>";
 }
 
 
