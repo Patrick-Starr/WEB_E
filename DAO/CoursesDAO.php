@@ -44,7 +44,6 @@ class Courses {
     /*
      * Get searched querys from sql
      * readAll = get all data from Database except UID
-     * readSearched = get all chosen data from Database (chosen from Dropdown)
      */
     public function readAll() {
         $insert = 'SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
@@ -58,8 +57,24 @@ class Courses {
         return $result;
     }
     
-    public function readSearched() {
+    /*
+     * readSearched = get all chosen data from Database (chosen from Dropdown)
+     */
+    public function readSearched($sSchool, $sDuration, $sPlace, $sForm) {
+        $insert = 'SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
+                   FROM users
+                   INNER JOIN courses
+                   ON users.UID = courses.UID
+                   WHERE users.School LIKE '%".$sSchool."%'
+                    AND courses.Duration LIKE '%".$sDuration."%'
+                    AND courses.Place LIKE '%".$sPlace."%'
+                    AND courses.Form LIKE '%".$sForm."%'
+                   ORDER BY users.School, courses.Course';
         
+        $result = mysqli_query(Database::$cont, $insert) or die(mysqli_error(Database::$cont));
+        
+        mysqli_close(Database::$cont);
+        return $result;
     }
     
     

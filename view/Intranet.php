@@ -22,27 +22,28 @@
        <!-- <!--DatenBankGrundlagen-->
         
         <?php 
-//         //Tabellenkopf darstellen 
-//         include '../DAO/CoursesDAO.php';
+        include '../DAO/CoursesDAO.php';
+        //Tabellenkopf darstellen 
 //         $result = Courses::readALL();
-//         echo "<table border = \"1\">";
-//         $anzahl_spalten = mysqli_num_fields($result); 
-//         echo "<tr>";
-//         for($i = 0; $i < $anzahl_spalten; $i++){
-//             $feldinfo = mysqli_fetch_field_direct($result, $i); 
-//             echo "<th>".$feldinfo->name."</th>";
-//         }
-//         echo "</tr>";
-//         //Rest der Tabelle in einer Schleife darstellen
-//         while($zeile = mysqli_fetch_assoc($result)){
-//              echo "<tr>";
-//              while (list($key, $value) = each($zeile)){
-//                  echo "<td>".$value."</td>";
-//              }   
-//             echo "</tr>"; 
-//         }
-//         echo "</table>"; 
-//         ?>
+        $result = Courses::readSearched("FHNW", 0, "", "");
+        echo "<table border = \"1\">";
+        $anzahl_spalten = mysqli_num_fields($result); 
+        echo "<tr>";
+        for($i = 0; $i < $anzahl_spalten; $i++){
+            $feldinfo = mysqli_fetch_field_direct($result, $i); 
+            echo "<th>".$feldinfo->name."</th>";
+        }
+        echo "</tr>";
+        //Rest der Tabelle in einer Schleife darstellen
+        while($zeile = mysqli_fetch_assoc($result)){
+             echo "<tr>";
+             while (list($key, $value) = each($zeile)){
+                 echo "<td>".$value."</td>";
+             }   
+            echo "</tr>"; 
+        }
+        echo "</table>"; 
+        ?>
 
         
         
