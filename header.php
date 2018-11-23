@@ -1,30 +1,39 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Startklar
- * Date: 22.11.2018
- * Time: 10:15
- */
+<?php // header.php
 
-include 'function.php';
+session_start();
 
-$userstr = ' (Guest)';
+echo "<!DOCTYPE html>\n<html><head><script src='OSC.js'></script>";
 
-if(isset($_SESSION['user'])){
-    $user = $_SESSION['user'];
-    $loggedin = true;
-    $userstr = " ($user)";
-} else $loggedin = false;
+require_once 'function.php';
 
+$userstr = 'Welcome Guest';
 
-if($loggedin){
-    echo " logged<br/>";
-    echo "<a href='view/home.php'>Home</a>";
-    echo "<a href='intranet.php'>Intranet</a>";
-}else{
-    echo "nicht eingeloggt <br/>";
-    echo "<li><a href='view/login.php'>Login</a> <br/></li>";
-    echo "<li><a href='view/login.php'>Anmelden</a><br/></li>";
-    echo "<li><a href='test.php'>test</a></li>";
+if (isset($_SESSION['user']))
+{
+    $user     = $_SESSION['user'];
+    $loggedin = TRUE;
+    $userstr  = "Logged in as: $user";
 }
+else $loggedin = FALSE;
 
+    echo "<title>$userstr</title>
+//      <link rel='stylesheet'" . //   "href='styles.css' type='text/css' />" .
+
+    "</head><body><div class='appname'>$userstr</div>";
+
+if ($loggedin)
+{
+    echo "<br ><ul class='menu'>" .
+        "<li><a href='index.php?view=$user'>test</a></li>" .
+        "<li><a href='intranet.php'>intranet</a></li>" .
+        "<li><a href='test.php'>test</a></li></ul>";
+
+}
+else
+{
+    echo ("<br /><ul class='menu'>" .
+        "<li><a href='login.php'>Log in</a></li></ul><br />" .
+        "<span class='info'>&#8658; You must be logged in to " .
+        "view this page.</span><br /><br />");
+}
+?>

@@ -1,67 +1,45 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Startklar
- * Date: 22.11.2018
- * Time: 11:08
- */
+<?php // login.php
 
-function queryMysql($query){//
-$host = 'localhost';
-$benutzer="root";
-$passwort="";
-$dbname="web_e";
+include_once '../header.php';
 
-$link = mysqli_connect($host, $benutzer, $passwort, $dbname) or die(mysqli_error());
-
-
-    $result = mysqli_query($link ,$query);
-    return $result;
-}
-
-//include "../header.php";
+echo "<div class='main'><h3>Please enter your details to log in</h3>";
 
 $error = $user = $pass = "";
-
 if (isset($_POST['user']))
 {
-    $user = ($_POST['user']);
-    $pass = ($_POST['pass']);
+    $user = sanitizeString($_POST['user']);
+    $pass = sanitizeString($_POST['pass']);
     if ($user == "" || $pass == "")
     {
         $error = "Not all fields were entered<br />";
     }
     else
     {
-        $query = "SELECT School,Password FROM web_e
-        WHERE School='$user' AND Password='$pass'";
+        $result = queryMySQL("SELECT school,password FROM users
+        WHERE School='$user' AND Password='$pass'");
 
-        if (queryMysql($query))
+        if ($result->num_rows == 0)
         {
-            $error = "<span class='error'>Username/Password
-            invalid</span><br /><br />";
+            $error = "Invalid login attempt";
         }
         else
         {
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
-            die("You are now logged in. Please <a href='intranet.php'>" .
+            die("You are now logged in. Please <a href='test.php?view=$user'>" .
                 "click here</a> to continue.<br /><br />");
         }
     }
 }
-
 echo <<<_END
 <form method='post' action='login1.php'>$error
-<span class='fieldname'>Name</span>
-<input type='text' maxlength='16' name='user' value='$user' /><br />
-<span class='fieldname'>Passwort</span>
-<input type='password' maxlength='16' name='pass' value='$pass' /><br />
-
+<span class='fieldname'>Username</span><input type='text'
+maxlength='16' name='user' value='$user' /><br />
+<span class='fieldname'>Password</span><input type='password'
+maxlength='16' name='pass' value='$pass' />
+_END;
+?>
 <br />
 <span class='fieldname'>&nbsp;</span>
 <input type='submit' value='Login' />
-</form>
-_END;
-
-?>
+</form><br /></div></body></html>
