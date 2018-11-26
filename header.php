@@ -24,15 +24,18 @@ else $loggedin = FALSE;
 if ($loggedin)
 {
     echo "<br ><ul class='menu'>" .
-        "<li><a href='index.php?view=$user'>test</a></li>" .
+        "<li><a href='index.php?view=$user'>Index</a></li>" .
         "<li><a href='intranet.php'>intranet</a></li>" .
+        "<li><a href='logout.php'>logout</a></li>" .
         "<li><a href='test.php'>test</a></li></ul>";
 
 }
 else
 {
     echo ("<br /><ul class='menu'>" .
-        "<li><a href='login.php'>Log in</a></li></ul><br />" .
+        "<li><a href='login1.php'>Log in</a></li><br />" .
+        "<li><a href='home.php'>Home</a></li><br />" .
+        "<li><a href='register.php'>Register</a></li></ul><br />" .
         "<span class='info'>&#8658; You must be logged in to " .
         "view this page.</span><br /><br />");
 }
