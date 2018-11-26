@@ -28,7 +28,7 @@
 
 <body>
 
-
+<!--
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">FH-Kurse</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -46,7 +46,11 @@
 					href="view/login.php">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="view/register.php">Register</a>
 				</li>
-			</ul>
+			</ul>-->
+
+<?php
+include '../header.php';
+?>
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Search" aria-label="Search">
