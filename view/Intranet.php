@@ -25,7 +25,7 @@
         include '../DAO/CoursesDAO.php';
         //Tabellenkopf darstellen 
 //         $result = Courses::readALL();
-        $result = Courses::readSearched("FHNW", 0, "", "");
+        $result = Courses::readSearched("FHNW", NULL, "", "");
         echo "<table border = \"1\">";
         $anzahl_spalten = mysqli_num_fields($result); 
         echo "<tr>";

@@ -9,6 +9,8 @@
 <!-- Update	  UPDATE -->
 <!-- Delete	  DELETE -->
 
+<!-- How about to copy courses? -->
+
 <?php
 
 include_once 'DB_Connection.php';
@@ -61,15 +63,16 @@ class Courses {
      * readSearched = get all chosen data from Database (chosen from Dropdown)
      */
     public function readSearched($sSchool, $sDuration, $sPlace, $sForm) {
-        $insert = 'SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
+        
+        $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
                    FROM users
-                   INNER JOIN courses
+                   JOIN courses
                    ON users.UID = courses.UID
                    WHERE users.School LIKE '%".$sSchool."%'
                     AND courses.Duration LIKE '%".$sDuration."%'
                     AND courses.Place LIKE '%".$sPlace."%'
                     AND courses.Form LIKE '%".$sForm."%'
-                   ORDER BY users.School, courses.Course';
+                   ORDER BY users.School, courses.Course";
         
         $result = mysqli_query(Database::$cont, $insert) or die(mysqli_error(Database::$cont));
         
@@ -77,10 +80,29 @@ class Courses {
         return $result;
     }
     
-    
     // UPDATE
+    public function update(/* Get UID and CID of the chosen course (here or as parameter)
+    also get the lines which should be changed*/) {
+    
+    // use:    $uCourse, $uLink, $uDuration, $uStart, $uForm, $uPlace
+    
+//     if  (isset(/**/)) {
+//         /*update entity*/
+//     }
+        $insert = '';
+        
+        $result = mysqli_query(Database::$cont, $insert) or die(mysqli_error(Database::$cont));
+        
+        mysqli_close(Database::$cont);
+        
+    }
 
     // DELETE
+    public function delete() {
+        // Get CourseID and Delete it - Verify the deletion before via Boolean
+    }
+    
+    
 }
 
 ?>
