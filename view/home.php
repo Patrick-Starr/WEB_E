@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
-<title>FH - Kurse</title>
+<title>StuKu</title>
 <h1>HOME</h1>
+<!-- Set up a Tab-icon -->
+<link rel="icon" type="image/png" href="../Tab.png">
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <!-- UnterstÃ¼tzung fÃ¼r Media Queries und HTML5-Elemente in IE8 Ã¼ber HTML5 shim und Respond.js -->
