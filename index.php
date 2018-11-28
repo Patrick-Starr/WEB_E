@@ -1,8 +1,8 @@
 <!--  Initialize all needed, Homepage is shown on home.php  -->
 
 <?php
-session_start();
-
+echo("Hallo");
+echo "<li><a href='view/home.php'>home</a></li></ul>";
 
 
 
