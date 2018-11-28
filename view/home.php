@@ -9,7 +9,7 @@ include '../header.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>StuKu</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -31,7 +31,11 @@ include '../header.php';
                 <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
+                <?php if(isset($_SESSION['user'])){ ?>
+                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.html">Login</a></li>
+				<?php }else{ ?>
+                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
+				<?php } ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Register</a></li>
             </ul>
         </div>
@@ -39,6 +43,10 @@ include '../header.php';
 </nav>
 <main>
     <div>
+    	<br>
+    	<br>
+    	<br>
+    	<br>
         <h1>Heading</h1>
     </div><div class="form-group pull-right">
         <input type="text" class="search form-control" placeholder="What you looking for?">
