@@ -31,7 +31,7 @@ class Database
         return self::$cont;
     }
     
-    /* Not used - Close the DB-Connection */
+    /* Close the DB-Connection */
     public static function disconnect()
     {
         self::$cont = null;

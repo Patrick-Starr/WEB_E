@@ -1,5 +1,6 @@
 <?php // logout.php
 include_once '../header.php';
+include_once '../DAO/DB_Connection.php';
 
 if (isset($_SESSION['user']))
 {
@@ -7,7 +8,10 @@ if (isset($_SESSION['user']))
     echo "<div class='main'>You have been logged out. Please " .
         "<a href='home.php'>click here</a> to refresh the screen.";
 }
-else echo "<div class='main'><br />" .
-    "You cannot log out because you are not logged in";
+
+
+if (isset(Database::$cont)) {
+    Database::disconnect();
+}
+    
 ?>
-<br /><br /></div></body></html>
