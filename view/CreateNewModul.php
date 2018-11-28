@@ -4,38 +4,6 @@
 </head>
 
 <body>
-<?php
-
-
-//    if (! empty($_POST)) {
-//
-//        $feld1 = $_POST['CID'];
-//        $feld2 = $_POST['UID'];
-//        $feld3 = $_POST['Course'];
-//        $feld4 = $_POST['Link'];
-//        $feld5 = $_POST['Duration'];
-//        $feld6 = $_POST['Start'];
-//        $feld7 = $_POST['Form'];
-//        $feld8 = $_POST['Place'];
-//        $feld9 = $_POST['Created'];
-//
-//        include "db.inc.php";
-//
-//        $link = mysqli_connect('localhost', $benutzer, $passwort, $dbname);
-//        mysqli_select_db($link, $dbname);
-//        mysqli_query($link, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
-//
-//        $insert = "INSERT INTO `courses` (`CID`,`UID`,`Course`,`Link`,`Duration`,`Start`,`Form`,`Place`,`Created`) " . "VALUES('$feld1','$feld2','$feld3','$feld4','$feld5','$feld6','$feld7','$feld8','$feld9')";
-//
-//        $db = mysqli_query($link, $insert) or die(mysqli_error($link));
-//
-//        mysqli_close($link);
-//
-//        echo "<h3> Ihre Daten wurden in unsere Tabelle \"user\" aufgenommen</h3>";
-//    }
-
-
-?>
 
 <?php
 
@@ -107,8 +75,9 @@ if ( !empty($_POST)) {
 
     }
     // insert data
-    Courses::create(/*PARAMETERS HERE*/);
-
+    if ($valid) {
+        Courses::create(2, $Course, $Link, $Duration, $Start, $Form, $Place);
+    }
 
 }
 
@@ -136,7 +105,7 @@ if ( !empty($_POST)) {
             </tr>
             <tr>
                 <td height="45">Startdatum</td>
-                <td height="45"><input type="date" name="Start" value="2018-07-22"
+                <td height="45"><input type="date" name="Start"
                                        min="1900-01-01" max="3000-12-31" size="50" /></td>
             </tr>
             <tr>
@@ -151,13 +120,12 @@ if ( !empty($_POST)) {
         </table>
         <input type="Submit" name="OK" value="Senden"
                onclick="registrieren()" />
+               
     </form>
     <form action="../Intranet.php">
         <button>Intranet</button>
     </form>
 </div>
-
-
 
 <script>
     $("datepicker").datepicker({ });

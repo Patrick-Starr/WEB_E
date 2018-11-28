@@ -47,7 +47,7 @@ class Courses {
                    FROM users
                    INNER JOIN courses
                    ON users.UID = courses.UID
-                   ORDER BY users.School, courses.Course";
+                   ORDER BY courses.Course";
 
         $result = self::runQuery($insert);
         return $result;
@@ -65,7 +65,7 @@ class Courses {
                     AND courses.Duration LIKE '%".$sDuration."%'
                     AND courses.Place LIKE '%".$sPlace."%'
                     AND courses.Form LIKE '%".$sForm."%'
-                   ORDER BY users.School, courses.Course";
+                   ORDER BY courses.Course";
         
         $result = self::runQuery($insert);
         return $result;
@@ -80,7 +80,7 @@ class Courses {
                    INNER JOIN courses
                    ON users.UID = courses.UID
                    WHERE users.UID = '$myUID'
-                   ORDER BY users.School, courses.Course";
+                   ORDER BY courses.Course";
         
         $result = self::runQuery($insert);
         return $result;
