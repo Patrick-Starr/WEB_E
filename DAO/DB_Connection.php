@@ -1,13 +1,11 @@
 <?php
 
+use config\Config;
+
 class Database
 {
 
     // initialize the DB - Usage
-    static $dbName = 'web_e';
-    static $dbHost = 'localhost';
-    static $dbUsername = 'root';
-    static $dbUserPassword = '';
     public static $cont = null;
 
     public function __construct()
@@ -17,6 +15,10 @@ class Database
 
     public static function connect()
     {
+        $dbName = Config::get('database.name');
+        $dbHost = Config::get('database.host');
+        $dbUsername = Config::get('database.user');
+        $dbUserPassword = Config::get('database.password');
         // One connection through whole application
         if (null == self::$cont) {
             try {
