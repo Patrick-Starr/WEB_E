@@ -1,6 +1,7 @@
 <?php
 
-use config\Config;
+include "Config.php";
+
 
 class Database
 {
@@ -22,7 +23,7 @@ class Database
         // One connection through whole application
         if (null == self::$cont) {
             try {
-                self::$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
+                self::$cont = mysqli_connect($dbHost, $dbUsername, $dbUserPassword, $dbName);
             } catch (Exception $e) {
                 die($e->getMessage());
             }

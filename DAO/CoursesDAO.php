@@ -140,7 +140,7 @@ class Courses {
      * Runs the queries from above                                  -       CLOSE THE CONNECTION IN DB_Connection.php per Session!!!
      */
     public function runQuery($query) {
-        mysqli_select_db(Database::$cont, Database::$dbName);
+        //mysqli_select_db(Database::$cont, Database::$dbName);
         
         mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
         // stripslashes() removes all syntax signs like \ or "
