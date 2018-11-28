@@ -43,10 +43,7 @@ include '../header.php';
 </nav>
 <main>
     <div>
-    	<br>
-    	<br>
-    	<br>
-    	<br>
+    	<br><br><br><br>
         <h1>Heading</h1>
     </div><div class="form-group pull-right">
         <input type="text" class="search form-control" placeholder="What you looking for?">
