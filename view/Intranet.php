@@ -24,8 +24,17 @@
         <?php 
         include '../DAO/CoursesDAO.php';
         //Tabellenkopf darstellen 
-//         $result = Courses::readALL();
-        $result = Courses::readSearched("FHNW", NULL, "", "");
+        
+//         Courses::create(2, "SOJO", "linkISCHrandom@daTEST.usa", 2, "2018-02-01" , "VZ", "Olten");
+//         $result = Courses::readSearched("FHNW", NULL, "", "");
+//         $result = Courses::readMy(2);
+//         Courses::update(/*CID*/ 39, "PETER ENIS", null, null, null, null, null); /* Null if it should not be overwritten */
+//         Courses::delete(/*CID*/39); /*param = int*/
+        $result = Courses::readALL();
+        
+        if(isset($result)) {
+            
+            
         echo "<table border = \"1\">";
         $anzahl_spalten = mysqli_num_fields($result); 
         echo "<tr>";
@@ -43,6 +52,9 @@
             echo "</tr>"; 
         }
         echo "</table>"; 
+
+        $result = null;
+        }
         ?>
 
         
