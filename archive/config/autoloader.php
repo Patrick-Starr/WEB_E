@@ -6,7 +6,7 @@
  * Time: 17:13
  */
 
-namespace config;
+namespace archive\config;
 
 class Autoloader
 {
@@ -23,6 +23,6 @@ class Autoloader
     }
 }
 
-spl_autoload_register('config\Autoloader::autoload');
+spl_autoload_register('archive\config\Autoloader::autoload');
 
 

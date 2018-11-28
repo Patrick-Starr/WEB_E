@@ -34,36 +34,37 @@ class PDF extends FPDF
         $this->Cell(0,10,'Page '.$this->PageNo(),0,0,'C');
     }
 
-    function ChapterTitle($num, $label)
+    function ChapterTitle($label)
     {
         // Arial 12
-        $this->SetFont('Arial','B',12);
+        $this->SetFont('Arial','B',15);
         // Background color
         $this->SetFillColor(200,200,200);
         // Title
-        $this->Cell(0,6,"Chapter $num : $label",0,1,'L',true);
+        $this->Cell(0,6,"$label",0,1,'L',true);
         // Line break
         $this->Ln(4);
     }
 
-
-
     function ChapterBody()
     {
+        $this->SetFont('Arial','',12);
+        $this->Cell(0,5,'Rechnung vom $Datum');
 
-        $this->Cell(0,5,'Wir bedanken uns bei Ihnen fr ihren Kunden treue. ');
     }
 
-    function PrintChapter($num, $title)
+
+    function PrintChapter($title)
     {
         $this->AddPage();
-        $this->ChapterTitle($num,$title);
+        $this->ChapterTitle($title);
     }
 }
 $pdf = new PDF();
+$header = array('Rechnungsnummer', 'Schule', 'Hochschule', 'Anzahl Kurse', 'Preise');
 $title = 'Rechnung FH-Kurse';
 //$pdf->SetAuthor('Jules Verne');
-$pdf->PrintChapter(1,'Rechnung von $datum');
+$pdf->PrintChapter('Rechnung von $datum');
 $pdf->ChapterBody();
 $pdf->Output();
 

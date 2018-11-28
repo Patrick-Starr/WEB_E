@@ -1,11 +1,10 @@
 <?php
-namespace config;
 /**
  * @author andreas.martin
  */
 class Config
 {
-    protected static $iniFile = "archive/config/config.env";
+    protected static $iniFile = "DAO/config.env";
     protected static $config = [];
 
     public static function init()
