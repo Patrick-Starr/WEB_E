@@ -2,7 +2,7 @@
 
 <?php
 echo("Hallo");
-echo "<li><a href='home.php'>home</a></li></ul>";
+echo "<li><a href='view/home.php'>home</a></li></ul>";
 
 
 
