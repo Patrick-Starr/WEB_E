@@ -35,7 +35,7 @@ else
     echo ("<br /><ul class='menu'>" .
         "<li><a href='login1.php'>Log in</a></li><br />" .
         "<li><a href='home.php'>Home</a></li><br />" .
-        "<li><a href='register.php'>Register</a></li></ul><br />" .
+        "<li><a href='register_1.php'>Register</a></li></ul><br />" .
         "<span class='info'>&#8658; You must be logged in to " .
         "view this page.</span><br /><br />");
 }
