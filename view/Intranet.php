@@ -1,26 +1,97 @@
-
-
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel = "stylesheet" href = "../CSS_Files/Intranet.css">
-    </head>
 
-    <body>
-        
-        <!--Oberer Navigationsbereich-->
-        <header class="navigation">
-            <p>
-                <a href = "view/index.php">Home</a>
-            </p>
-        </header>
-        
-        <!--/* Button for adding courses */--> 
-        <form action="CreateNewModul.php">
-            <button class ="kurshinzufügen"> Kurs hinzufügen</button>
-        </form>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/MUSA_panel-table-1.css">
+    <link rel="stylesheet" href="assets/css/MUSA_panel-table.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/Table-with-search-1.css">
+    <link rel="stylesheet" href="assets/css/Table-with-search.css">
+</head>
 
-       <!-- <!--DatenBankGrundlagen-->
-        
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="#">StuKu</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Pricing</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="aboutus.php">About Us</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Contact Us</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="login1.php">Login</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="register_1.php">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main>
+    <div>
+        <h1>Heading</h1>
+    </div>   <header>
+        <h1>Ihre Kurse</h1>
+    </header>
+    <span class="counter pull-right"></span>
+    <table class="table table-hover table-bordered results">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th class="col-md-5 col-xs-5">Modulname</th>
+
+
+        </tr>
+        <tr class="warning no-result">
+            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Balázs Barta</td>
+
+
+        </tr>
+
+        </tbody>
+    </table></main>
+<footer class="page-footer dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Get started</h5>
+                <ul>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="register_1.php">Sign up</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>About us</h5>
+                <ul>
+                    <li><a href="contactus.php">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2018 Copyright Text</p>
+    </div>
+</footer>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script src="assets/js/smoothproducts.min.js"></script>
+<script src="assets/js/Table-with-search.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+
+</html>
         <?php 
         include '../DAO/CoursesDAO.php';
         //Tabellenkopf darstellen 
@@ -63,17 +134,3 @@
         $result = null;
         }
         ?>
-
-        
-        
-        
-<!--        <h1>Ihre Kurse</h1>
-        <ul style="list-style-type:square">
-            <li>Kurs 1</li>
-            <li>Kurs 2</li>
-            <li>Kurs 2</li>
-        </ul>  -->
-
-    </body>
-
-</html>

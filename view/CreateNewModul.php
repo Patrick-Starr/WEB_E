@@ -129,6 +129,7 @@ if ( !empty($_POST)) {
                 <div class="form-group"><label>Dauer</label><input class="form-control" type="number"></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Modul verbindlich hinzufügen</button></div>
             </form>
+
         </div>
     </section>
 </main>
@@ -138,14 +139,14 @@ if ( !empty($_POST)) {
             <div class="col-sm-3">
                 <h5>Get started</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="register_1.php">Sign up</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
                 <h5>About us</h5>
                 <ul>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="contactus.php">Contact us</a></li>
                 </ul>
             </div>
         </div>
@@ -161,5 +162,7 @@ if ( !empty($_POST)) {
 <script src="assets/js/Table-with-search.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
+
+
 
 </html>

@@ -23,12 +23,12 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="registration.html">Register</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Pricing</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="aboutus.php">About Us</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Contact Us</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="login1.php">Login</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="register_1.php">Register</a></li>
             </ul>
         </div>
     </div>
@@ -38,7 +38,7 @@
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">Registration</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                <p>Registrieren Sie sich noch heute und präsentieren Sie Ihre Kurse einem breiten Publikum!</p>
             </div>
             <form>
                 <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" id="name"></div>
@@ -53,14 +53,14 @@
             <div class="col-sm-3">
                 <h5>Get started</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="register_1.php">Sign up</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
                 <h5>About us</h5>
                 <ul>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="contactus.php">Contact us</a></li>
                 </ul>
             </div>
         </div>

@@ -43,7 +43,7 @@
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">Preise</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                <p>Präsentieren Sie Ihre Kurse einer breiten Öffentlichkeit für nur 30 CHF pro Kurs</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-5 col-lg-4">
@@ -58,7 +58,9 @@
                         </div>
                         <div class="price">
                             <h4>CHF 30</h4>
-                        </div><button class="btn btn-primary btn-block" type="button">BUY NOW</button></div>
+                        </div> <form>
+                            <input class ="btn btn-primary btn-block" type="button" value="BUY NOW" onclick="window.location.href='register_1.php'" />
+                        </form> </div>
                 </div>
             </div>
         </div>
