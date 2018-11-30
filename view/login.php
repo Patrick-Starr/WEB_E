@@ -3,7 +3,7 @@
 
 <?php // login.php
 
-// include_once '../header.php';
+include_once '../header.php';
 
 // echo "<div class='main'><h3>Please enter your details to log in</h3>";
 

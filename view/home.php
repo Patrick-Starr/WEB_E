@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-// include '../header.php';
+include '../header.php';
 ?>
 
 <html>
@@ -45,38 +45,53 @@
 <main>
     <div>
     	<br><br><br><br>
-        <h1>Heading</h1>
+        <h1>Alle Kurse</h1>
     </div><div class="form-group pull-right">
         <input type="text" class="search form-control" placeholder="What you looking for?">
     </div>
     <span class="counter pull-right"></span>
     <table class="table table-hover table-bordered results">
         <thead>
-        <tr>
-            <th>#</th>
-            <th class="col-md-5 col-xs-5">Modulname</th>
-            <th class="col-md-4 col-xs-4">Ort</th>
-            <th class="col-md-4 col-xs-4">VZ/TZ</th>
-            <th class="col-md-3 col-xs-3">Dauer</th>
-            <th class="col-md-3 col-xs-3">Startdatum</th>
-            <th class="col-md-3 col-xs-3">Link</th>
+        
+       <?php 
+        include '../DAO/CoursesDAO.php';
+        
+        $result = Courses::readALL();
+        
+        if(isset($result)) {
+        $anzahl_spalten = mysqli_num_fields($result); 
+        // show table - titles
+        echo "<tr>";
+        for($i = 0; $i < $anzahl_spalten; $i++){
+            $feldinfo = mysqli_fetch_field_direct($result, $i); 
+            echo "<th>".$feldinfo->name."</th>";
+        }
+        echo " <tr class='warning no-result'>
+            <td colspan='7'><i class='fa fa-warning'></i> No result</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>";
+        
+        //Rest der Tabelle in einer Schleife darstellen
+        while($zeile = mysqli_fetch_assoc($result)){
+             echo "<tr>";
+             while (list($key, $value) = each($zeile)){
+                 
+                 if ($key === 'Link') {
+                     echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
+                 } else {
+                     echo "<td>".$value."</td>";
+                 }
+             }   
+            echo "</tr>";
+        }
+        echo "</table>";
 
-        </tr>
-        <tr class="warning no-result">
-            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Balázs Barta</td>
-            <td>UI & UX</td>
-            <td>Eger</td>
-            <td>Eger</td>
-            <td>Eger</td>
-            <td>Eger</td>
-        </tr>
-
+        $result = null;
+        }
+        ?>
+		<br><br>
         </tbody>
     </table></main>
 <footer class="page-footer dark">
