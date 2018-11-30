@@ -29,18 +29,14 @@ if (isset($_POST['user']))
         {
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
-            die("You are now logged in. Please <a href='test.php?view=$user'>" .
-                "click here</a> to continue.<br /><br />");
+          /*  die("You are now logged in. Please <a href='test.php?view=$user'>" .
+                "click here</a> to continue.<br /><br />");*/
+            header("location:home.php");
+            exit;
         }
     }
 }
-echo <<<_END
-<form method='post' action='login1.php'>$error
-<span class='fieldname'>Username</span><input type='text'
-maxlength='16' name='user' value='$user' /><br />
-<span class='fieldname'>Password</span><input type='password'
-maxlength='16' name='pass' value='$pass' />
-_END;
+
 ?>
 
 
@@ -83,9 +79,9 @@ _END;
             <div class="block-heading">
                 <h2 class="text-info">Log In</h2>
             </div>
-            <form>
-                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div>
-                <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" id="password"></div>
+            <form method="post">
+                <div class="form-group"><label for="email">Email</label><input name="user" class="form-control item" type="text" id="user"></div>
+                <div class="form-group"><label for="password">Password</label><input name="pass" class="form-control" type="password" id="password"></div>
                 <div class="form-group">
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Remember me</label></div>
                 </div><button class="btn btn-primary btn-block" type="submit">Log In</button></form>
