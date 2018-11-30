@@ -3,7 +3,6 @@
 
 include '../DAO/CoursesDAO.php';
 
-
 ?>
 
 
@@ -11,34 +10,29 @@ include '../DAO/CoursesDAO.php';
 <script>
    function validation() {
 
-        if(document.getElementById("1").value === ""){
+       if(document.getElementById("1").value === ""){
             alert("Bitte füllen Sie das Formular komplett aus!");
             return false;
-        }
-       if(document.getElementById("2").value === ""){
+       } else if(document.getElementById("2").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       }
-       if(document.getElementById("3").value === ""){
+       } else if(document.getElementById("3").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       }
-       if(document.getElementById("4").value === ""){
+       } else if(document.getElementById("4").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       }
-       if(document.getElementById("5").value === ""){
+       } else if(document.getElementById("5").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       }
-       if(document.getElementById("6").value === ""){
+       } else if(document.getElementById("6").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       }
-
-       else {
-
-
+       } else {
+    	   <?php
+//                Courses::create();
+//     	   echo document.getElementById("2").value;
+    	   ?>
            return true;
        }
 

@@ -28,9 +28,9 @@ include '../header.php';
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Preise</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">Über uns</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Kontakt</a></li>
                 <?php if(isset($_SESSION['user'])){ ?>
                 	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.html">Login</a></li>
 				<?php }else{ ?>

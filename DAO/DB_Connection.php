@@ -1,7 +1,5 @@
 <?php
-
 include "Config.php";
-
 
 class Database
 {
@@ -30,13 +28,12 @@ class Database
         }
         return self::$cont;
     }
-    
+
     /* Close the DB-Connection */
     public static function disconnect()
     {
         self::$cont = null;
     }
-    
 }
 
 ?>
