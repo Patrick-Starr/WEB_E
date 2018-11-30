@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
-
+include '../header.php';
 include '../DAO/CoursesDAO.php';
-
 ?>
 
 
@@ -58,20 +57,28 @@ include '../DAO/CoursesDAO.php';
 
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div class="container"><a class="navbar-brand logo" href="#">StuKu</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container">
+    <a href="home.php"><img border="0" alt="StuKu" src="../Logo.png" width="150 px" height="67 px"></a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
+               <?php if(isset($_SESSION['user'])){ ?>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
+               	<li class="nav-item" role="presentation"><a class="nav-link" href="Intranet.php">Meine Kurse</a></li>
+               	<li class="nav-item" role="presentation"><a class="nav-link" href="CreateNewModul.php">Kurs hinzufügen</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
+               	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
+				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
-                <?php if(isset($_SESSION['user'])){ ?>
-                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
-				<?php }else{ ?>
-                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
-				<?php } ?>
+               	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="register.php">Registrieren</a></li>
+				<?php } ?>
             </ul>
         </div>
     </div>
