@@ -82,14 +82,14 @@ if (isset($_POST['user']))
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Log In</h2>
+                <h2 class="text-info">Login</h2>
             </div>
             <form method="post">
                 <div class="form-group"><label for="email">Email</label><input name="user" class="form-control item" type="text" id="user"></div>
                 <div class="form-group"><label for="password">Password</label><input name="pass" class="form-control" type="password" id="password"></div>
                 <div class="form-group">
                     <div><a href = "lostPassword.php">Passwort vergessen</div>
-                </div><button class="btn btn-primary btn-block" type="submit">Log In</button></form>
+                </div><button class="btn btn-primary btn-block" type="submit">Login</button></form>
         </div>
     </section>
 </main>
