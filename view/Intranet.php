@@ -38,9 +38,8 @@
     </div>
 </nav>
 <main>
-    <div>
-        <h1>Heading</h1>
-    </div>   <header>
+    <header>
+    	<br><br><br><br>
         <h1>Ihre Kurse</h1>
     </header>
     <span class="counter pull-right"></span>

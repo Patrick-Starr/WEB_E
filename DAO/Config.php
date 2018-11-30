@@ -34,6 +34,8 @@ class Config
             self::$config["database.port"] = $dbopts["port"];
             self::$config["database.name"] = ltrim($dbopts["path"], '/');   
             self::$config["database.password"] = $dbopts["pass"];
+            
+            echo"asdaskassdk";
         }
         if(isset($_ENV["SENDGRID_API_KEY"])){
             self::$config["sendGrid.value"] = $_ENV["SENDGRID_API_KEY"];
