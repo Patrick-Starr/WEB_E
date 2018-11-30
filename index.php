@@ -4,10 +4,14 @@
 
 // header("location:view/home.php");
 
-echo "before exit";
+$num = 1;
 
-exit(self);
+if ($num == 1) {
+    run();
+}
 
-echo "after exit";
+function run() {
+    header("location:view/home.php");
+}
 
 ?>
