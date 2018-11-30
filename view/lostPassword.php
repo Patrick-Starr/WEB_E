@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/Table-with-search-1.css">
     <link rel="stylesheet" href="assets/css/Table-with-search.css">
+    <link rel="icon" href="../Tab.png">    
 </head>
 
 <body>
@@ -22,12 +23,16 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Register</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="home.php">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
+                <?php if(isset($_SESSION['user'])){ ?>
+                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
+				<?php }else{ ?>
+                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
+				<?php } ?>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="register.php">Registrieren</a></li>
             </ul>
         </div>
     </div>
