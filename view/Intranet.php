@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/Table-with-search-1.css">
     <link rel="stylesheet" href="assets/css/Table-with-search.css">
+    <link rel="icon" href="../Tab.png">    
 </head>
 
 <body>
