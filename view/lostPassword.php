@@ -55,20 +55,20 @@
             <div class="col-sm-3">
                 <h5>Get started</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="register.php">Registrieren</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>About us</h5>
+                <h5>Über uns</h5>
                 <ul>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="contactus.php">Kontakt</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
-        <p>© 2018 Copyright Text</p>
+        <p>© 2018</p>
     </div>
 </footer>
 <script src="assets/js/jquery.min.js"></script>

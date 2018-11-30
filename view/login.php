@@ -88,7 +88,7 @@ if (isset($_POST['user']))
                 <div class="form-group"><label for="email">Email</label><input name="user" class="form-control item" type="text" id="user"></div>
                 <div class="form-group"><label for="password">Password</label><input name="pass" class="form-control" type="password" id="password"></div>
                 <div class="form-group">
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Remember me</label></div>
+                    <div><a href = "lostPassword.php">Passwort vergessen</div>
                 </div><button class="btn btn-primary btn-block" type="submit">Log In</button></form>
         </div>
     </section>
@@ -99,20 +99,20 @@ if (isset($_POST['user']))
             <div class="col-sm-3">
                 <h5>Get started</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="register.php">Registrieren</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>About us</h5>
+                <h5>Über uns</h5>
                 <ul>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="contactus.php">Kontakt</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
-        <p>© 2018 Copyright Text</p>
+        <p>© 2018</p>
     </div>
 </footer>
 <script src="assets/js/jquery.min.js"></script>
