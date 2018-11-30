@@ -2,6 +2,7 @@
 
 <?php
 include '../header.php';
+
 ?>
 
 <html>
@@ -45,6 +46,11 @@ include '../header.php';
 <main>
     <div>
     	<br><br><br><br>
+    	
+    	<?php 
+    	echo "DEINE MUDDA DU HUANSOHN";
+    	?>
+    	
         <h1>Heading</h1>
     </div><div class="form-group pull-right">
         <input type="text" class="search form-control" placeholder="What you looking for?">

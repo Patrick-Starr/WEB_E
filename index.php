@@ -2,7 +2,11 @@
 
 <?php
 header("location:view/home.php");
+
+echo "before exit";
+
 exit(self);
 
+echo "after exit";
 
 ?>
