@@ -2,7 +2,7 @@
 
 session_start();
 
-echo "<!DOCTYPE html>\n<html><head><script src='OSC.js'></script>";
+// echo "<!DOCTYPE html>\n<html><head><script src='OSC.js'></script>";
 
 require_once 'function.php';
 

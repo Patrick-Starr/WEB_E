@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-include '../header.php';
+// include '../header.php';
 ?>
 
 <html>
