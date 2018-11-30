@@ -6,7 +6,7 @@
 <!-- create(param); -->
 <!-- readALL(); return table-->
 <!-- readSearched(param); return table -->
-<!-- readMy(param); return tabel  -->
+<!-- readMy(param); return table  -->
 <!-- update(param); -->
 <!-- delete(param); -->
 

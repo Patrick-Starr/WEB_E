@@ -54,29 +54,55 @@ include '../header.php';
     <header>
     	<br><br><br><br>
         <h1>Ihre Kurse</h1>
-    </header>
+        
+    </div><div class="form-group pull-right">
+        <input type="text" class="search form-control" placeholder="What you looking for?">
+    </div>
     <span class="counter pull-right"></span>
     <table class="table table-hover table-bordered results">
         <thead>
-        <tr>
-            <th>#</th>
-            <th class="col-md-5 col-xs-5">Modulname</th>
+        
+       <?php 
+        include '../DAO/CoursesDAO.php';
+        
+        $result = Courses::readMy(/*UID*/);
+        
+        if(isset($result)) {
+        $anzahl_spalten = mysqli_num_fields($result); 
+        // show table - titles
+        echo "<tr>";
+        for($i = 0; $i < $anzahl_spalten; $i++){
+            $feldinfo = mysqli_fetch_field_direct($result, $i);
+            echo "<th>".$feldinfo->name."</th>";
+        }
+        echo " <tr class='warning no-result'>
+            <td colspan='7'><i class='fa fa-warning'></i> No result</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>";
+        
+        //Rest der Tabelle in einer Schleife darstellen
+        while($zeile = mysqli_fetch_assoc($result)){
+             echo "<tr>";
+             while (list($key, $value) = each($zeile)){
+                 
+                 if ($key === 'Link') {
+                     echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
+                 } else {
+                     echo "<td>".$value."</td>";
+                 }
+             }   
+            echo "</tr>";
+        }
+        echo "</table>";
 
-
-        </tr>
-        <tr class="warning no-result">
-            <td colspan="4"><i class="fa fa-warning"></i> No result</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Balázs Barta</td>
-
-
-        </tr>
-
+        $result = null;
+        }
+        ?>
+		<br><br>
         </tbody>
+        
     </table></main>
 <footer class="page-footer dark">
     <div class="container">
@@ -118,36 +144,36 @@ include '../header.php';
 //         $result = Courses::readMy(2);
 //         Courses::update(/*CID*/ 41, "FHNW Schulseite", "https://www.fhnw.ch/de/startseite", null, null, null, null); /* Null if it should not be overwritten */
 //         Courses::delete(/*CID*/39); /*param = int*/
-        $result = Courses::readALL();
+//         $result = Courses::readALL();
         
-        if(isset($result)) {
+//         if(isset($result)) {
             
             
-        echo "<table border = \"1\">";
-        $anzahl_spalten = mysqli_num_fields($result); 
-        echo "<tr>";
-        for($i = 0; $i < $anzahl_spalten; $i++){
-            $feldinfo = mysqli_fetch_field_direct($result, $i); 
-            echo "<th>".$feldinfo->name."</th>";
-        }
-        echo "</tr>";
-        //Rest der Tabelle in einer Schleife darstellen
+//         echo "<table border = \"1\">";
+//         $anzahl_spalten = mysqli_num_fields($result); 
+//         echo "<tr>";
+//         for($i = 0; $i < $anzahl_spalten; $i++){
+//             $feldinfo = mysqli_fetch_field_direct($result, $i); 
+//             echo "<th>".$feldinfo->name."</th>";
+//         }
+//         echo "</tr>";
+//         //Rest der Tabelle in einer Schleife darstellen
         
-        $aa = 0;
-        while($zeile = mysqli_fetch_assoc($result)){
-             echo "<tr>";
-             while (list($key, $value) = each($zeile)){
+//         $aa = 0;
+//         while($zeile = mysqli_fetch_assoc($result)){
+//              echo "<tr>";
+//              while (list($key, $value) = each($zeile)){
                  
-                 if ($key === 'Link') {
-                     echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
-                 } else {
-                     echo "<td>".$value."</td>";
-                 }
-             }   
-            echo "</tr>";
-        }
-        echo "</table>";
+//                  if ($key === 'Link') {
+//                      echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
+//                  } else {
+//                      echo "<td>".$value."</td>";
+//                  }
+//              }   
+//             echo "</tr>";
+//         }
+//         echo "</table>";
 
-        $result = null;
-        }
-        ?>
+//         $result = null;
+//         }
+//         ?>
