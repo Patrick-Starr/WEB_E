@@ -64,8 +64,11 @@ include '../header.php';
         
        <?php 
         include '../DAO/CoursesDAO.php';
+        include '../DAO/userDAO.php';
         
-        $result = Courses::readMy(/*UID*/);
+        $num =  userDAO::getID($user);
+        
+        $result = Courses::readMy($num);
         
         if(isset($result)) {
         $anzahl_spalten = mysqli_num_fields($result); 
@@ -136,8 +139,8 @@ include '../header.php';
 
 </html>
         <?php 
-        include '../DAO/CoursesDAO.php';
-        //Tabellenkopf darstellen 
+//         include '../DAO/CoursesDAO.php';
+//         //Tabellenkopf darstellen 
         
 //         Courses::create(2, "SOJO", "www.fhnw.ch", 2, "2018-02-01" , "VZ", "Olten");
 //         $result = Courses::readSearched("FHNW", NULL, "", "");

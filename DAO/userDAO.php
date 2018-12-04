@@ -2,41 +2,40 @@
 
 <?php
 
-
+// include '../header.php';
 include_once 'DB_Connection.php';
 Database::connect();
-
 
 class userDAO
 {
 
-
-    public function checkUser($user, $pass)
+    public function getID($user)
     {
-        $error = $user = $pass = "";
-        $user = ($_POST['user']);
-        $pass = ($_POST['pass']);
-        if ($user == "" || $pass == "") {
-            echo "hier";
-            $error = "Not all fields were entered<br />";
-        } else {
-            $query = "SELECT School,Password FROM web_e
-                WHERE School='$user' AND Password='$pass'";
-
-            if (mysqli_query(database::$cont, $query)) {
-                $error = "<span class='error'>Username/Password
-            invalid</span><br /><br />";
-            } else {
-
-                $_SESSION['user'] = $user;
-                $_SESSION['pass'] = $pass;
-                die("You are now logged in. Please <a href='../view/test.php'>" .
-                    "click here</a> to continue.<br /><br />");
-
-
+        $insert = "SELECT users.UID
+                   FROM users
+                   WHERE School = '$user'";
+        
+        $result = self::runQuery($insert);
+        
+        $num = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $num = $value;
             }
         }
-    }//Function
+        
+        return $num;
+    }
+    
+    public function runQuery($query) {
+        //mysqli_select_db(Database::$cont, Database::$dbName);
+        
+        mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
+        // stripslashes() removes all syntax signs like \ or "
+        $result = mysqli_query(Database::$cont, stripslashes($query)) or die(mysqli_error(Database::$cont));
+        return $result;
+    }
+    
 }
 
 ?>
