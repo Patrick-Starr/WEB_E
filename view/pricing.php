@@ -71,7 +71,7 @@ include '../header.php';
                         <div class="price">
                             <h4>CHF 30</h4>
                         </div> <form>
-                            <input class ="btn btn-primary btn-block" type="button" value="BUY NOW" onclick="window.location.href='register_1.php'" />
+                            <input class ="btn btn-primary btn-block" type="button" value="BUY NOW" onclick="window.location.href='register.php'" />
                         </form> </div>
                 </div>
             </div>
