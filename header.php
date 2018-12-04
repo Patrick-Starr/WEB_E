@@ -6,13 +6,13 @@ session_start();
 
 require_once 'function.php';
 
-$userstr = 'Welcome Guest';
+$user = '';
 
 if (isset($_SESSION['user']))
 {
     $user     = $_SESSION['user'];
     $loggedin = TRUE;
-    $userstr  = "Logged in as: $user";
+    $userstr  = $user;
 }
 else $loggedin = FALSE;
 
