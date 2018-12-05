@@ -24,6 +24,7 @@ Class PDF extends FPDF
         $pdf->clientData($school,$address,$email);
         $pdf->Cell(80, 10,'', 0, 1);
         $pdf->invoiceBill();
+        $pdf->ZahlungsSchein();
         $pdf->Output();
     }
 
@@ -78,9 +79,11 @@ Class PDF extends FPDF
         $this->Cell(110, 5, 'Total: ', 0, 0);
         $this->SetFont('Arial', '', 12);
         $this->Cell(80, 5, '30.- CHF', 0, 1, 'R');
-        $this->AddPage('','','');
-        $this->Image('../EinSchein.png',0,150,50,10);
 
+    }
+
+    function ZahlungsSchein(){
+        $this->Image('../Einzahlung.png');
     }
 
 
