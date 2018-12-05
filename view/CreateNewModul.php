@@ -97,7 +97,8 @@ include '../DAO/userDAO.php';
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Modul verbindlich hinzufügen</button></div>
             </form>
 
-<?php 
+<?php
+createPDF();
 // wird ausgeführt, wenn seite neu geladen wird
 if(isset($_POST['Modul'])) {
     $ID = userDAO::getID($user);
@@ -140,3 +141,15 @@ if(isset($_POST['Modul'])) {
 </body>
 
 </html>
+
+<?php
+include 'PDFfile.php';
+function createPDF(){
+   $id =  userDAO::getID($_SESSION['user']);
+   $school = $_SESSION['user'];
+   $address = userDAO::getPlace($_SESSION['user']);
+
+    PDF::creatPDF($id,$school,$address);
+
+}
+?>
