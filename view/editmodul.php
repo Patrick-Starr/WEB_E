@@ -1,62 +1,37 @@
+<!DOCTYPE html>
 <?php
-
 include '../header.php';
 include '../DAO/CoursesDAO.php';
 ?>
 
-<!DOCTYPE html>
+
 <html>
-
 <script>
-    function validation() {
+   function validation() {
 
-        if(document.getElementById("1").value === ""){
+       if(document.getElementById("1").value === ""){
             alert("Bitte füllen Sie das Formular komplett aus!");
             return false;
-        } else if(document.getElementById("2").value === ""){
-            alert("Bitte füllen Sie das Formular komplett aus!");
-            return false;
-        } else if(document.getElementById("3").value === ""){
-            alert("Bitte füllen Sie das Formular komplett aus!");
-            return false;
-        } else if(document.getElementById("4").value === ""){
-            alert("Bitte füllen Sie das Formular komplett aus!");
-            return false;
-        } else if(document.getElementById("5").value === ""){
-            alert("Bitte füllen Sie das Formular komplett aus!");
-            return false;
-        } else if(document.getElementById("6").value === ""){
-            alert("Bitte füllen Sie das Formular komplett aus!");
-            return false;
-        } else {
-            <?php
-            /*
-             * get Course ID and fill in the forms 
-             */
-            
-            
-            //                Courses::create();
-            //     	   echo document.getElementById("2").value;
-            
-            
-            ?>
-            return true;
-        }
-    }
+       } else if(document.getElementById("2").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else if(document.getElementById("3").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else if(document.getElementById("4").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else if(document.getElementById("5").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else if(document.getElementById("6").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else {
+           return true;
+       }
 
-    function del() {
-
-    	$(document).ready(function(){
-    	    $('#MyButton').click(function(){
-    	       CapacityChart();
-    	    });
-    	  });
-
-        
-		<?php 
-            
-		?>
-    }
+       }
 </script>
 
 
@@ -73,6 +48,7 @@ include '../DAO/CoursesDAO.php';
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/Table-with-search-1.css">
     <link rel="stylesheet" href="assets/css/Table-with-search.css">
+    <link rel="icon" href="../Tab.png">   
 </head>
 
 <body>
@@ -126,17 +102,25 @@ include '../DAO/CoursesDAO.php';
                 }
             }
             ?>
-            
             </div>
-             <form name ="Modulbearbeiten" action = "Intranet.php" method="post" onsubmit="return validation()">
-                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" value=<?php echo '"'.$_GET["modul"].'"'?>></div>
-                <div class="form-group"><label>Ort</label><input class="form-control" type="text" value=<?php echo '"'.$_GET["ort"].'"'?>></div>
-                <div class="form-group"><label>Link</label><input class="form-control" type="url" value=<?php echo '"'.$_GET["link"].'"'?>></div>
-                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" value=<?php echo '"'.$_GET["start"].'"'?>></div>
-                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" value=<?php echo '"'.$_GET["form"].'"'?>></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Speichern</button><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(248,83,72);" onclick="del();">Kurs löschen</button></div>
+             <form name ="Modulerstellen" action = "" method="post" onsubmit="return validation()">
+                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" id="1" name='course' value=<?php echo '"'.$_GET["modul"].'"'?>></div>
+                <div class="form-group"><label>Ort</label><input class="form-control" type="text" id="2" name='place' value=<?php echo '"'.$_GET["ort"].'"'?>></div>
+                <div class="form-group"><label>Link</label><input class="form-control" type="url" id="3" name='url' value=<?php echo '"'.$_GET["link"].'"'?>></div>
+                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" id="4" name='run' value=<?php echo '"'.$_GET["start"].'"'?>></div>
+                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id="5" name='art' value=<?php echo '"'.$_GET["form"].'"'?>></div>
+                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id="6" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Speichern</button>
+         <!--       <button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(248,83,72);">Kurs löschen</button></div>    -->
             </form>
+            
+            <?php 
+            if(isset($_POST['course'])) {
+                Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['art'], $_POST['place']);
+                header("location:Intranet.php");
+            }
+            ?>
+            
         </div>
     </section>
 </main>

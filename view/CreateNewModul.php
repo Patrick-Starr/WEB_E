@@ -2,6 +2,7 @@
 <?php
 include '../header.php';
 include '../DAO/CoursesDAO.php';
+include '../DAO/userDAO.php';
 ?>
 
 
@@ -28,10 +29,6 @@ include '../DAO/CoursesDAO.php';
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
        } else {
-    	   <?php
-//                Courses::create();
-//     	   echo document.getElementById("2").value;
-    	   ?>
            return true;
        }
 
@@ -90,15 +87,24 @@ include '../DAO/CoursesDAO.php';
                 <h2 class="text-info">Neues Modul hinzufügen</h2>
                 <p>Fügen Sie ein neues Modul für nur 30 CHF hinzu.</p>
             </div>
-            <form name ="Modulerstellen" action = "Intranet.php" method="post" onsubmit="return validation()">
-                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" id="1"></div>
-                <div class="form-group"><label>Ort</label><input class="form-control" type="text" id = "2"></div>
-                <div class="form-group"><label>Link</label><input class="form-control" type="url" id = "3"></div>
-                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" id = "4"></div>
-                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id = "5"></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id = "6"></div>
+            <form name="Modulerstellen" action="" method="POST" onsubmit="return validation()">
+                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" name='Modul' id="1"></div>
+                <div class="form-group"><label>Ort</label><input class="form-control" type="text" name="Ort" id = "2"></div>
+                <div class="form-group"><label>Link</label><input class="form-control" type="url" name="Link" id = "3"></div>
+                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" name="Start" id = "4"></div>
+                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" name="Form" id = "5"></div>
+                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" name="Dauer" id = "6"></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Modul verbindlich hinzufügen</button></div>
             </form>
+
+<?php 
+// wird ausgeführt, wenn seite neu geladen wird
+if(isset($_POST['Modul'])) {
+    $ID = userDAO::getID($user);
+
+    Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['Form'], $_POST['Ort']);
+}
+?>
 
         </div>
     </section>
@@ -132,7 +138,5 @@ include '../DAO/CoursesDAO.php';
 <script src="assets/js/Table-with-search.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
-
-
 
 </html>
