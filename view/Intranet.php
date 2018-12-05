@@ -53,7 +53,7 @@ include '../header.php';
 <main>
     <header>
     	<br><br><br><br>
-        <h1>Ihre Kurse</h1>
+        <h1>Meine Kurse</h1>
         
     </div><div class="form-group pull-right">
         <input type="text" class="search form-control" placeholder="What you looking for?">
@@ -84,18 +84,25 @@ include '../header.php';
             </thead>
             <tbody>
             <tr>";
-        
-        //Rest der Tabelle in einer Schleife darstellen
+
+        // Rest der Tabelle in einer Schleife darstellen
+        $F = null;
         while($zeile = mysqli_fetch_assoc($result)){
-             echo "<tr>";
-             while (list($key, $value) = each($zeile)){
-                 
-                 if ($key === 'Link') {
-                     echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
-                 } else {
-                     echo "<td>".$value."</td>";
-                 }
-             }   
+            echo "<tr>";
+            while (list ($key, $value) = each($zeile)) {
+                $F = $zeile['Form'];
+                if ($key === 'Link') {
+                    echo "<td> <a href=" . $value . "> Link zum Kurs </a> </td>";
+                }
+                else if ($key === 'Course') {
+                    $ID = userDAO::getID($user);
+                    $usedCID = Courses::getCID($ID, $value, $F);
+
+                    echo "<td> <a href= 'editmodul.php?wert=" . $usedCID . "'> " . $value . " </a> </td>";
+                } else {
+                    echo "<td>" . $value . "</td>";
+                }
+            }
             echo "</tr>";
         }
         echo "</table>";

@@ -5,10 +5,12 @@
 <!-- These File contains CRUD-Functions -->
 <!-- create(param); -->
 <!-- readALL(); return table-->
+<!-- readCID(param); return table -->
 <!-- readSearched(param); return table -->
 <!-- readMy(param); return table  -->
 <!-- update(param); -->
 <!-- delete(param); -->
+<!-- getCID(param); returnInt -->
 
 <?php
 
@@ -66,6 +68,18 @@ class Courses {
                     AND courses.Place LIKE '%".$sPlace."%'
                     AND courses.Form LIKE '%".$sForm."%'
                    ORDER BY courses.Course";
+        
+        $result = self::runQuery($insert);
+        return $result;
+    }
+
+    /*
+     * get Courses by CID
+     */
+    public function readCID($CID) {
+        $insert = "SELECT courses.Course, courses.Place, courses.Link, courses.Start, courses.Form, courses.Duration
+                   FROM courses
+                   WHERE courses.CID = $CID";
         
         $result = self::runQuery($insert);
         return $result;
@@ -135,6 +149,23 @@ class Courses {
         self::runQuery($insert);
     }
     
+    public function getCID($UID, $Course, $Form) {
+        $insert = "SELECT courses.CID
+                   FROM courses
+                   WHERE courses.UID = '$UID'
+                   AND courses.Course = '$Course'
+                   AND courses.Form = '$Form'";
+        
+        $result = self::runQuery($insert);
+        
+        $num = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $num = $value;
+            }
+        }
+        return $num;
+    }
     
     /*
      * Runs the queries from above                                  -       CLOSE THE CONNECTION IN DB_Connection.php per Session!!!

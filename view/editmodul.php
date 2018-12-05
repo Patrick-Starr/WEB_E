@@ -2,8 +2,7 @@
 
 include '../header.php';
 include '../DAO/CoursesDAO.php';
-
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,12 +30,32 @@ include '../DAO/CoursesDAO.php';
             return false;
         } else {
             <?php
+            /*
+             * get Course ID and fill in the forms 
+             */
+            
+            
             //                Courses::create();
             //     	   echo document.getElementById("2").value;
+            
+            
             ?>
             return true;
         }
+    }
 
+    function del() {
+
+    	$(document).ready(function(){
+    	    $('#MyButton').click(function(){
+    	       CapacityChart();
+    	    });
+    	  });
+
+        
+		<?php 
+            
+		?>
     }
 </script>
 
@@ -44,7 +63,7 @@ include '../DAO/CoursesDAO.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Contact Us - Brand</title>
+    <title>StuKu</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -89,15 +108,34 @@ include '../DAO/CoursesDAO.php';
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">&nbsp;Modul bearbeiten</h2>
+                
+            <?php
+            $CID = $_GET['wert'];
+            
+            $result = Courses::readCID($CID);
+            
+            // use variables to fill in text inputs from html down below
+            while($zeile = mysqli_fetch_assoc($result)){
+                while (list($key, $value) = each($zeile)){
+                    if ($key === 'Course') { $_GET['modul'] = $value; }
+                    else if ($key === 'Place') { $_GET['ort'] = $value; }
+                    else if ($key === 'Link') { $_GET['link'] = $value; }
+                    else if ($key === 'Start') { $_GET['start'] = $value; }
+                    else if ($key === 'Form') { $_GET['form'] = $value; }
+                    else if ($key === 'Duration') { $_GET['dauer'] = $value; }
+                }
+            }
+            ?>
+            
             </div>
              <form name ="Modulbearbeiten" action = "Intranet.php" method="post" onsubmit="return validation()">
-                <div class="form-group"><label>Modulname</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Ort</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Link</label><input class="form-control" type="url"></div>
-                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date"></div>
-                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number"></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Speichern</button><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(248,83,72);">Löschen</button></div>
+                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" value=<?php echo '"'.$_GET["modul"].'"'?>></div>
+                <div class="form-group"><label>Ort</label><input class="form-control" type="text" value=<?php echo '"'.$_GET["ort"].'"'?>></div>
+                <div class="form-group"><label>Link</label><input class="form-control" type="url" value=<?php echo '"'.$_GET["link"].'"'?>></div>
+                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" value=<?php echo '"'.$_GET["start"].'"'?>></div>
+                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" value=<?php echo '"'.$_GET["form"].'"'?>></div>
+                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Speichern</button><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(248,83,72);" onclick="del();">Kurs löschen</button></div>
             </form>
         </div>
     </section>
