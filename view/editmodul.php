@@ -115,9 +115,11 @@ include '../DAO/CoursesDAO.php';
             </form>
             
             <?php 
+                include 'pop.php';
             if(isset($_POST['course'])) {
-                Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['art'], $_POST['place']);
+//                 Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['art'], $_POST['place']);
                 header("location:Intranet.php");
+                
             }
             ?>
             
