@@ -1,11 +1,8 @@
 <?php
 
-include '../header.php';
 
+include 'PDFfile.php';
 
-if($loggedin){
-    echo " logged<br/>";
-}else {
-    echo "nicht eingeloggt <br/>";
+PDF::createPDF(1,'Fach hoch schule','olten','sojo.nagaroor@gmail.com');
 
-}
+?>

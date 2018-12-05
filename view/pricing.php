@@ -40,7 +40,6 @@ include '../header.php';
                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
 				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
@@ -71,7 +70,7 @@ include '../header.php';
                         <div class="price">
                             <h4>CHF 30</h4>
                         </div> <form>
-                            <input class ="btn btn-primary btn-block" type="button" value="BUY NOW" onclick="window.location.href='register.php'" />
+                            <input class ="btn btn-primary btn-block" type="button" value="Modul hinzufügen" onclick="window.location.href='CreateNewModul.php'" />
                         </form> </div>
                 </div>
             </div>
