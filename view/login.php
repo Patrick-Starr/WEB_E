@@ -27,8 +27,10 @@ if (isset($_POST['user']))
         }
         else
         {
+            $pass = md5($pass);
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
+            //password_hash('pass', PASSWORD_DEFAULT);
           /*  die("You are now logged in. Please <a href='test.php?view=$user'>" .
                 "click here</a> to continue.<br /><br />");*/
             header("location:home.php");
