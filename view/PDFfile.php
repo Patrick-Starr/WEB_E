@@ -83,7 +83,7 @@ Class PDF extends FPDF
     }
 
     function ZahlungsSchein(){
-        $this->Image('../Einzahlung.png',0,140,240,100);
+        $this->Image('../ES.jpg',0,195,210,100);
     }
 
 
