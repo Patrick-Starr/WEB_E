@@ -51,7 +51,6 @@ include '../header.php';
     </div>
 </nav>
 <main>
-    <header>
     	<br><br><br><br>
         <h1>Meine Kurse</h1>
         
