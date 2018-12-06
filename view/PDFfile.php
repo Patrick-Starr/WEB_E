@@ -12,7 +12,7 @@ include('../fpdf181/fpdf.php'); //Pfad zu fpdf.php
 Class PDF extends FPDF
 {
 
-    public function createPDF(int $id, $school,$address,$email)
+    public function createPDF(int $id, $school,$address)
     {
         $pdf = new PDF();
         $pdf->AddPage();
@@ -21,7 +21,7 @@ Class PDF extends FPDF
         $pdf->Cell(80, 20,'', 0, 1);
         $pdf->InvoceData($id);
         $pdf->Cell(80, 10,'', 0, 1);
-        $pdf->clientData($school,$address,$email);
+        $pdf->clientData($school,$address);
         $pdf->Cell(80, 10,'', 0, 1);
         $pdf->invoiceBill();
         $pdf->ZahlungsSchein();
@@ -56,12 +56,12 @@ Class PDF extends FPDF
     }
 
 //Kunde beschreiben (Empfänger)
-    function clientData($school,$address,$email)
+    function clientData($school,$address)
     {
         $this->cell(130, 5, 'Rechnung fuer : ', 0, 1);
         $this->cell(130, 5, $school, 0, 1);
         $this->cell(130, 5, $address, 0, 1);
-        $this->cell(130, 5, $email, 0, 1);
+        $this->cell(130, 5, '', 0, 1);
         $this->cell(190, 10, '', 0, 1);
     }
 
