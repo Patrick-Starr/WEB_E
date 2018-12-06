@@ -6,32 +6,58 @@ include '../DAO/CoursesDAO.php';
 
 
 <html>
-<script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+<!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+
+<script type="text/javascript" src="../jQuery.js"></script>
+<script type="text/javascript">
    function validation() {
 
-       if(document.getElementById("1").value === ""){
+       if(document.getElementById("a").value === ""){
             alert("Bitte füllen Sie das Formular komplett aus!");
             return false;
-       } else if(document.getElementById("2").value === ""){
+       } else if(document.getElementById("b").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       } else if(document.getElementById("3").value === ""){
+       } else if(document.getElementById("c").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       } else if(document.getElementById("4").value === ""){
+       } else if(document.getElementById("d").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       } else if(document.getElementById("5").value === ""){
+       } else if(document.getElementById("e").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       } else if(document.getElementById("6").value === ""){
+       } else if(document.getElementById("f").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
        } else {
            return true;
        }
+   }
 
-       }
+	$(document).ready(function(){
+		$('#fromAjax').click(function(){
+			var CourseName = $('#a').val();
+			var CoursePlace = $('#b').val();
+			var CourseURL = $('#c').val();
+			var CourseStart = $('#d').val();
+			var CourseForm = $('#e').val();
+			var CourseDuration = $('#f').val();
+			var dataString = 'CN='+CourseName+'&CP='+CoursePlace+'&CU='+CourseURL+'&CS='+CourseStart+'&CF='+CourseForm+'&CD='+CourseDuration;
+
+			$("#fromAjax").html("SUCKA MI DICK");
+			$("#wawa").html("SUCKA MI DICK");
+			
+			$.ajax ({
+				type: "POST",
+				url: "EditOneCourse.php",
+				data: dataString,
+				cache: false,
+			});
+		return false; //If nothing was executed
+		}
+	}							
 </script>
 
 
@@ -48,7 +74,7 @@ include '../DAO/CoursesDAO.php';
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/Table-with-search-1.css">
     <link rel="stylesheet" href="assets/css/Table-with-search.css">
-    <link rel="icon" href="../Tab.png">   
+    <link rel="icon" href="../Tab.png">
 </head>
 
 <body>
@@ -103,25 +129,17 @@ include '../DAO/CoursesDAO.php';
             }
             ?>
             </div>
-             <form name ="Modulerstellen" action = "" method="post" onsubmit="return validation()">
-                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" id="1" name='course' value=<?php echo '"'.$_GET["modul"].'"'?>></div>
-                <div class="form-group"><label>Ort</label><input class="form-control" type="text" id="2" name='place' value=<?php echo '"'.$_GET["ort"].'"'?>></div>
-                <div class="form-group"><label>Link</label><input class="form-control" type="url" id="3" name='url' value=<?php echo '"'.$_GET["link"].'"'?>></div>
-                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" id="4" name='run' value=<?php echo '"'.$_GET["start"].'"'?>></div>
-                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id="5" name='art' value=<?php echo '"'.$_GET["form"].'"'?>></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id="6" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Speichern</button>
-         <!--       <button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(248,83,72);">Kurs löschen</button></div>    -->
+             <form name ="Modulerstellen" action = "EditOneCourse.php" method="POST" onsubmit="return validation()">
+                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" id="a" name='course' value=<?php echo '"'.$_GET["modul"].'"'?>></div>
+                <div class="form-group"><label>Ort</label><input class="form-control" type="text" id="b" name='place' value=<?php echo '"'.$_GET["ort"].'"'?>></div>
+                <div class="form-group"><label>Link</label><input class="form-control" type="url" id="c" name='url' value=<?php echo '"'.$_GET["link"].'"'?>></div>
+                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" id="d" name='run' value=<?php echo '"'.$_GET["start"].'"'?>></div>
+                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id="e" name='art' value=<?php echo '"'.$_GET["form"].'"'?>></div>
+                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id="f" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
+                <div class="form-group"><button id="fromAjax" class="btn btn-primary btn-block" type="submit">Speichern</button></div>
+       			<div class="form-group"><button id="fromAjax" class="btn btn-primary btn-block" type="reset" onclick="doAjax()" style="background-color: rgb(248,83,72);">Kurs löschen</button></div>
             </form>
-            
-            <?php 
-            if(isset($_POST['course'])) {
-                Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['art'], $_POST['place']);
-//                 header("location:Intranet.php");
-                
-            }
-            ?>
-            
+           <div id="wawa"></div> 
         </div>
     </section>
 </main>
