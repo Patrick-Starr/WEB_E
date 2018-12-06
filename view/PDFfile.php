@@ -25,6 +25,7 @@ Class PDFcreator extends FPDF
         $pdf->Cell(80, 10,'', 0, 1);
         $pdf->invoiceBill();
         $pdf->ZahlungsSchein();
+        $pdf->Output('F','invoice.pdf');
     }
 
 // utf8_decode(): $str = utf8_decode($str);
@@ -36,7 +37,7 @@ Class PDFcreator extends FPDF
         $this->SetFont('Arial', 'B', 14);
         //Cellwidth, height, text, border, end line, [algin]
         $this->Cell(130, 5, '', 0,0 );
-        $this->Cell(60, 5, 'Rechnung',0,1);
+        $this->Cell(60, 5, 'Rechnung.pdf',0,1);
     }
 
     function InvoceData(int $id)
