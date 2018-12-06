@@ -9,12 +9,12 @@
 include('../fpdf181/fpdf.php'); //Pfad zu fpdf.php
 //include('../DAO/DB_Connection.php');
 
-Class PDF extends FPDF
+Class PDFcreator extends FPDF
 {
 
     public function createPDF(int $id, $school,$address)
     {
-        $pdf = new PDF();
+        $pdf = new PDFcreator();
         $pdf->AddPage();
         $pdf->Kopf();
 
@@ -25,7 +25,6 @@ Class PDF extends FPDF
         $pdf->Cell(80, 10,'', 0, 1);
         $pdf->invoiceBill();
         $pdf->ZahlungsSchein();
-        $pdf->Output();
     }
 
 // utf8_decode(): $str = utf8_decode($str);
