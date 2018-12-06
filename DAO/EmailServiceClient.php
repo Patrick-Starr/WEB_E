@@ -8,7 +8,7 @@
 
 
 
-include("../DAO/Config.php");
+include("../DAO/userDAO.php");
 
 class EmailServiceClient
 {

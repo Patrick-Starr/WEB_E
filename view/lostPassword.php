@@ -4,6 +4,7 @@
 
 include_once '../header.php';
 include_once '../DAO/EmailServiceClient.php';
+//include_once '../DAO/userDAO.php';
 
 if(isset($_POST['submit'])){
 if (!empty($_POST["email"])) {
@@ -28,6 +29,8 @@ class lostPassword{
         $newpassword = self::randomPassword();
         EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
 
+        userDAO::updatePassword($mail,$newpassword);
+        header("location: home.php");
         echo "<script type='text/javascript'>alert('Ihr Passwort wurde zurückgesetzt');</script>";
 
 }
