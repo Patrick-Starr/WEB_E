@@ -3,6 +3,6 @@
 
 include 'PDFfile.php';
 
-PDF::createPDF(1,'Fach hoch schule','olten');
+PDFcreator::createPDF(1,'Fach hoch schule','olten');
 
 ?>

@@ -8,10 +8,42 @@
 
 
 
-include("../DAO/Config.php");
+include_once ("../DAO/Config.php");
+require ("../SendGrid/SendGrid-API/vendor/autoload.php");
+use SendGrid\Mail;
 
 class EmailServiceClient
 {
+
+    public static function sendEmailAttachement($ToEmail, $subject, $htmlData, $pfad){
+
+        $apiKey = Config::get("sendGrid.value");
+        $sg = new \SendGrid($apiKey);
+
+        $email = new SendGrid\Email("Me", "$ToEmail");
+
+        $mail = new SendGrid\Mail();
+        $mail->setFrom($email);
+        $mail->setSubject("$subject");
+        $p = new \SendGrid\Personalization();
+        $p->addTo($email);
+        $c = new \SendGrid\Content("text/plain", "$htmlData");
+        $mail->addPersonalization($p);
+        $mail->addContent($c);
+
+        $att1 = new \SendGrid\Attachment();
+        $att1->setContent( base64_encode( file_get_contents("$pfad") ));
+        $att1->setType("application/pdf");
+        $att1->setFilename("Rechnung");
+        $att1->setDisposition("attachment");
+        $mail->addAttachment( $att1 );
+
+        $response = $sg->client->mail()->send()->post($mail);
+
+        echo $response->statusCode() . "\n";
+        echo json_encode( json_decode($response->body()), JSON_PRETTY_PRINT) . "\n";
+        var_dump($response->headers());
+    }
 
     public static function sendEmail($toEmail, $subject, $htmlData){
         $jsonObj = self::createEmailJSONObj();
@@ -31,6 +63,8 @@ class EmailServiceClient
             return true;
         return false;
     }
+
+
 
     protected static function createEmailJSONObj(){
         return json_decode('{

@@ -3,6 +3,10 @@
 include '../header.php';
 include '../DAO/CoursesDAO.php';
 include '../DAO/userDAO.php';
+include 'PDFfile.php';
+include '../DAO/EmailServiceClient.php';
+
+
 ?>
 
 
@@ -98,11 +102,19 @@ include '../DAO/userDAO.php';
             </form>
 
 <?php
-createPDF();
+
+
 // wird ausgeführt, wenn seite neu geladen wird
 if(isset($_POST['Modul'])) {
-    $ID = userDAO::getID($user);
+    $pdf = new PDFcreator();
 
+    $user = $_SESSION['user'];
+    $userID = userDAO::getID($user);
+    $place = userDAO::getPlace($user);
+    $pdfdata =  $pdf->createPDF($userID,$user, $place);
+
+    EmailServiceClient::sendEmailAttachement('deran.surdez@students.fhnw.ch','Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",$pdfdata);
+    $ID = userDAO::getID($user);
     Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['Form'], $_POST['Ort']);
 }
 ?>
@@ -143,13 +155,5 @@ if(isset($_POST['Modul'])) {
 </html>
 
 <?php
-include 'PDFfile.php';
-function createPDF(){
-   $id =  userDAO::getID($_SESSION['user']);
-   $school = $_SESSION['user'];
-   $address = userDAO::getPlace($_SESSION['user']);
 
-    PDF::creatPDF($id,$school,$address);
-
-}
 ?>
