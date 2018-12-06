@@ -46,12 +46,12 @@ class Courses {
      * readAll = get all data from Database except UID
      */
     public function readAll() {
-        $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
+
+        $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.End, courses.Link
                    FROM users
                    INNER JOIN courses
                    ON users.UID = courses.UID
                    ORDER BY courses.Course";
-
         $result = self::runQuery($insert);
         return $result;
     }
@@ -90,17 +90,29 @@ class Courses {
      * readMy = get only the courses from the logged in user
      */
     public function readMy($myUID) {
-        $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
+        $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.End, courses.Link
                    FROM users
                    INNER JOIN courses
                    ON users.UID = courses.UID
                    WHERE users.UID = '$myUID'
                    ORDER BY courses.Course";
-        
+
         $result = self::runQuery($insert);
         return $result;
     }
-    
+
+    public function readMyEndDate($myUID) {
+        $insert = "SELECT  courses.End
+                   FROM users
+                   INNER JOIN courses
+                   ON users.UID = courses.UID
+                   WHERE users.UID = '$myUID'
+                   ORDER BY courses.Course";
+
+        $result = self::runQuery($insert);
+        return $result;
+    }
+
     // UPDATE
     public function update($uCID, $uCourse, $uLink, $uDuration, $uStart, $uForm, $uPlace) {
         $comma = false; //boolean

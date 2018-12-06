@@ -44,7 +44,26 @@ class userDAO
         
         return $str;
     }
-    
+
+    public function updatePassword($email,$password)
+    {
+        $insert = "UPDATE users
+                   set Password = '$password'
+                   WHERE email = '$email'";
+
+        $result = self::runQuery($insert);
+        return $result;
+/*        $num = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $num = $value;
+            }
+        }
+
+        return $num;*/
+    }
+
+
     public function runQuery($query) {
         //mysqli_select_db(Database::$cont, Database::$dbName);
         
