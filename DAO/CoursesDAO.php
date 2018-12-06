@@ -11,6 +11,7 @@
 <!-- update(param); -->
 <!-- delete(param); -->
 <!-- getCID(param); returnInt -->
+<!-- getEndDate(param); returnDate AS String -->
 
 <?php
 
@@ -149,6 +150,9 @@ class Courses {
         self::runQuery($insert);
     }
     
+    /*
+     * Get the CourseID
+     */
     public function getCID($UID, $Course, $Form) {
         $insert = "SELECT courses.CID
                    FROM courses
@@ -165,6 +169,26 @@ class Courses {
             }
         }
         return $num;
+    }
+    
+    /*
+     * Get the Date where the last signings for the course are possible
+     */
+    public function getEndDate($UID, $CID) {
+        $insert = "SELECT courses.End
+                   FROM courses
+                   WHERE courses.UID = '$UID'
+                   AND courses.CID = '$CID'";
+        
+        $result = self::runQuery($insert);
+        
+        $date = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $date = $value;
+            }
+        }
+        return $date;
     }
     
     /*
