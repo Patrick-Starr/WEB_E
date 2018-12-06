@@ -40,7 +40,6 @@ include '../header.php';
                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
 				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
@@ -55,7 +54,7 @@ include '../header.php';
     	<br><br><br><br>
         <h1>Alle Kurse</h1>
     </div><div class="form-group pull-right">
-        <input type="text" class="search form-control" placeholder="What you looking for?">
+        <input type="text" class="search form-control" placeholder="Was suchen Sie?">
     </div>
     <span class="counter pull-right"></span>
     <table class="table table-hover table-bordered results">

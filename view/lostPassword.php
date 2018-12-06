@@ -1,6 +1,51 @@
 <!DOCTYPE html>
 <?php
-include '../header.php';
+
+
+include_once '../header.php';
+include_once '../DAO/EmailServiceClient.php';
+
+if(isset($_POST['submit'])){
+if (!empty($_POST["email"])) {
+
+    lostPassword::reset();
+} else{
+
+    echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+
+}
+}
+class lostPassword{
+
+
+
+
+    public  static function reset(){
+
+        if(isset($_POST['submit']))
+    {
+        $mail = @$_POST['email'];
+        $newpassword = self::randomPassword();
+        EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
+
+        echo "<script type='text/javascript'>alert('Ihr Passwort wurde zurückgesetzt');</script>";
+
+}
+    }
+
+       // exit(header("Location: Home.php"));
+
+   public static function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+}
 ?>
 <html>
 
@@ -38,7 +83,6 @@ include '../header.php';
                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
 				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
@@ -55,8 +99,8 @@ include '../header.php';
                 <h2 class="text-info">Passwort zurücksetzen</h2>
                 <p>Um Ihr Passwort zurückzusetzen, geben Sie Ihre Email-Adresse ein.</p>
             </div>
-            <form>
-                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div><button class="btn btn-primary btn-block" type="submit">Bestätigen</button></form>
+            <form  method = "post" name="lostpasswordform" onclick="validateForm()">
+                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="email"></div><button class="btn btn-primary btn-block" name = "submit" type="submit" >Bestätigen</button></form>
         </div>
     </section>
 </main>

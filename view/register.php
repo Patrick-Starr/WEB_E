@@ -39,7 +39,6 @@ include '../header.php';
                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
 				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
@@ -53,7 +52,7 @@ include '../header.php';
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Registration</h2>
+                <h2 class="text-info">Registrierung</h2>
                 <p>Registrieren Sie sich noch heute und präsentieren Sie Ihre Kurse einem breiten Publikum!</p>
             </div>
             <form>

@@ -40,7 +40,6 @@ include '../header.php';
                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
 				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
@@ -54,14 +53,14 @@ include '../header.php';
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Contact Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                <h2 class="text-info">Kontaktieren Sie uns</h2>
+                <p>Bei Fragen kontaktieren Sie uns unkompliziert über dieses Kontaktformular</p>
             </div>
             <form>
                 <div class="form-group"><label>Name</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Subject</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Email</label><input class="form-control" type="email"></div>
-                <div class="form-group"><label>Message</label><textarea class="form-control"></textarea></div>
+                <div class="form-group"><label>Anliegen</label><input class="form-control" type="text"></div>
+                <div class="form-group"><label>Emailadresse</label><input class="form-control" type="email"></div>
+                <div class="form-group"><label>Mitteilung</label><textarea class="form-control"></textarea></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Send</button></div>
             </form>
         </div>

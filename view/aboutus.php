@@ -40,7 +40,6 @@ include '../header.php';
                	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
 				<?php }else{ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
                	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
@@ -54,7 +53,7 @@ include '../header.php';
     <section class="clean-block about-us">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">About Us</h2>
+                <h2 class="text-info">Über uns</h2>
                 <p>Wir sind ein innovatives Unternehmen, dass sich zur Aufgabe gemacht hat, die Übersicht über die in der Schweiz angebotenen Fachhochschulkurse zu vereinfachen.</p>
             </div>
             <div class="row justify-content-center">
@@ -62,7 +61,7 @@ include '../header.php';
                     <div class="card clean-card text-center">
                         <div class="card-body info">
                             <h4 class="card-title">Sojo Nagaroor</h4>
-                            <p class="card-text">Der gutaussehende Sunnyboy ist immer mit einem Lächeln unterwegs. &nbsp;Leidenschaft: Karate</p>
+                            <p class="card-text">Student Wirtschaftsinformatik</p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +69,7 @@ include '../header.php';
                     <div class="card clean-card text-center">
                         <div class="card-body info">
                             <h4 class="card-title">Patrick Ziörjen</h4>
-                            <p class="card-text">Der blonde Schwede ist leidenschaflicher Painter</p>
+                            <p class="card-text">Student Wirtschaftsinformatik</p>
                             <div class="icons"></div>
                         </div>
                     </div>
@@ -79,7 +78,7 @@ include '../header.php';
                     <div class="card clean-card text-center">
                         <div class="card-body info">
                             <h4 class="card-title">Deran Surdez</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p class="card-text">Student Wirtschaftsinformatik</p>
                         </div>
                     </div>
                 </div>
