@@ -95,7 +95,7 @@ include '../header.php';
                 else if ($key === 'Course') {
                     $ID = userDAO::getID($user);
                     $usedCID = Courses::getCID($ID, $value, $F);
-
+                    
                     echo "<td> <a href= 'editmodul.php?wert=" . $usedCID . "'> " . $value . " </a> </td>";
                 } else {
                     echo "<td>" . $value . "</td>";

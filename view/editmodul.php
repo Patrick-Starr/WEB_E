@@ -103,7 +103,7 @@ include '../DAO/CoursesDAO.php';
             }
             ?>
             </div>
-             <form name ="Modulerstellen" action = "" method="post" onsubmit="return validation()">
+             <form name ="Modulerstellen" action = <?php echo '"CreateCourse.php?wert='.$_GET['wert'].'"'?> method="post" onsubmit="return validation()">
                 <div class="form-group"><label>Modulname</label><input class="form-control" type="text" id="1" name='course' value=<?php echo '"'.$_GET["modul"].'"'?>></div>
                 <div class="form-group"><label>Ort</label><input class="form-control" type="text" id="2" name='place' value=<?php echo '"'.$_GET["ort"].'"'?>></div>
                 <div class="form-group"><label>Link</label><input class="form-control" type="url" id="3" name='url' value=<?php echo '"'.$_GET["link"].'"'?>></div>
@@ -113,15 +113,6 @@ include '../DAO/CoursesDAO.php';
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Speichern</button>
          <!--       <button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(248,83,72);">Kurs löschen</button></div>    -->
             </form>
-            
-            <?php 
-            if(isset($_POST['course'])) {
-                Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['art'], $_POST['place']);
-//                 header("location:Intranet.php");
-                
-            }
-            ?>
-            
         </div>
     </section>
 </main>
