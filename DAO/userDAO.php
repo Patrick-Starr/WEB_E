@@ -72,6 +72,61 @@ class userDAO
     }
 
 
+    public function getEmail($user)
+    {
+        $insert = "SELECT users.email
+                   FROM users
+                   WHERE School = '$user'";
+
+        $result = self::runQuery($insert);
+
+        $str = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $str = $value;
+            }
+        }
+
+        return $str;
+    }
+
+    public function getPostcode($user)
+    {
+        $insert = "SELECT users.Postcode
+                   FROM users
+                   WHERE School = '$user'";
+
+        $result = self::runQuery($insert);
+
+        $str = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $str = $value;
+            }
+        }
+
+        return $str;
+    }
+
+    public function getStreet($user)
+    {
+        $insert = "SELECT users.Street
+                   FROM users
+                   WHERE School = '$user'";
+
+        $result = self::runQuery($insert);
+
+        $str = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $str = $value;
+            }
+        }
+
+        return $str;
+    }
+
+
     public function runQuery($query) {
         //mysqli_select_db(Database::$cont, Database::$dbName);
         
