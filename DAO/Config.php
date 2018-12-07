@@ -4,7 +4,7 @@
  */
 class Config
 {
-    protected static $iniFile = "config.env";
+    protected static $iniFile = "DAO/config.env";
     protected static $config = [];
 
     public static function init()
