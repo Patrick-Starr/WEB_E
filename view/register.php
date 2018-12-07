@@ -69,7 +69,9 @@ include '../header.php';
                 <h5>Get started</h5>
                 <ul>
                     <li><a href="home.php">Home</a></li>
+                    <?php if(!isset($_SESSION['user'])){ ?>
                     <li><a href="register.php">Registrieren</a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-sm-3">
