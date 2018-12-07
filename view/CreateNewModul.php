@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-include '../header.php';
-include '../DAO/CoursesDAO.php';
-include '../DAO/userDAO.php';
-include 'PDFfile.php';
-include '../DAO/EmailServiceClient.php';
+// include '../header.php';
+// include '../DAO/CoursesDAO.php';
+// include '../DAO/userDAO.php';
+// include 'PDFfile.php';
+// include '../DAO/EmailServiceClient.php';
 
 
 ?>
@@ -91,7 +91,7 @@ include '../DAO/EmailServiceClient.php';
                 <h2 class="text-info">Neues Modul hinzufügen</h2>
                 <p>Fügen Sie ein neues Modul für nur 30 CHF hinzu.</p>
             </div>
-            <form name="Modulerstellen" action="" method="POST" onsubmit="return validation()">
+            <form name="Modulerstellen" action="NewModul.php" method="POST" onsubmit="return validation()">
                 <div class="form-group"><label>Modulname</label><input class="form-control" type="text" name='Modul' id="1"></div>
                 <div class="form-group"><label>Ort</label><input class="form-control" type="text" name="Ort" id = "2"></div>
                 <div class="form-group"><label>Link</label><input class="form-control" type="url" name="Link" id = "3"></div>
@@ -101,23 +101,21 @@ include '../DAO/EmailServiceClient.php';
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Modul verbindlich hinzufügen</button></div>
             </form>
 
-<?php
+ <?php
+// // wird ausgeführt, wenn seite neu geladen wird
+// if(isset($_POST['Modul'])) {
+//     $pdf = new PDFcreator();
 
+//     $user = $_SESSION['user'];
+//     $userID = userDAO::getID($user);
+//     $place = userDAO::getPlace($user);
+//     $pdfdata =  $pdf->createPDF($userID,$user, $place);
 
-// wird ausgeführt, wenn seite neu geladen wird
-if(isset($_POST['Modul'])) {
-    $pdf = new PDFcreator();
-
-    $user =    $_SESSION['user'];
-    $userID = userDAO::getID($user);
-    $place = userDAO::getPlace($user);
-    $pdfdata =  $pdf->createPDF($userID,$user, $place);
-
-    EmailServiceClient::sendEmailAttachement('sojo.nagaroor@students.fhnw.ch','Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
-    $ID = userDAO::getID($user);
-    Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['Form'], $_POST['Ort']);
-}
-?>
+//     EmailServiceClient::sendEmailAttachement('sojo.nagaroor@students.fhnw.ch','Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
+//     $ID = userDAO::getID($user);
+//     Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['Form'], $_POST['Ort']);
+// }
+// ?>
 
         </div>
     </section>
@@ -153,7 +151,3 @@ if(isset($_POST['Modul'])) {
 </body>
 
 </html>
-
-<?php
-
-?>

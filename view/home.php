@@ -74,7 +74,7 @@ include '../header.php';
             echo "<th>".$feldinfo->name."</th>";
         }
         echo " <tr class='warning no-result'>
-            <td colspan='7'><i class='fa fa-warning'></i> No result</td>
+            <td colspan='8'><i class='fa fa-warning'></i> No result</td>
             </tr>
             </thead>
             <tbody>

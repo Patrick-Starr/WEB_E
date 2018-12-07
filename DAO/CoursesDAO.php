@@ -25,7 +25,7 @@ class Courses {
     /*
      *  $date delivers the actual date
      */
-    public  function create($UID, $course, $link, $duration, $start, $form, $place) {
+    public function create($UID, $course, $link, $duration, $start, $form, $place) {
         /*
          * get creation-date
          * Set timezone to safe the creation date of a new course
