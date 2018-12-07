@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Dez 2018 um 17:44
+-- Erstellungszeit: 07. Dez 2018 um 10:51
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -106,7 +106,7 @@ CREATE TABLE `users` (
   `Street` varchar(60) COLLATE utf8_unicode_520_ci NOT NULL,
   `Place` varchar(60) COLLATE utf8_unicode_520_ci NOT NULL,
   `Postcode` varchar(50) COLLATE utf8_unicode_520_ci NOT NULL,
-  `E-Mail` varchar(50) COLLATE utf8_unicode_520_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_520_ci NOT NULL,
   `Password` varchar(20) COLLATE utf8_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
@@ -114,9 +114,10 @@ CREATE TABLE `users` (
 -- Daten für Tabelle `users`
 --
 
-INSERT INTO `users` (`UID`, `School`, `Street`, `Place`, `Postcode`, `E-Mail`, `Password`) VALUES
+INSERT INTO `users` (`UID`, `School`, `Street`, `Place`, `Postcode`, `email`, `Password`) VALUES
+(0, 'Admin', 'admin', 'admin', 'admin', 'admin', 'admin'),
 (1, 'BFH', 'Falkenplatz 24', 'Bern', '3012', 'admin@bfh.ch', 'bern'),
-(2, 'FHNW', 'Riggenbachstrasse 16', 'Olten', '4600', 'admin@fhnw.ch', 'olten'),
+(2, 'FHNW', 'Riggenbachstrasse 16', 'Olten', '4600', 'admin@fhnw.ch', 'rntK20AB'),
 (3, 'ZHAW', 'Gertrudstrasse 15', 'Winterthur', '8401', 'admin@zhaw.ch', 'winterthur');
 
 --
@@ -143,13 +144,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `CID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `CID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `UID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

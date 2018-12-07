@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-
 include_once '../header.php';
-include '../DAO/userDAO.php';
-
 ?>
 
 <html>
@@ -93,7 +90,7 @@ include '../DAO/userDAO.php';
                     <h2 class="text-info">Schule hinzufügen</h2>
                     <p>Fügen Sie eine neue Schule hinzu</p>
                 </div>
-                <form method = "post" onsubmit="return validation()">
+                <form method = "post" action="addSchool.php" onsubmit="return validation()">
                     <div class="form-group"><label>Schule</label><input class="form-control item" name = "name" type="text" id="name"></div>
                     <div class="form-group"><label>Strasse</label><input class="form-control" name = "strasse" type="text" id="strasse"></div>
                     <div class="form-group"><label>Ort</label><input class="form-control" name = "ort" type="text" id="ort"></div>
@@ -101,12 +98,6 @@ include '../DAO/userDAO.php';
                     <div class="form-group"><label>Email</label><input class="form-control item" name = "email" type="email" id="email"></div>
                     <div class="form-group"><label>Passwort</label><input class="form-control item" name = "passwort" type="password" id="password"></div><button class="btn btn-primary btn-block" name = "submit" type="submit">Hinzufügen</button></form>
             </div>
-            <?php
-            if (isset($_POST['submit'])) {
-                userDAO::create($_POST['name'], $_POST['strasse'], $_POST['ort'], $_POST['plz'], $_POST['email'], $_POST['passwort']);
-                header("location: home.php");
-            }
-            ?>
         </section>
     </main>
 <footer class="page-footer dark">
