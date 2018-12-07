@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <?php
 include '../header.php';
+include_once '../DAO/EmailServiceClient.php';
+
+if(isset($_POST['submit'])){
+
+    if(($_POST['name'] =="" or $_POST['email']=="" or $_POST['password']="")){
+
+        echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+
+    }else {
+
+
+        EmailServiceClient::sendEmail('deran.surdez@students.fhnw.ch', 'Neue Registrierung: ' . $_POST['name'], 'Überprüfen Sie folgende Angaben und fügen Sie gegebenenfalls die Hochschule hinzu.'."<br>" .'Name: '. $_POST['name'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>");
+        echo "<script type='text/javascript'>alert('Ihre Daten werden Überprüft. Bei erfolgreicher Registrierung werden Sie von uns informiert.');</script>";
+
+    }
+}
+
+
 ?>
 
 <html>
@@ -60,10 +78,9 @@ include '../header.php';
                 <h2 class="text-info">Registrierung</h2>
                 <p>Registrieren Sie sich noch heute und präsentieren Sie Ihre Kurse einem breiten Publikum!</p>
             </div>
-            <form>
-                <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" id="name"></div>
-                <div class="form-group"><label for="password">Passwort</label><input class="form-control item" type="password" id="password"></div>
-                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div><button class="btn btn-primary btn-block" type="submit">Sign Up</button></form>
+            <form method = "post">
+                <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" name="name"></div>
+                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="email"></div><button class="btn btn-primary btn-block" name = "submit" type="submit">Sign Up</button></form>
         </div>
     </section>
 </main>
