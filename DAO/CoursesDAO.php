@@ -25,7 +25,7 @@ class Courses {
     /*
      *  $date delivers the actual date
      */
-    public function create($UID, $course, $link, $duration, $start, $form, $place) {
+    public function create($UID, $course, $link, $duration, $start, $end, $form, $place) {
         /*
          * get creation-date
          * Set timezone to safe the creation date of a new course
@@ -34,8 +34,8 @@ class Courses {
         $timestamp = time();
         $date = date("Y-m-d", $timestamp);
         
-        $insert = "INSERT INTO courses (CID, UID, Course, Link, Duration, Start, Form, Place, Created)".
-        " VALUES (NULL, '$UID', '$course', '$link', '$duration', '$start', '$form', '$place', '$date')";
+        $insert = "INSERT INTO courses (CID, UID, Course, Link, Duration, Start, End, Form, Place, Created)".
+        " VALUES (NULL, '$UID', '$course', '$link', '$duration', '$start', '$end', '$form', '$place', '$date')";
         
         self::runQuery($insert);
     }
@@ -78,7 +78,7 @@ class Courses {
      * get Courses by CID
      */
     public function readCID($CID) {
-        $insert = "SELECT courses.Course, courses.Place, courses.Link, courses.Start, courses.Form, courses.Duration
+        $insert = "SELECT courses.Course, courses.Place, courses.Link, courses.Start, courses.End, courses.Form, courses.Duration
                    FROM courses
                    WHERE courses.CID = $CID";
         
@@ -114,7 +114,7 @@ class Courses {
     }
 
     // UPDATE
-    public function update($uCID, $uCourse, $uLink, $uDuration, $uStart, $uForm, $uPlace) {
+    public function update($uCID, $uCourse, $uLink, $uDuration, $uStart, $uEnd, $uForm, $uPlace) {
         $comma = false; //boolean
         $insert = "UPDATE courses SET ";
         
@@ -135,6 +135,11 @@ class Courses {
         if (isset($uStart)) {
             if ($comma) { $insert = $insert.", "; }
             $insert = $insert."Start = '$uStart'";
+            $comma = true;
+        }
+        if (isset($uEnd)) {
+            if ($comma) { $insert = $insert.", "; }
+            $insert = $insert."End = '$uEnd'";
             $comma = true;
         }
         if (isset($uForm)) {
