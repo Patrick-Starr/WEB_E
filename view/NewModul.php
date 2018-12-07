@@ -13,7 +13,7 @@ include '../DAO/EmailServiceClient.php';
     $place = userDAO::getPlace($user);
     $pdfdata =  $pdf->createPDF($ID,$user, $place);
 
-    EmailServiceClient::sendEmailAttachement('sojo.nagaroor@students.fhnw.ch','Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
+    EmailServiceClient::sendEmailAttachement('RECIEVER-MAIL-ADRESS','Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
     Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['Form'], $_POST['Ort']);
 
     echo $user;
