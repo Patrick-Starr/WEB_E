@@ -1,0 +1,13 @@
+{
+  "name": "fhnw/WEB_E",
+  "description": "Students Project",
+  "authors": [
+    {
+      "name": "Deran Surdez",
+      "email": "deran.surdez@students.fhnw.ch"
+    }
+  ],
+  "require": {
+    "php": "~7.2.0"
+  }
+}
