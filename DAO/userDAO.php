@@ -4,10 +4,24 @@
 
 // include '../header.php';
 include_once 'DB_Connection.php';
+
 Database::connect();
 
 class userDAO
 {
+
+
+    public function create($UID, $name, $strasse, $ort, $plz, $email, $passwort) {
+        /*
+         * get creation-date
+         * Set timezone to safe the creation date of a new course
+         */
+
+        $insert = "INSERT INTO users (UID, School, Street, Place, Postcode, email, Password)".
+            " VALUES ('$UID', '$name', '$strasse', '$ort', '$plz', '$email', '$passwort')";
+
+        self::runQuery($insert);
+    }
 
     public function getID($user)
     {
