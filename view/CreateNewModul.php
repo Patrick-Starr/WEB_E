@@ -61,22 +61,26 @@ include '../header.php';
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-               <?php if(isset($_SESSION['user'])){ ?>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
-               	<li class="nav-item" role="presentation"><a class="nav-link" href="Intranet.php">Meine Kurse</a></li>
-               	<li class="nav-item" role="presentation"><a class="nav-link" href="CreateNewModul.php">Kurs hinzufügen</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="admin.php">Schule hinzufügen</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
+                <?php } else if(isset($_SESSION['user'])){ ?>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="Intranet.php">Meine Kurse</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="CreateNewModul.php">Kurs hinzufügen</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
-               	<li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
-				<?php }else{ ?>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
+                <?php } else { ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Preise</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.php">Über uns</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="contactus.php">Kontakt</a></li>
-               	<li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="register.php">Registrieren</a></li>
-				<?php } ?>
+                <?php } ?>
             </ul>
         </div>
     </div>
