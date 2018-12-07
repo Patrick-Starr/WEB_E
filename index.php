@@ -2,6 +2,6 @@
 
 <?php
 
-header('location: home.php');
+header('location: view/home.php');
 
 ?>
