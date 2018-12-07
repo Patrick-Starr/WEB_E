@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$benutzer="root";
-$passwort="";
-$dbname="web_e";
+$host = 'sabaik6fx8he7pua.chr7pe7iynqr.eu-west-1.rds.amazonaws.com';
+$benutzer="ivm1bdn2bi4uux6o";
+$passwort="mlxumziv1rkqz7ix";
+$dbname="jq7vszrcc65rhjnw";
 
 $link = mysqli_connect($host, $benutzer, $passwort, $dbname) or die(mysqli_error());
 if ($link->connect_error) die("Fatal Error");
