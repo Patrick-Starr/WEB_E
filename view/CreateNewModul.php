@@ -100,18 +100,6 @@
                 <div class="form-group"><label>Dauer</label><input class="form-control" type="number" name="Dauer" id = "6"></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Modul verbindlich hinzufügen</button></div>
             </form>
-
- <?php
-// // wird ausgeführt, wenn seite neu geladen wird
-// if(isset($_POST['Modul'])) {
-//     $pdf = new PDFcreator();
-
-//     $user = $_SESSION['user'];
-//     $userID = userDAO::getID($user);
-//     $place = userDAO::getPlace($user);
-//     $pdfdata =  $pdf->createPDF($userID,$user, $place);
-?>
-
         </div>
     </section>
 </main>
