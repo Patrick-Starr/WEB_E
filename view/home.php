@@ -71,7 +71,18 @@ include '../header.php';
         echo "<tr>";
         for($i = 0; $i < $anzahl_spalten; $i++){
             $feldinfo = mysqli_fetch_field_direct($result, $i);
-            echo "<th>".$feldinfo->name."</th>";
+            $german;
+            switch ($feldinfo->name) {
+                case "School": $german = "Schule"; break;
+                case "Course": $german = "Kurs"; break;
+                case "Link": $german = "Link"; break;
+                case "Duration": $german = "Semester"; break;
+                case "Start": $german = "Startdatum"; break;
+                case "End": $german = "Anmeldeschluss"; break;
+                case "Form": $german = "TZ/VZ"; break;
+                case "Place": $german = "Standort"; break;
+            }
+            echo "<th>".$german."</th>";
         }
         echo " <tr class='warning no-result'>
             <td colspan='8'><i class='fa fa-warning'></i> No result</td>
