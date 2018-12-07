@@ -110,12 +110,7 @@
 //     $userID = userDAO::getID($user);
 //     $place = userDAO::getPlace($user);
 //     $pdfdata =  $pdf->createPDF($userID,$user, $place);
-
-//     EmailServiceClient::sendEmailAttachement('sojo.nagaroor@students.fhnw.ch','Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
-//     $ID = userDAO::getID($user);
-//     Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['Form'], $_POST['Ort']);
-// }
-// ?>
+?>
 
         </div>
     </section>
