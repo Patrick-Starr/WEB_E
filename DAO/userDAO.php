@@ -10,15 +10,9 @@ Database::connect();
 class userDAO
 {
 
-
-    public function create($UID, $name, $strasse, $ort, $plz, $email, $passwort) {
-        /*
-         * get creation-date
-         * Set timezone to safe the creation date of a new course
-         */
-
+    public function create($name, $strasse, $ort, $plz, $email, $passwort) {
         $insert = "INSERT INTO users (UID, School, Street, Place, Postcode, email, Password)".
-            " VALUES ('$UID', '$name', '$strasse', '$ort', '$plz', '$email', '$passwort')";
+            " VALUES (NULL, '$name', '$strasse', '$ort', '$plz', '$email', '$passwort')";
 
         self::runQuery($insert);
     }
