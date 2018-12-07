@@ -127,7 +127,7 @@ include '../DAO/CoursesDAO.php';
                 <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" id="4" name='run' value=<?php echo '"'.$_GET["start"].'"'?>></div>
                 <div class="form-group"><label>Anmeldeschluss</label><input class="form-control" type="date" id="5" name='end' value=<?php echo '"'.$_GET["end"].'"'?>></div>
                 <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id="6" name='art' value=<?php echo '"'.$_GET["form"].'"'?>></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id="7" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
+                <div class="form-group"><label>Semester</label><input class="form-control" type="number" id="7" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
                    <div class="form-group"><button class="btn btn-primary btn-block" onclick="submitForm('safe')">Speichern</button>
          		<button class="btn btn-primary btn-block" onclick="submitForm('delete')" style="background-color: rgb(248,83,72);">Kurs löschen</button></div>
             </form>
