@@ -2,6 +2,6 @@
 
 <?php
 
-echo("Hallo");
+header('location: home.php');
 
 ?>
