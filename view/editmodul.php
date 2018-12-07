@@ -27,6 +27,9 @@ include '../DAO/CoursesDAO.php';
        } else if(document.getElementById("6").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
+       } else if(document.getElementById("7").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
        } else {
            return true;
        }
@@ -110,6 +113,7 @@ include '../DAO/CoursesDAO.php';
                     else if ($key === 'Place') { $_GET['ort'] = $value; }
                     else if ($key === 'Link') { $_GET['link'] = $value; }
                     else if ($key === 'Start') { $_GET['start'] = $value; }
+                    else if ($key === 'End') { $_GET['end'] = $value; }
                     else if ($key === 'Form') { $_GET['form'] = $value; }
                     else if ($key === 'Duration') { $_GET['dauer'] = $value; }
                 }
@@ -121,8 +125,9 @@ include '../DAO/CoursesDAO.php';
                 <div class="form-group"><label>Ort</label><input class="form-control" type="text" id="2" name='place' value=<?php echo '"'.$_GET["ort"].'"'?>></div>
                 <div class="form-group"><label>Link</label><input class="form-control" type="url" id="3" name='url' value=<?php echo '"'.$_GET["link"].'"'?>></div>
                 <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" id="4" name='run' value=<?php echo '"'.$_GET["start"].'"'?>></div>
-                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id="5" name='art' value=<?php echo '"'.$_GET["form"].'"'?>></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id="6" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
+                <div class="form-group"><label>Anmeldeschluss</label><input class="form-control" type="date" id="5" name='end' value=<?php echo '"'.$_GET["end"].'"'?>></div>
+                <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" id="6" name='art' value=<?php echo '"'.$_GET["form"].'"'?>></div>
+                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" id="7" name='duration' value=<?php echo '"'.$_GET["dauer"].'"'?>></div>
                    <div class="form-group"><button class="btn btn-primary btn-block" onclick="submitForm('safe')">Speichern</button>
          		<button class="btn btn-primary btn-block" onclick="submitForm('delete')" style="background-color: rgb(248,83,72);">Kurs löschen</button></div>
             </form>
@@ -135,7 +140,9 @@ include '../DAO/CoursesDAO.php';
                 <h5>Get started</h5>
                 <ul>
                     <li><a href="home.php">Home</a></li>
+                    <?php if(!isset($_SESSION['user'])){ ?>
                     <li><a href="register.php">Registrieren</a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-sm-3">

@@ -11,7 +11,7 @@ if ($click === "delete") {
 }
 
 if ($click === "safe") {
-    Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['art'], $_POST['place']);
+    Courses::update($CID, $_POST['course'], $_POST['url'], $_POST['duration'], $_POST['run'], $_POST['end'], $_POST['art'], $_POST['place']);
 }
 
     header("location:Intranet.php");

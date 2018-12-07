@@ -74,10 +74,21 @@ include '../header.php';
         echo "<tr>";
         for($i = 0; $i < $anzahl_spalten; $i++){
             $feldinfo = mysqli_fetch_field_direct($result, $i);
-            echo "<th>".$feldinfo->name."</th>";
+            $german;
+            switch ($feldinfo->name) {
+                case "School": $german = "Schule"; break;
+                case "Course": $german = "Kurs"; break;
+                case "Link": $german = "Link"; break;
+                case "Duration": $german = "Semester"; break;
+                case "Start": $german = "Startdatum"; break;
+                case "End": $german = "Anmeldeschluss"; break;
+                case "Form": $german = "TZ/VZ"; break;
+                case "Place": $german = "Standort"; break;
+            }
+            echo "<th>".$german."</th>";
         }
         echo " <tr class='warning no-result'>
-            <td colspan='7'><i class='fa fa-warning'></i> No result</td>
+            <td colspan='8'><i class='fa fa-warning'></i> No result</td>
             </tr>
             </thead>
             <tbody>
@@ -116,10 +127,12 @@ include '../header.php';
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h5>Get started</h5>
+               <h5>Get started</h5>
                 <ul>
                     <li><a href="home.php">Home</a></li>
+                    <?php if(!isset($_SESSION['user'])){ ?>
                     <li><a href="register.php">Registrieren</a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -143,45 +156,3 @@ include '../header.php';
 </body>
 
 </html>
-        <?php 
-//         include '../DAO/CoursesDAO.php';
-//         //Tabellenkopf darstellen 
-        
-//         Courses::create(2, "SOJO", "www.fhnw.ch", 2, "2018-02-01" , "VZ", "Olten");
-//         $result = Courses::readSearched("FHNW", NULL, "", "");
-//         $result = Courses::readMy(2);
-//         Courses::update(/*CID*/ 41, "FHNW Schulseite", "https://www.fhnw.ch/de/startseite", null, null, null, null); /* Null if it should not be overwritten */
-//         Courses::delete(/*CID*/39); /*param = int*/
-//         $result = Courses::readALL();
-        
-//         if(isset($result)) {
-            
-            
-//         echo "<table border = \"1\">";
-//         $anzahl_spalten = mysqli_num_fields($result); 
-//         echo "<tr>";
-//         for($i = 0; $i < $anzahl_spalten; $i++){
-//             $feldinfo = mysqli_fetch_field_direct($result, $i); 
-//             echo "<th>".$feldinfo->name."</th>";
-//         }
-//         echo "</tr>";
-//         //Rest der Tabelle in einer Schleife darstellen
-        
-//         $aa = 0;
-//         while($zeile = mysqli_fetch_assoc($result)){
-//              echo "<tr>";
-//              while (list($key, $value) = each($zeile)){
-                 
-//                  if ($key === 'Link') {
-//                      echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
-//                  } else {
-//                      echo "<td>".$value."</td>";
-//                  }
-//              }   
-//             echo "</tr>";
-//         }
-//         echo "</table>";
-
-//         $result = null;
-//         }
-//         ?>
