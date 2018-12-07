@@ -89,13 +89,13 @@ include '../header.php';
                 <p>Fügen Sie ein neues Modul für nur 30 CHF hinzu.</p>
             </div>
             <form name="Modulerstellen" action="NewModul.php" method="POST" onsubmit="return validation()">
-                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" name='Modul' id="1"></div>
-                <div class="form-group"><label>Ort</label><input class="form-control" type="text" name="Ort" id = "2"></div>
-                <div class="form-group"><label>Link</label><input class="form-control" type="url" name="Link" id = "3"></div>
-                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" name="Start" id = "4"></div>
-                <div class="form-group"><label>Anmeldeschluss</label><input class="form-control" type="date" name="End" id = "5"></div>
+                <div class="form-group"><label>Modulname</label><input class="form-control" type="text" name='Modul' id="1" ></div>
+                <div class="form-group"><label>Ort</label><input class="form-control" type="text" name="Ort" id = "2" ></div>
+                <div class="form-group"><label>Link</label><input class="form-control" type="url" name="Link" id = "3" placeholder="Beispiel: https://de.wikipedia.org/wiki/Wombats"></div>
+                <div class="form-group"><label>Startdatum</label><input class="form-control" type="date" name="Start" id = "4" ></div>
+                <div class="form-group"><label>Anmeldeschluss</label><input class="form-control" type="date" name="End" id = "5" ></div>
                 <div class="form-group"><label>VZ/TZ</label><input class="form-control" type="text" name="Form" id = "6"></div>
-                <div class="form-group"><label>Dauer</label><input class="form-control" type="number" name="Dauer" id = "7"></div>
+                <div class="form-group"><label>Semester</label><input class="form-control" type="number" name="Dauer" id = "7" ></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Modul verbindlich hinzufügen</button></div>
             </form>
         </div>
