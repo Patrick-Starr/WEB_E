@@ -2,6 +2,21 @@
 
 <?php
 include '../header.php';
+include_once '../DAO/EmailServiceClient.php';
+
+if(isset($_POST['submit'])){
+
+    if(($_POST['name'] =="" or $_POST['subject']=="" or $_POST['text']=" " or $_POST['email']="")){
+
+        echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+
+    }else {
+
+
+        EmailServiceClient::sendEmail('deran.surdez@students.fhnw.ch', 'Contact von ' . $_POST['name'], 'Name: ' . $_POST['name'] . "<br>" . 'Subject: ' . $_POST['subject'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>" . 'Anliegen: ' . $_POST['text']);
+    }
+}
+
 ?>
 
 <html>
@@ -61,12 +76,12 @@ include '../header.php';
                 <h2 class="text-info">Kontaktieren Sie uns</h2>
                 <p>Bei Fragen kontaktieren Sie uns unkompliziert über dieses Kontaktformular</p>
             </div>
-            <form>
-                <div class="form-group"><label>Name</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Anliegen</label><input class="form-control" type="text"></div>
-                <div class="form-group"><label>Emailadresse</label><input class="form-control" type="email"></div>
-                <div class="form-group"><label>Mitteilung</label><textarea class="form-control"></textarea></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Send</button></div>
+            <form method = "post">
+                <div class="form-group"><label>Name</label><input class="form-control" name = "name" type="text"></div>
+                <div class="form-group"><label>Anliegen</label><input class="form-control" name = "subject" type="text"></div>
+                <div class="form-group"><label>Emailadresse</label><input class="form-control" name = "email" type="email"></div>
+                <div class="form-group"><label>Mitteilung</label><textarea name = "text" class="form-control"></textarea></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" name = "submit" type="submit">Send</button></div>
             </form>
         </div>
     </section>
