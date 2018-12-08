@@ -21,9 +21,11 @@ class EmailServiceClient
         $sg = new \SendGrid($apiKey);
 
         $email = new SendGrid\Email("Me", "$ToEmail");
+        $from = new SendGrid\Email("StuKu Support", "noreply@fhnw.ch");
+
 
         $mail = new SendGrid\Mail();
-        $mail->setFrom($email);
+        $mail->setFrom($from);
         $mail->setSubject("$subject");
         $p = new \SendGrid\Personalization();
         $p->addTo($email);
