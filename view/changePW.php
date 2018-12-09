@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-
 <?php
 include '../header.php';
 ?>
 
 <html>
+<script>
+   function validation() {
+
+       if (document.getElementById("2").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else if(document.getElementById("3").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else if(document.getElementById("2").length > 20){
+           alert("Das Passwort ist zu lange");
+           return false;
+       } else if (!(document.getElementById("3").value === document.getElementById("2").value)) {
+           alert("Ups, da gab es einen Fehler..\nAchten Sie auf die Schreibweise.\nDas wiederholte Passwort muss gleich geschrieben werden wie das neue Passwort.");
+           return false;
+       } else {
+           return true;
+       }
+
+       }
+</script>
+
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +40,7 @@ include '../header.php';
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/Table-with-search-1.css">
     <link rel="stylesheet" href="assets/css/Table-with-search.css">
-    <link rel="icon" href="../Tab.png">
+    <link rel="icon" href="../Tab.png">    
 </head>
 
 <body>
@@ -29,8 +50,8 @@ include '../header.php';
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
-           <ul class="nav navbar-nav ml-auto">
-                 <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
+            <ul class="nav navbar-nav ml-auto">
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="admin.php">Schule hinzufügen</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="adminShowUsers.php">Schulen anzeigen</a></li>
@@ -57,63 +78,20 @@ include '../header.php';
         </div>
     </div>
 </nav>
-<main>
-    <div>
-    	<br><br><br><br>
-        <h1>Alle Schulen</h1>
-    </div><div class="form-group pull-right">
-        <input type="text" class="search form-control" placeholder="Was suchen Sie?">
-    </div>
-    <span class="counter pull-right"></span>
-    <table class="table table-hover table-bordered results">
-        <thead>
-        
-       <?php 
-        include '../DAO/userDAO.php';
-        
-        $result = userDAO::showUsers();
-        
-        if(isset($result)) {
-        $anzahl_spalten = mysqli_num_fields($result);
-        // show table - titles
-        echo "<tr>";
-        for($i = 0; $i < $anzahl_spalten; $i++){
-            $feldinfo = mysqli_fetch_field_direct($result, $i);
-            if ($feldinfo->name === "UID" ) {
-                echo "<th>Löschen</th>";
-            } else {
-                echo "<th>".$feldinfo->name."</th>";
-            }
-        }
-        echo "<tr class='warning no-result'>
-            <td colspan='8'><i class='fa fa-warning'></i> No result</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>";
-
-        //Rest der Tabelle in einer Schleife darstellen
-        while($zeile = mysqli_fetch_assoc($result)){
-             echo "<tr>";
-
-                foreach($zeile as $key => $value) {
-
-                 if ($key === 'UID') {
-                     echo "<td> <a href='deleteUser.php?wert=$value'> Löschen </a> </td>";
-                 } else {
-                     echo "<td>".$value."</td>";
-                 }
-             }
-            echo "</tr>";
-        }
-        echo "</table>";
-
-        $result = null;
-        }
-        ?>
-		<br><br>
-        </tbody>
-    </table></main>
+<main class="page contact-us-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Passwort ändern</h2>
+            </div>
+            <form name="Passwortwechsel" action="changePassword.php" method="POST" onsubmit="return validation()">
+                <div class="form-group"><label>Neues Passwort</label><input class="form-control" type="text" name="newPW" id = "2" maxlength="20"></div>
+                <div class="form-group"><label>Passwort wiederholen</label><input class="form-control" type="text" name="newAgain" id = "3" maxlength="20" ></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Passwort ändern</button></div>
+            </form>
+        </div>
+    </section>
+</main>
 <footer class="page-footer dark">
     <div class="container">
         <div class="row">

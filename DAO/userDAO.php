@@ -18,6 +18,15 @@ class userDAO
 
         self::runQuery($insert);
     }
+
+    public static function changePW($newPW,$UID) {
+        $insert = "UPDATE users.Password
+                   SET '$newPW'
+                   FROM users
+                   WHERE users.UID = '$UID'";
+
+        self::runQuery($insert);
+    }
     
     public static function showUsers() {
         $insert = "SELECT users.School, users.Street, users.Place, users.Postcode, users.email, users.UID
