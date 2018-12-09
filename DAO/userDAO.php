@@ -35,7 +35,7 @@ class userDAO
         self::runQuery($insert);
 
         $insert = "DELETE FROM courses
-                   WHERE users.UID = '$UID'";
+                   WHERE courses.UID = '$UID'";
         
         self::runQuery($insert);
     }
