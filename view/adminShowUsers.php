@@ -77,9 +77,13 @@ include '../header.php';
         echo "<tr>";
         for($i = 0; $i < $anzahl_spalten; $i++){
             $feldinfo = mysqli_fetch_field_direct($result, $i);
-            echo "<th>".$feldinfo->name."</th>";
+            if ($feldinfo->name === "UID" ) {
+                echo "<th>Löschen</th>";
+            } else {
+                echo "<th>".$feldinfo->name."</th>";
+            }
         }
-        echo " <tr class='warning no-result'>
+        echo "<tr class='warning no-result'>
             <td colspan='8'><i class='fa fa-warning'></i> No result</td>
             </tr>
             </thead>
@@ -92,8 +96,8 @@ include '../header.php';
 
                 foreach($zeile as $key => $value) {
 
-                 if ($key === 'Link') {
-                     echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
+                 if ($key === 'UID') {
+                     echo "<td> <a href='deleteUser.php?wert=$value'> Löschen </a> </td>";
                  } else {
                      echo "<td>".$value."</td>";
                  }

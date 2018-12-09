@@ -20,12 +20,19 @@ class userDAO
     }
     
     public static function showUsers() {
-        $insert = "SELECT users.School, users.UID, users.Street, users.Place, users.Postcode, users.email
+        $insert = "SELECT users.School, users.Street, users.Place, users.Postcode, users.email, users.UID
                    FROM users";
         
         $result = self::runQuery($insert);
         
         return $result;
+    }
+
+    public static function delete($UID) {
+        $insert = "DELETE FROM users
+                   WHERE users.UID = '$UID'";
+        
+        self::runQuery($insert);
     }
 
     public static function getID($user)
