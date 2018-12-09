@@ -27,8 +27,8 @@ class Config
     }
 
     private static function loadENV(){        
-        if (isset($_ENV["JAWSDB_URL"])) {
-            $dbopts = parse_url($_ENV["JAWSDB_URL"]);
+        if (isset($_ENV["mysql://ivm1bdn2bi4uux6o:mlxumziv1rkqz7ix@sabaik6fx8he7pua.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/jq7vszrcc65rhjnw"])) {
+            $dbopts = parse_url($_ENV["mysql://ivm1bdn2bi4uux6o:mlxumziv1rkqz7ix@sabaik6fx8he7pua.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/jq7vszrcc65rhjnw"]);
             self::$config["database.user"] = $dbopts["user"];
             self::$config["database.host"] = $dbopts["host"];
             self::$config["database.port"] = $dbopts["port"];

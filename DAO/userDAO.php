@@ -5,7 +5,9 @@
 // include '../header.php';
 include_once 'DB_Connection.php';
 
-Database::connect();
+if (!Database::$connected) {
+    Database::connect();
+}
 
 class userDAO
 {

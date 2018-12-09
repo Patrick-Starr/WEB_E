@@ -1,11 +1,14 @@
 <?php
-$host = 'sabaik6fx8he7pua.chr7pe7iynqr.eu-west-1.rds.amazonaws.com';
-$benutzer="ivm1bdn2bi4uux6o";
-$passwort="mlxumziv1rkqz7ix";
-$dbname="jq7vszrcc65rhjnw";
 
-$link = mysqli_connect($host, $benutzer, $passwort, $dbname) or die(mysqli_error());
-if ($link->connect_error) die("Fatal Error");
+include_once 'DAO/DB_Connection.php';
+if (!Database::$connected) {
+    Database::connect();
+}
+
+
+$link = Database::$cont;
+// $link = mysqli_connect($host, $benutzer, $passwort, $dbname) or die(mysqli_error());
+// if ($link->connect_error) die("Fatal Error");
 
 function createTable($name, $query)
 {
@@ -40,18 +43,6 @@ function sanitizeString($var)
       $var = stripslashes($var);
     return $link->real_escape_string($var);
 }
-
-function showProfile($user)
-{
-    $result = queryMysql("SELECT * FROM users WHERE School='$user'");
-    if ($result->num_rows)
-    {
-        $row = $result->fetch_array(MYSQLI_ASSOC);
-        echo stripslashes($row['text']) . "<br style='clear:left;'><br>";
-    }
-    else echo "<p>Nothing to see here, yet</p><br>";
-}
-
 
 
 ?>
