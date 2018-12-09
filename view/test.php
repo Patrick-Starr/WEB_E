@@ -1,9 +1,8 @@
 <?php
 
 
-include 'PDFfile.php';
-include '../DAO/userDAO.php';
+include "../DAO/Config.php";
 
-PDFcreator::createPDF(1,'Fach hoch schule','kloosfeld', '1111','olten','sojo.nagaroor@gmail.com');
+Config::loadENV();
 
 ?>
