@@ -80,7 +80,7 @@ class EmailServiceClient
             }
           ],
           "from": {
-            "email": "web_e_fhnw@hotmail.com",
+            "email": "noreply@fhnw.ch",
             "name": "StuKu Support"
           },
           "subject": "subject",
