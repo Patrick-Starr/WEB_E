@@ -2,8 +2,11 @@
 include '../header.php';
 include "../DAO/userDAO.php";
 
-$user = S_Session['user'];
-userDAO::changePW($_POST['newPW'], $user);
+$user = $_SESSION['user'];
+$userID = userDAO::getID($user);
+
+
+userDAO::changePW($_POST['newPW'], $userID);
 
 header("location:home.php");
 

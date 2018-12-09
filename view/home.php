@@ -4,8 +4,6 @@
 include '../header.php';
 //include 'checkcourse.php';
 
-
-
 //checkcourse::checkStartDate();
 ?>
 
