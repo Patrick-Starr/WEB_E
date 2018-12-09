@@ -21,9 +21,9 @@ class userDAO
 
     public static function changePW($newPW,$UID) {
         $insert = "UPDATE users.Password
-                   SET '$newPW'
+                   SET $newPW
                    FROM users
-                   WHERE users.UID = '$UID'";
+                   WHERE users.UID = $UID";
 
         self::runQuery($insert);
     }
