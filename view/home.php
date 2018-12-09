@@ -70,7 +70,7 @@ include '../header.php';
         <thead>
         
        <?php 
-        include '../DAO/CoursesDAO.php';
+         include '../DAO/CoursesDAO.php';
         
         $result = Courses::readALL();
         

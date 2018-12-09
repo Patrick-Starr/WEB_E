@@ -65,6 +65,24 @@ class userDAO
         
         return $num;
     }
+    
+    public static function getSchool($UID)
+    {
+        $insert = "SELECT users.School
+                   FROM users
+                   WHERE UID = '$UID'";
+        
+        $result = self::runQuery($insert);
+        
+        $school = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $school = $value;
+            }
+        }
+        
+        return $school;
+    }
  
     public static function getUser($mail)
     {
