@@ -82,8 +82,8 @@ if(isset($_POST['submit'])){
                 <p>Registrieren Sie sich noch heute und präsentieren Sie Ihre Kurse einem breiten Publikum!</p>
             </div>
             <form method = "post">
-                <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" name="name"></div>
-                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="email"></div><button class="btn btn-primary btn-block" name = "submit" type="submit">Sign Up</button></form>
+                <div class="form-group"><label for="name">Schule</label><input class="form-control item" type="text" name="name"></div>
+                <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="email"></div><button class="btn btn-primary btn-block" name = "submit" type="submit">Anfrage senden</button></form>
         </div>
     </section>
 </main>
