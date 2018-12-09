@@ -33,6 +33,11 @@ class userDAO
                    WHERE users.UID = '$UID'";
         
         self::runQuery($insert);
+
+        $insert = "DELETE FROM courses
+                   WHERE users.UID = '$UID'";
+        
+        self::runQuery($insert);
     }
 
     public static function getID($user)
