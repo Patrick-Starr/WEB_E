@@ -3,6 +3,7 @@
 
 include "../DAO/Config.php";
 
-Config::loadENV();
+
+echo Config::get("database.user");
 
 ?>
