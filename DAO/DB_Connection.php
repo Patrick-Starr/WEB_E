@@ -3,7 +3,7 @@ include "Config.php";
 
 class Database
 {
-    public static $connected = false;
+    public static $connected;
     // initialize the DB - Usage
     public static $cont = null;
 
