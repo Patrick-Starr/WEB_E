@@ -4,7 +4,7 @@
 
 include_once '../header.php';
 include_once '../DAO/EmailServiceClient.php';
-//include_once '../DAO/userDAO.php';
+include_once '../DAO/userDAO.php';
 
 if(isset($_POST['submit'])){
 if (!empty($_POST["email"])) {
@@ -27,9 +27,10 @@ class lostPassword{
     {
         $mail = @$_POST['email'];
         $newpassword = self::randomPassword();
+        $hnewpassword = md5($newpassword);
         EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
 
-        userDAO::updatePassword($mail,$newpassword);
+        userDAO::updatePassword($mail,$hnewpassword);
         header("location: home.php");
         echo "<script type='text/javascript'>alert('Ihr Passwort wurde zurückgesetzt');</script>";
 
@@ -76,7 +77,7 @@ class lostPassword{
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-               <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
+               <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'Admin'){ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="admin.php">Schule hinzufügen</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="adminShowUsers.php">Schulen anzeigen</a></li>

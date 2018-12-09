@@ -65,6 +65,23 @@ class userDAO
         
         return $num;
     }
+ 
+    public static function getUser($mail)
+    {
+        $insert = "SELECT users.School
+                   FROM users
+                   WHERE email = '$mail'";
+        
+        $result = self::runQuery($insert);
+        
+        $user = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $user = $value;
+            }
+        }
+        return $user;
+    }
     
     public static function getPlace($user)
     {

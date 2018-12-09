@@ -4,30 +4,36 @@
 <?php // login.php
 
 include_once '../header.php';
+include '../DAO/userDAO.php';
 
 // echo "<div class='main'><h3>Please enter your details to log in</h3>";
 
 $error = $user = $pass = "";
-if (isset($_POST['user']))
+if (isset($_POST['mail']))
 {
-    $user = sanitizeString($_POST['user']);
+    // username per email
+    $email = sanitizeString($_POST['mail']);
+    $user = userDAO::getUser($email);
     $pass = sanitizeString($_POST['pass']);
-    if ($user == "" || $pass == "")
+    $hpass = md5($pass);
+    
+    if ($email == "" || $pass == "")
     {
         $error = "Not all fields were entered<br />";
     }
     else
     {
-        $result = queryMySQL("SELECT school,password FROM users
-        WHERE School='$user' AND Password='$pass'");
-
+        
+        $result = queryMySQL("SELECT users.Password FROM users
+        WHERE email='$email' AND Password='$hpass'");
+        
+        
         if ($result->num_rows == 0)
         {
             $error = "Invalid login attempt";
         }
         else
         {
-            $pass = md5($pass);
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
             //password_hash('pass', PASSWORD_DEFAULT);
@@ -68,7 +74,7 @@ if (isset($_POST['user']))
         <div class="collapse navbar-collapse"
              id="navcol-1">
           <ul class="nav navbar-nav ml-auto">
-                    <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="admin.php">Schule hinzufügen</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="adminShowUsers.php">Schulen anzeigen</a></li>
@@ -102,7 +108,7 @@ if (isset($_POST['user']))
                 <h2 class="text-info">Login</h2>
             </div>
             <form method="post">
-                <div class="form-group"><label for="email">Email</label><input name="user" class="form-control item" type="text" id="user"></div>
+                <div class="form-group"><label for="email">Email</label><input name="mail" class="form-control item" type="text" id="user"></div>
                 <div class="form-group"><label for="password">Passwort</label><input name="pass" class="form-control" type="password" id="password"></div>
                 <div class="form-group">
                     <div><a href = "lostPassword.php">Passwort vergessen</div>
