@@ -71,7 +71,7 @@ include '../header.php';
         $result = Courses::readALL();
         
         if(isset($result)) {
-        $anzahl_spalten = mysqli_num_fields($result); 
+        $anzahl_spalten = mysqli_num_fields($result);
         // show table - titles
         echo "<tr>";
         for($i = 0; $i < $anzahl_spalten; $i++){
@@ -95,18 +95,19 @@ include '../header.php';
             </thead>
             <tbody>
             <tr>";
-        
+
         //Rest der Tabelle in einer Schleife darstellen
         while($zeile = mysqli_fetch_assoc($result)){
              echo "<tr>";
-             while (list($key, $value) = each($zeile)){
-                 
+
+                foreach($zeile as $key => $value) {
+
                  if ($key === 'Link') {
                      echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
                  } else {
                      echo "<td>".$value."</td>";
                  }
-             }   
+             }
             echo "</tr>";
         }
         echo "</table>";

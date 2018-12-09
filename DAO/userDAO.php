@@ -12,14 +12,14 @@ if (!Database::$connected) {
 class userDAO
 {
 
-    public function create($name, $strasse, $ort, $plz, $email, $passwort) {
+    public static function create($name, $strasse, $ort, $plz, $email, $passwort) {
         $insert = "INSERT INTO users (UID, School, Street, Place, Postcode, email, Password)".
             " VALUES (NULL, '$name', '$strasse', '$ort', '$plz', '$email', '$passwort')";
 
         self::runQuery($insert);
     }
 
-    public function getID($user)
+    public static function getID($user)
     {
         $insert = "SELECT users.UID
                    FROM users
@@ -37,7 +37,7 @@ class userDAO
         return $num;
     }
     
-    public function getPlace($user)
+    public static function getPlace($user)
     {
         $insert = "SELECT users.Place
                    FROM users
@@ -55,7 +55,7 @@ class userDAO
         return $str;
     }
 
-    public function updatePassword($email,$password)
+    public static function updatePassword($email,$password)
     {
         $insert = "UPDATE users
                    set Password = '$password'
@@ -74,7 +74,7 @@ class userDAO
     }
 
 
-    public function getEmail($user)
+    public static function getEmail($user)
     {
         $insert = "SELECT users.email
                    FROM users
@@ -92,7 +92,7 @@ class userDAO
         return $str;
     }
 
-    public function getPostcode($user)
+    public static function getPostcode($user)
     {
         $insert = "SELECT users.Postcode
                    FROM users
@@ -110,7 +110,7 @@ class userDAO
         return $str;
     }
 
-    public function getStreet($user)
+    public static function getStreet($user)
     {
         $insert = "SELECT users.Street
                    FROM users
@@ -129,7 +129,7 @@ class userDAO
     }
 
 
-    public function runQuery($query) {
+    public static function runQuery($query) {
         //mysqli_select_db(Database::$cont, Database::$dbName);
         
         mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // Umlaute richtig darstellen

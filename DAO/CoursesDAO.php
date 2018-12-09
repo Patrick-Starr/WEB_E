@@ -27,7 +27,7 @@ class Courses {
     /*
      *  $date delivers the actual date
      */
-    public function create($UID, $course, $link, $duration, $start, $end, $form, $place) {
+    public static function create($UID, $course, $link, $duration, $start, $end, $form, $place) {
         /*
          * get creation-date
          * Set timezone to safe the creation date of a new course
@@ -47,7 +47,7 @@ class Courses {
      * Get searched querys from sql
      * readAll = get all data from Database except UID
      */
-    public function readAll() {
+    public static function readAll() {
 
         $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.End, courses.Link
                    FROM users
@@ -61,7 +61,7 @@ class Courses {
     /*
      * readSearched = get all chosen data from Database (chosen from Dropdown)
      */
-    public function readSearched($sSchool, $sDuration, $sPlace, $sForm) {
+    public static function readSearched($sSchool, $sDuration, $sPlace, $sForm) {
         $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.Link
                    FROM users
                    JOIN courses
@@ -79,7 +79,7 @@ class Courses {
     /*
      * get Courses by CID
      */
-    public function readCID($CID) {
+    public static function readCID($CID) {
         $insert = "SELECT courses.Course, courses.Place, courses.Link, courses.Start, courses.End, courses.Form, courses.Duration
                    FROM courses
                    WHERE courses.CID = $CID";
@@ -91,7 +91,7 @@ class Courses {
     /*
      * readMy = get only the courses from the logged in user
      */
-    public function readMy($myUID) {
+    public static function readMy($myUID) {
         $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.End, courses.Link
                    FROM users
                    INNER JOIN courses
@@ -103,7 +103,7 @@ class Courses {
         return $result;
     }
 
-    public function readMyEndDate($myUID) {
+    public static function readMyEndDate($myUID) {
         $insert = "SELECT  courses.End
                    FROM users
                    INNER JOIN courses
@@ -116,7 +116,7 @@ class Courses {
     }
 
     // UPDATE
-    public function update($uCID, $uCourse, $uLink, $uDuration, $uStart, $uEnd, $uForm, $uPlace) {
+    public static function update($uCID, $uCourse, $uLink, $uDuration, $uStart, $uEnd, $uForm, $uPlace) {
         $comma = false; //boolean
         $insert = "UPDATE courses SET ";
         
@@ -162,7 +162,7 @@ class Courses {
     }
 
     // DELETE
-    public function delete($dCID) {
+    public static function delete($dCID) {
         $insert = "DELETE FROM courses
                    WHERE courses.CID = $dCID";
         
@@ -172,7 +172,7 @@ class Courses {
     /*
      * Get the CourseID
      */
-    public function getCID($UID, $Course, $Form) {
+    public static function getCID($UID, $Course, $Form) {
         $insert = "SELECT courses.CID
                    FROM courses
                    WHERE courses.UID = '$UID'
@@ -193,7 +193,7 @@ class Courses {
     /*
      * Get the Date where the last signings for the course are possible
      */
-    public function getEndDate($UID, $CID) {
+    public static function getEndDate($UID, $CID) {
         $insert = "SELECT courses.End
                    FROM courses
                    WHERE courses.UID = '$UID'
@@ -213,7 +213,7 @@ class Courses {
     /*
      * Runs the queries from above                                  -       CLOSE THE CONNECTION IN DB_Connection.php per Session!!!
      */
-    public function runQuery($query) {
+    public static function runQuery($query) {
         //mysqli_select_db(Database::$cont, Database::$dbName);
         
         mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
