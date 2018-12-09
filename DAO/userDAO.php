@@ -7,7 +7,6 @@ include_once 'DB_Connection.php';
 
 if (!isset(Database::$cont)) {
     Database::connect();
-    echo "user";
 }
 
 class userDAO
@@ -18,6 +17,15 @@ class userDAO
             " VALUES (NULL, '$name', '$strasse', '$ort', '$plz', '$email', '$passwort')";
 
         self::runQuery($insert);
+    }
+    
+    public static function showUsers() {
+        $insert = "SELECT users.School, users.UID, users.Street, users.Place, users.Postcode, users.email
+                   FROM users";
+        
+        $result = self::runQuery($insert);
+        
+        return $result;
     }
 
     public static function getID($user)
@@ -64,14 +72,6 @@ class userDAO
 
         $result = self::runQuery($insert);
         return $result;
-/*        $num = null;
-        while($zeile = mysqli_fetch_assoc($result)) {
-            while (list ($key, $value) = each($zeile)) {
-                $num = $value;
-            }
-        }
-
-        return $num;*/
     }
 
 

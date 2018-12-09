@@ -3,7 +3,6 @@
 include_once 'DAO/DB_Connection.php';
 if (!isset(Database::$cont)) {
     Database::connect();
-    echo "function";
 }
 
 

@@ -45,9 +45,10 @@ if(isset($_POST['submit'])){
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
+                 <?php if(isset($_SESSION['user']) && $_SESSION['user']=== 'admin'){ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="admin.php">Schule hinzufügen</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="adminShowUsers.php">Schulen anzeigen</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></li>
                 <?php } else if(isset($_SESSION['user'])){ ?>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="home.php">Home</a></li>
