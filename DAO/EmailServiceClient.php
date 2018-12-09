@@ -33,12 +33,14 @@ class EmailServiceClient
         $mail->addPersonalization($p);
         $mail->addContent($c);
 
-        $att1 = new \SendGrid\Attachment();
-        $att1->setContent( base64_encode( file_get_contents("$pfad") ));
-        $att1->setType("application/pdf");
-        $att1->setFilename("Rechnung");
-        $att1->setDisposition("attachment");
-        $mail->addAttachment( $att1 );
+        if (isset($pfad)) {
+            $att1 = new \SendGrid\Attachment();
+            $att1->setContent(base64_encode(file_get_contents("$pfad")));
+            $att1->setType("application/pdf");
+            $att1->setFilename("Rechnung");
+            $att1->setDisposition("attachment");
+            $mail->addAttachment($att1);
+        }
 
         $response = $sg->client->mail()->send()->post($mail);
 

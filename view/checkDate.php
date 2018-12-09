@@ -27,7 +27,7 @@ class checkDate
                 $toEmail = "patrick.zioerjen@students.fhnw.ch";
                 $subject = "StuKu Anmeldeschluss";
                 $htmlData = "Die Anmeldefrist Ihres Kurses: " . $name . " ist abgelaufen. Der Kurs wurde aus der Liste gelöscht";
-                EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+                EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData, null);
 
 //                 $update = $mysqli_query->prepare("DELETE FROM courses WHERE courses.CID = ?");
 //                 $update->bind_param('i', $CID);
