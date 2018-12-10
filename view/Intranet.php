@@ -57,6 +57,7 @@ include '../header.php';
 </nav>
 <main>
     	<br><br><br><br>
+    	<?php echo session_id();?>
         <h1>Meine Kurse</h1>
         
     </div><div class="form-group pull-right">
