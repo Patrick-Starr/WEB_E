@@ -9,7 +9,7 @@ include '../DAO/EmailServiceClient.php';
 
     $user = $_SESSION['user'];
     $ID = userDAO::getID($user);
-    $street = userDAO::getPlace($user);
+    $street = userDAO::getStreet($user);
     $postcode = userDAO::getPostcode($user);
     $place = userDAO::getPlace($user);
     $email = userDAO::getEmail($user);
