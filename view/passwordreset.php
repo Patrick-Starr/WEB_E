@@ -1,7 +1,3 @@
-<html>
-
-
-
 <?php
 
 function passwordreset(){
@@ -31,6 +27,3 @@ function randomPassword() {
 
 
 ?>
-
-
-</html>
