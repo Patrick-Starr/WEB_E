@@ -25,8 +25,9 @@ class lostPassword{
         EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
 
         userDAO::updatePassword($mail,$hnewpassword);
-        header("location: home.php");
         echo "<script type='text/javascript'>alert('Ihr Passwort wurde zurückgesetzt');</script>";
+        header("location: home.php");
+
 
 }
     }
