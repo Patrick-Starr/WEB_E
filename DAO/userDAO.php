@@ -148,6 +148,27 @@ class userDAO
         return $str;
     }
 
+    public static function getAllMails()
+    {
+        $insert = "SELECT users.email
+                   FROM users";
+
+        $result = self::runQuery($insert);
+        
+        $string = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                if ($string === null) {
+                    $string = $value;
+                } else {
+                    $string .= "?".$value;
+                }
+            }
+        }
+
+        return $string;
+    }
+
     public static function getPostcode($user)
     {
         $insert = "SELECT users.Postcode
