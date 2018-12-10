@@ -26,15 +26,18 @@ echo "<br/>";
 echo "<br/>";
 echo "3";
 try {
-    $length = count($mailArray)-1;
+    $length = count($mailArray);
     for ($i = 0; $i < $length; $i++) {
         if ("admin@fhnw.ch" === $mailArray[$i]){
-            echo "FOCKEN WORKS";
+            echo "FOCKEN WORKS<br/>";
+            $bool = true;
+            break;
         } else {
-            echo "still not";
+            echo "still not<br/>";
         }
     }
-echo $c;
+    var_dump($bool);
+    
 } catch (Exception $e) {
     echo "c";
 }
