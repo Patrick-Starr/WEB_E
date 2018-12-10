@@ -11,7 +11,10 @@ if (!isset(Database::$cont)) {
 
 class userDAO
 {
-
+    
+    /*
+     *  creates a new course
+     */
     public static function create($name, $strasse, $ort, $plz, $email, $passwort) {
         $insert = "INSERT INTO users (UID, School, Street, Place, Postcode, email, Password)".
             " VALUES (NULL, '$name', '$strasse', '$ort', '$plz', '$email', '$passwort')";
@@ -19,6 +22,9 @@ class userDAO
         self::runQuery($insert);
     }
 
+    /*
+     *  changes password by User ID
+     */
     public static function changePW($newPW,$UID) {
         $insert = "UPDATE users 
                    set users.Password = '$newPW'
@@ -27,6 +33,9 @@ class userDAO
         self::runQuery($insert);
     }
     
+    /*
+     *  returns all Users of the website
+     */
     public static function showUsers() {
         $insert = "SELECT users.School, users.Street, users.Place, users.Postcode, users.email, users.UID
                    FROM users";
@@ -36,6 +45,9 @@ class userDAO
         return $result;
     }
 
+    /*
+     *  deletes all data connected to User ID
+     */
     public static function delete($UID) {
         $insert = "DELETE FROM users
                    WHERE users.UID = '$UID'";
@@ -48,6 +60,9 @@ class userDAO
         self::runQuery($insert);
     }
 
+    /*
+     *  returns the ID of a specific user
+     */
     public static function getID($user)
     {
         $insert = "SELECT users.UID
@@ -66,6 +81,9 @@ class userDAO
         return $num;
     }
     
+    /*
+     *  returns the name of the school (user)
+     */
     public static function getSchool($UID)
     {
         $insert = "SELECT users.School
@@ -84,6 +102,9 @@ class userDAO
         return $school;
     }
  
+    /*
+     *  returns the user by mail
+     */
     public static function getUser($mail)
     {
         $insert = "SELECT users.School
@@ -101,6 +122,9 @@ class userDAO
         return $user;
     }
     
+    /*
+     *  returns the Place (location of the real building) of a user
+     */
     public static function getPlace($user)
     {
         $insert = "SELECT users.Place
@@ -119,6 +143,9 @@ class userDAO
         return $str;
     }
 
+    /*
+     *  updates the old password with a new one
+     */
     public static function updatePassword($email,$password)
     {
         $insert = "UPDATE users
@@ -129,7 +156,9 @@ class userDAO
         return $result;
     }
 
-
+    /*
+     *  return the mail adress of a user
+     */
     public static function getEmail($user)
     {
         $insert = "SELECT users.email
@@ -148,6 +177,9 @@ class userDAO
         return $str;
     }
 
+    /*
+     *  returns all mail adresses of all users in a string separated by '?'
+     */
     public static function getAllMails()
     {
         $insert = "SELECT users.email
@@ -169,6 +201,9 @@ class userDAO
         return $string;
     }
 
+    /*
+     * returns the postal code of a user
+     */
     public static function getPostcode($user)
     {
         $insert = "SELECT users.Postcode
@@ -187,6 +222,9 @@ class userDAO
         return $str;
     }
 
+    /*
+     *  returns the street of a user
+     */
     public static function getStreet($user)
     {
         $insert = "SELECT users.Street
@@ -205,11 +243,11 @@ class userDAO
         return $str;
     }
 
-
+    /*
+     *  executes the queries from above
+     */
     public static function runQuery($query) {
-        //mysqli_select_db(Database::$cont, Database::$dbName);
-        
-        mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
+        mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // represent umlauts correctly
         // stripslashes() removes all syntax signs like \ or "
         $result = mysqli_query(Database::$cont, stripslashes($query)) or die(mysqli_error(Database::$cont));
         return $result;
@@ -218,6 +256,3 @@ class userDAO
 }
 
 ?>
-
-<!-- Good help here! -->
-<!-- https://www.startutorial.com/articles/view/php-crud-tutorial-part-1 -->

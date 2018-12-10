@@ -1,8 +1,4 @@
-<!-- Use CRUD - create read update delete  -->
-
-<!-- Code fragments used from https://www.startutorial.com/articles/view/php-crud-tutorial-part-1 -->
-
-<!-- These File contains CRUD-Functions -->
+<!-- This file contains CRUD-Functions -->
 <!-- create(param); -->
 <!-- readALL(); return table-->
 <!-- readCID(param); return table -->
@@ -12,6 +8,7 @@
 <!-- delete(param); -->
 <!-- getCID(param); returnInt -->
 <!-- getEndDate(param); returnDate AS String -->
+<!-- and some others .. -->
 
 <?php
 
@@ -89,7 +86,7 @@ class Courses {
     }
     
     /*
-     * readMy = get only the courses from the logged in user
+     * readMy = get only the courses from the logged user which is logged in
      */
     public static function readMy($myUID) {
         $insert = "SELECT users.School, courses.Course, courses.Duration, courses.Place, courses.Form, courses.Start, courses.End, courses.Link
@@ -102,7 +99,10 @@ class Courses {
         $result = self::runQuery($insert);
         return $result;
     }
-
+    
+    /*
+     *  returns the Date (End) at which the last signings are possible.
+     */
     public static function readMyEndDate($myUID) {
         $insert = "SELECT  courses.End
                    FROM users
@@ -114,8 +114,51 @@ class Courses {
         $result = self::runQuery($insert);
         return $result;
     }
+    
+    /*
+     *  returns the name of the course by CourseID
+     */
+    public static function getCourseName($CID) {
+        $insert = "SELECT courses.Course
+                   FROM courses
+                   WHERE courses.CID = '$CID'";
+        
+        $result = self::runQuery($insert);
+        
+        $CourseName = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $CourseName = $value;
+            }
+        }
+        return $CourseName;
+    }
 
+    /*
+     * Get the CourseID
+     */
+    public static function getCID($UID, $Course, $Form) {
+        $insert = "SELECT courses.CID
+                   FROM courses
+                   WHERE courses.UID = '$UID'
+                   AND courses.Course = '$Course'
+                   AND courses.Form = '$Form'";
+        
+        $result = self::runQuery($insert);
+        
+        $num = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $num = $value;
+            }
+        }
+        return $num;
+    }
+    
     // UPDATE
+    /*
+     *  updates the whole course 
+     */
     public static function update($uCID, $uCourse, $uLink, $uDuration, $uStart, $uEnd, $uForm, $uPlace) {
         $comma = false; //boolean
         $insert = "UPDATE courses SET ";
@@ -162,6 +205,9 @@ class Courses {
     }
 
     // DELETE
+    /*
+     *  deletes course by CourseID (CID)
+     */
     public static function delete($dCID) {
         $insert = "DELETE FROM courses
                    WHERE courses.CID = $dCID";
@@ -169,26 +215,6 @@ class Courses {
         self::runQuery($insert);
     }
     
-    /*
-     * Get the CourseID
-     */
-    public static function getCID($UID, $Course, $Form) {
-        $insert = "SELECT courses.CID
-                   FROM courses
-                   WHERE courses.UID = '$UID'
-                   AND courses.Course = '$Course'
-                   AND courses.Form = '$Form'";
-        
-        $result = self::runQuery($insert);
-        
-        $num = null;
-        while($zeile = mysqli_fetch_assoc($result)) {
-            while (list ($key, $value) = each($zeile)) {
-                $num = $value;
-            }
-        }
-        return $num;
-    }
     
     /*
      * Get the Date where the last signings for the course are possible
@@ -210,29 +236,12 @@ class Courses {
         return $date;
     }
 
-    public static function getCourseName($CID) {
-        $insert = "SELECT courses.Course
-                   FROM courses
-                   WHERE courses.CID = '$CID'";
-        
-        $result = self::runQuery($insert);
-        
-        $CourseName = null;
-        while($zeile = mysqli_fetch_assoc($result)) {
-            while (list ($key, $value) = each($zeile)) {
-                $CourseName = $value;
-            }
-        }
-        return $CourseName;
-    }
-    
+    // EXECUTE QUERIES
     /*
-     * Runs the queries from above                                  -       CLOSE THE CONNECTION IN DB_Connection.php per Session!!!
+     * Runs the queries from above
      */
     public static function runQuery($query) {
-        //mysqli_select_db(Database::$cont, Database::$dbName);
-        
-        mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // Umlaute richtig darstellen
+        mysqli_query(Database::$cont, "SET NAMES 'utf8'"); // represent Umlauts correctly
         // stripslashes() removes all syntax signs like \ or "
         $result = mysqli_query(Database::$cont, stripslashes($query)) or die(mysqli_error(Database::$cont));
         
@@ -242,4 +251,3 @@ class Courses {
 }
 
 ?>
-    

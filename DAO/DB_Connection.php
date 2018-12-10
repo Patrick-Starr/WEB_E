@@ -12,6 +12,10 @@ class Database
         die('Init function is not allowed');
     }
 
+    /*
+     *  connects to mysql database
+     *  gets information over Config.php for the DB-Connection
+     */
     public static function connect()
     {   
         $connected = true;
@@ -22,7 +26,6 @@ class Database
         // One connection through whole application
         if (null == self::$cont) {
             try {
-//                 self::$cont = mysqli_connect("sabaik6fx8he7pua.chr7pe7iynqr.eu-west-1.rds.amazonaws.com", "ivm1bdn2bi4uux6o", "mlxumziv1rkqz7ix", "jq7vszrcc65rhjnw");
                 self::$cont = mysqli_connect($dbHost, $dbUsername, $dbUserPassword, $dbName);
             } catch (Exception $e) {
                 die($e->getMessage());

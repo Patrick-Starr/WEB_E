@@ -7,6 +7,9 @@ class Config
     protected static $iniFile = "DAO/config.env";
     protected static $config = [];
 
+    /*
+     *  initializes the config.env file if not allready available
+     */
     public static function init()
     {
         if (file_exists(self::$iniFile)) {
@@ -18,6 +21,9 @@ class Config
         }
     }
 
+    /*
+     *  get strings from config - file
+     */
     public static function get($key)
     {   
         if (empty(self::$config)){
@@ -26,6 +32,9 @@ class Config
         return self::$config[$key];
     }
 
+    /*
+     *  creates a new ENV file with data from jawsDB link
+     */
     private static function loadENV(){        
         if (isset($_ENV["JAWSDB_URL"])) {
             $dbopts = parse_url($_ENV["JAWSDB_URL"]);
