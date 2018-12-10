@@ -3,23 +3,27 @@
 <?php
 include '../header.php';
 include_once '../DAO/EmailServiceClient.php';
-
-include 'tester.php';
-
-if(isset($_POST['submit'])){
-
-    if(($_POST['name'] =="" or $_POST['subject']=="" or $_POST['text']=" " or $_POST['email']="")){
-
-//         echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
-        
-        Test::tst($_POST['subject'],$_POST['name'],$_POST['text'],$_POST['email']);
-
-    } else {
-        EmailServiceClient::sendEmail('deran.surdez@students.fhnw.ch', 'Kontact von ' . $_POST['name'], 'Name: ' . $_POST['name'] . "<br>" . 'Subject: ' . $_POST['subject'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>" . 'Anliegen: ' . $_POST['text']);
-    }
-}
-
 ?>
+
+<script>
+   function validation() {
+	   if (document.getElementById("name").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+	   } else if (document.getElementById("email").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+	   } else if (document.getElementById("subject").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+	   } else if (document.getElementById("text").value === ""){
+           alert("Bitte füllen Sie das Formular komplett aus!");
+           return false;
+       } else {
+           return true;
+       }
+   }
+</script>
 
 <html>
 
@@ -79,11 +83,11 @@ if(isset($_POST['submit'])){
                 <h2 class="text-info">Kontaktieren Sie uns</h2>
                 <p>Bei Fragen kontaktieren Sie uns unkompliziert über dieses Kontaktformular</p>
             </div>
-            <form method = "post">
-                <div class="form-group"><label>Name</label><input class="form-control" name = "name" type="text"></div>
-                <div class="form-group"><label>Anliegen</label><input class="form-control" name = "subject" type="text"></div>
-                <div class="form-group"><label>Emailadresse</label><input class="form-control" name = "email" type="email"></div>
-                <div class="form-group"><label>Mitteilung</label><textarea name = "text" class="form-control"></textarea></div>
+            <form name="Kontakt" action="sendcontact.php" method="POST" onsubmit="return validation()">
+                <div class="form-group"><label>Name</label><input class="form-control" name = "name" type="text" id="name"></div>
+                <div class="form-group"><label>Anliegen</label><input class="form-control" name = "subject" type="text" id="subject"></div>
+                <div class="form-group"><label>Emailadresse</label><input class="form-control" name = "email" type="email" id="email"></div>
+                <div class="form-group"><label>Mitteilung</label><textarea name = "text" class="form-control" id="text"></textarea></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" name = "submit" type="submit">Senden</button></div>
             </form>
         </div>
