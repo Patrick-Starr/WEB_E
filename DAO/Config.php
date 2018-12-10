@@ -27,8 +27,8 @@ class Config
     }
 
     private static function loadENV(){        
-        if (isset($_ENV["https://dashboard.jawsdb.com/mysql/dashboard"])) {
-            $dbopts = parse_url($_ENV["https://dashboard.jawsdb.com/mysql/dashboard"]);
+        if (isset($_ENV["JAWSDB_URL"])) {
+            $dbopts = parse_url($_ENV["JAWSDB_URL"]);
             self::$config["database.user"] = $dbopts["user"];
             self::$config["database.host"] = $dbopts["host"];
             self::$config["database.port"] = $dbopts["port"];
