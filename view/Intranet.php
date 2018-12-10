@@ -108,8 +108,19 @@ include '../header.php';
                 $F = $zeile['Form'];
                 if ($key === 'Link') {
                     echo "<td> <a href=" . $value . "> Link zum Kurs </a> </td>";
-                }
-                else if ($key === 'Course') {
+                } else if ($key === 'Start' || $key === 'End') {
+                    $date = null;
+                    $newDate = null;
+                    $date = explode("-", $value);
+                    for($i = (count($date)-1); $i >= 0; $i--) {
+                        if ($newDate === null) {
+                            $newDate = $date[$i];
+                        } else {
+                            $newDate .= ".".$date[$i];
+                        }
+                    }
+                    echo "<td>".$newDate."</td>";
+                } else if ($key === 'Course') {
                     $ID = userDAO::getID($user);
                     $usedCID = Courses::getCID($ID, $value, $F);
                     

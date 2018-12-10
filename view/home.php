@@ -102,8 +102,19 @@ include '../header.php';
              echo "<tr>";
 
                 foreach($zeile as $key => $value) {
-
-                 if ($key === 'Link') {
+                 if ($key === 'Start' || $key === 'End') {
+                     $date = null;
+                     $newDate = null;
+                     $date = explode("-", $value);
+                     for($i = (count($date)-1); $i >= 0; $i--) {
+                         if ($newDate === null) {
+                             $newDate = $date[$i];
+                         } else {
+                            $newDate .= ".".$date[$i];
+                         }
+                     }
+                     echo "<td>".$newDate."</td>";
+                 } else if ($key === 'Link') {
                      echo "<td> <a href=".$value."> Link zum Kurs </a> </td>";
                  } else {
                      echo "<td>".$value."</td>";
