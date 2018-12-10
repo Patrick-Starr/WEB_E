@@ -7,19 +7,15 @@ include_once '../DAO/EmailServiceClient.php';
 include_once '../DAO/userDAO.php';
 
 if(isset($_POST['submit'])){
-if (!empty($_POST["email"])) {
+    if (! empty($_POST["email"])) {
 
-    lostPassword::reset();
-} else{
+        lostPassword::reset();
+    } else {
 
-    echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
-
-}
+        echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+    }
 }
 class lostPassword{
-
-
-
 
     public  static function reset(){
 
@@ -36,8 +32,6 @@ class lostPassword{
 
 }
     }
-
-       // exit(header("Location: Home.php"));
 
    public static function randomPassword() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';

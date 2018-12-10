@@ -171,5 +171,5 @@ if(isset($_SESSION['user'])){
 <script src="assets/js/Table-with-search.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
-<?php } ?>
+<?php } else { echo "Dazu haben Sie keine Berechtigung"; }  ?>
 </html>

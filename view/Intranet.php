@@ -124,7 +124,7 @@ include '../header.php';
 
         $result = null;
         }
-        }
+        } else { echo "Dazu haben Sie keine Berechtigung"; } 
         ?>
 		<br><br>
         </tbody>

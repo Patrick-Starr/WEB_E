@@ -143,7 +143,7 @@ include '../header.php';
 <script src="assets/js/smoothproducts.min.js"></script>
 <script src="assets/js/Table-with-search.js"></script>
 <script src="assets/js/theme.js"></script>
- <?php } ?>
+ <?php } else { echo "Dazu haben Sie keine Berechtigung"; } ?>
 </body>
 
 </html>
