@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
                 <div class="form-group"><label>Anliegen</label><input class="form-control" name = "subject" type="text"></div>
                 <div class="form-group"><label>Emailadresse</label><input class="form-control" name = "email" type="email"></div>
                 <div class="form-group"><label>Mitteilung</label><textarea name = "text" class="form-control"></textarea></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" name = "submit" type="submit">Send</button></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" name = "submit" type="submit">Senden</button></div>
             </form>
         </div>
     </section>

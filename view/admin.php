@@ -24,7 +24,7 @@ include_once '../header.php';
        } else if(document.getElementById("email").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
-       } else if(document.getElementById("passwort").value === ""){
+       } else if(document.getElementById("password").value === ""){
            alert("Bitte füllen Sie das Formular komplett aus!");
            return false;
        } else {
