@@ -8,7 +8,6 @@ include_once '../DAO/userDAO.php';
 
 if(isset($_POST['submit'])){
     if (! empty($_POST["email"])) {
-
         lostPassword::reset();
     } else {
 
@@ -18,13 +17,12 @@ if(isset($_POST['submit'])){
 class lostPassword{
 
     public  static function reset(){
-
         if(isset($_POST['submit']))
     {
         $mail = @$_POST['email'];
         $newpassword = self::randomPassword();
         $hnewpassword = md5($newpassword);
-        EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
+        EmailServiceClient::sendEmail($mail, "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
 
         userDAO::updatePassword($mail,$hnewpassword);
         header("location: home.php");
@@ -33,16 +31,17 @@ class lostPassword{
 }
     }
 
-   public static function randomPassword() {
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-    $pass = array(); //remember to declare $pass as an array
-    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < 8; $i++) {
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
+   public static function randomPassword()
+    {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array(); // remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; // put the length -1 in cache
+        for ($i = 0; $i < 8; $i ++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); // turn the array into a string
     }
-    return implode($pass); //turn the array into a string
-}
 }
 ?>
 <html>

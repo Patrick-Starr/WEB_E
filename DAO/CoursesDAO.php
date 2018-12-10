@@ -209,6 +209,22 @@ class Courses {
         }
         return $date;
     }
+
+    public static function getCourseName($CID) {
+        $insert = "SELECT courses.Course
+                   FROM courses
+                   WHERE courses.CID = '$CID'";
+        
+        $result = self::runQuery($insert);
+        
+        $CourseName = null;
+        while($zeile = mysqli_fetch_assoc($result)) {
+            while (list ($key, $value) = each($zeile)) {
+                $CourseName = $value;
+            }
+        }
+        return $CourseName;
+    }
     
     /*
      * Runs the queries from above                                  -       CLOSE THE CONNECTION IN DB_Connection.php per Session!!!
