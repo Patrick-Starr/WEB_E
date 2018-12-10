@@ -4,16 +4,18 @@
 include '../header.php';
 include_once '../DAO/EmailServiceClient.php';
 
+include 'tester.php';
+
 if(isset($_POST['submit'])){
 
     if(($_POST['name'] =="" or $_POST['subject']=="" or $_POST['text']=" " or $_POST['email']="")){
 
-        echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+//         echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+        
+        Test::tst($_POST['subject'],$_POST['name'],$_POST['text'],$_POST['email']);
 
-    }else {
-
-
-        EmailServiceClient::sendEmail('deran.surdez@students.fhnw.ch', 'Contact von ' . $_POST['name'], 'Name: ' . $_POST['name'] . "<br>" . 'Subject: ' . $_POST['subject'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>" . 'Anliegen: ' . $_POST['text']);
+    } else {
+        EmailServiceClient::sendEmail('deran.surdez@students.fhnw.ch', 'Kontact von ' . $_POST['name'], 'Name: ' . $_POST['name'] . "<br>" . 'Subject: ' . $_POST['subject'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>" . 'Anliegen: ' . $_POST['text']);
     }
 }
 
