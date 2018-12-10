@@ -20,10 +20,6 @@ include '../DAO/EmailServiceClient.php';
     EmailServiceClient::sendEmailAttachement($email,'Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
     Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['End'], $_POST['Form'], $_POST['Ort']);
 
-    echo $user;
-    echo $ID;
-    echo $_POST['Modul'];
-    
     header("location:Intranet.php");
 
 ?>

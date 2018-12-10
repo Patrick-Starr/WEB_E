@@ -22,7 +22,7 @@ class lostPassword{
         $mail = @$_POST['email'];
         $newpassword = self::randomPassword();
         $hnewpassword = md5($newpassword);
-        EmailServiceClient::sendEmail($mail, "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
+        EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword ");
 
         userDAO::updatePassword($mail,$hnewpassword);
         header("location: home.php");
