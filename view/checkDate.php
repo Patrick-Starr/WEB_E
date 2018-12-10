@@ -2,7 +2,6 @@
 
 include '../DAO/userDAO.php';
 include '../DAO/EmailServiceClient.php';
-// include_once '../DAO/DB_Connection.php';
 if (!isset(Database::$cont)) {
     Database::connect();
 }
@@ -29,9 +28,6 @@ class checkDate
                 $htmlData = "Die Anmeldefrist Ihres Kurses: " . $name . " ist abgelaufen. Der Kurs wurde aus der Liste gelöscht";
                 EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData, null);
 
-//                 $update = $mysqli_query->prepare("DELETE FROM courses WHERE courses.CID = ?");
-//                 $update->bind_param('i', $CID);
-//                 $update->execute();
                 
                 $insert = "DELETE FROM courses WHERE courses.CID = $CID";
                 mysqli_query(Database::$cont, stripslashes($insert)) or die(mysqli_error(Database::$cont));

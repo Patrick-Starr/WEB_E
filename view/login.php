@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 
-<?php // login.php
+<?php
 
 include_once '../header.php';
 include '../DAO/userDAO.php';
 
-// echo "<div class='main'><h3>Please enter your details to log in</h3>";
 
 $error = $user = $pass = "";
 if (isset($_POST['mail']))
@@ -36,9 +35,6 @@ if (isset($_POST['mail']))
         {
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
-            //password_hash('pass', PASSWORD_DEFAULT);
-          /*  die("You are now logged in. Please <a href='test.php?view=$user'>" .
-                "click here</a> to continue.<br /><br />");*/
             header("location:home.php");
             exit;
         }

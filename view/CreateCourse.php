@@ -3,6 +3,9 @@
 include '../header.php';
 include '../DAO/CoursesDAO.php';
 
+/*
+ * Handles the two buttons save and delete.
+ */
 $CID = $_GET['wert'];
 $click = $_GET['click'];
 

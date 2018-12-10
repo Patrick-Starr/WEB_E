@@ -14,7 +14,9 @@ use SendGrid\Mail;
 
 class EmailServiceClient
 {
-
+/*
+ *  Sends an Email with Attachement (pdf), subject and text
+ */
     public static function sendEmailAttachement($ToEmail, $subject, $htmlData, $pfad){
 
         $apiKey = Config::get("sendGrid.value");
@@ -48,6 +50,10 @@ class EmailServiceClient
         echo json_encode( json_decode($response->body()), JSON_PRETTY_PRINT) . "\n";
         var_dump($response->headers());
     }
+
+    /*
+     * Sends an Email with Subject and text
+     */
 
     public static function sendEmail($toEmail, $subject, $htmlData){
         $jsonObj = self::createEmailJSONObj();
