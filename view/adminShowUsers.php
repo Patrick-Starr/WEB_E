@@ -70,6 +70,10 @@ include '../header.php';
        <?php 
         include '../DAO/userDAO.php';
         
+        /*
+         *  generates table with all users
+         */
+        
         $result = userDAO::showUsers();
         
         if(isset($result)) {

@@ -9,6 +9,10 @@ if (!isset(Database::$cont)) {
 class checkDate
 {
 
+    /*
+     *  checks if a date of a course lies in the past (End)
+     *  every course from the past gets deleted and a mail will be sent to the user to inform them about
+     */
     public static function checkStartDate()
     {
         mysqli_query(Database::$cont, "SET NAMES 'utf8'");
@@ -21,9 +25,10 @@ class checkDate
             $name = userDAO::getSchool($UID);
             $end = $row["End"];
             $startTimestamp = strtotime($end);
+            $mail = userDAO::getEmail($name);
 
             if ($startTimestamp <= time()) {
-                $toEmail = "patrick.zioerjen@students.fhnw.ch";
+                $toEmail = $mail;
                 $subject = "StuKu Anmeldeschluss";
                 $htmlData = "Die Anmeldefrist Ihres Kurses: " . $name . " ist abgelaufen. Der Kurs wurde aus der Liste gelöscht";
                 EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData, null);
