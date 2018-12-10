@@ -89,12 +89,6 @@ include '../header.php';
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <?php echo session_id(); ?>
                 <h2 class="text-info">Passwort ändern</h2>
             </div>
             <form name="Passwortwechsel" action="changePassword.php" method="POST" onsubmit="return validation()">
