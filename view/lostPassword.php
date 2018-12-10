@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
     if (! empty($_POST["email"])) {
         lostPassword::reset();
     } else {
-
         echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
     }
 }
@@ -24,7 +23,6 @@ class lostPassword
         $in_array($mail, $mailArray);
 
         if ($in_array) {
-
             if (isset($_POST['submit'])) {
                 $newpassword = self::randomPassword();
                 $hnewpassword = md5($newpassword);
