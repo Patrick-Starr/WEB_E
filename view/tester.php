@@ -7,9 +7,9 @@ $mailFromDB = userDAO::getAllMails();
 echo "2";
 $mailArray = explode("?", $mailFromDB);
 echo "3";
-$in = $in_array($mail, $mailArray);
+$in = $in_array("admin@fhnw.ch", $mailArray);
 echo "4";
-$in_array($mail, $mailArray);
+$in_array("admin@fhnw.ch", $mailArray);
 echo "5";
 
 try {
