@@ -69,7 +69,7 @@ include '../header.php';
        <?php 
         include '../DAO/CoursesDAO.php';
         include '../DAO/userDAO.php';
-        
+        if($loggedin){
         $num =  userDAO::getID($user);
         
         $result = Courses::readMy($num);
@@ -123,6 +123,7 @@ include '../header.php';
         echo "</table>";
 
         $result = null;
+        }
         }
         ?>
 		<br><br>

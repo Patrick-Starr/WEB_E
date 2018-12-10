@@ -31,6 +31,7 @@ class Config
             $dbopts = parse_url($_ENV["https://dashboard.jawsdb.com/mysql/dashboard"]);
             self::$config["database.user"] = $dbopts["user"];
             self::$config["database.host"] = $dbopts["host"];
+            echo self::$config["database.host"];
             self::$config["database.port"] = $dbopts["port"];
             self::$config["database.name"] = ltrim($dbopts["path"], '/');   
             self::$config["database.password"] = $dbopts["pass"];

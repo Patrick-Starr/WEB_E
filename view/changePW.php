@@ -52,6 +52,7 @@ include '../header.php';
 </head>
 
 <body>
+ <?php if($loggedin){ ?>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
     <div class="container">
     <a href="home.php"><img border="0" alt="StuKu" src="../Logo.png" width="150 px" height="67 px"></a>
@@ -128,6 +129,7 @@ include '../header.php';
 <script src="assets/js/smoothproducts.min.js"></script>
 <script src="assets/js/Table-with-search.js"></script>
 <script src="assets/js/theme.js"></script>
+  <?php } ?>
 </body>
 
 </html>

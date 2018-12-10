@@ -2,6 +2,8 @@
 <?php
 include '../header.php';
 include '../DAO/CoursesDAO.php';
+
+if(isset($_SESSION['user'])){
 ?>
 
 
@@ -169,5 +171,5 @@ include '../DAO/CoursesDAO.php';
 <script src="assets/js/Table-with-search.js"></script>
 <script src="assets/js/theme.js"></script>
 </body>
-
+<?php } ?>
 </html>
