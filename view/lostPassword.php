@@ -20,9 +20,18 @@ class lostPassword
         $mailFromDB = userDAO::getAllMails();
         $mailArray = explode("?", $mailFromDB);
         $mail = @$_POST['email'];
-        $in_array($mail, $mailArray);
 
-        if ($in_array) {
+        $length = count($mailArray);
+        for ($i = 0; $i < $length; $i++) {
+            if ($mail === $mailArray[$i]){
+                $bool = true;
+                break;
+            } else {
+                $bool = false;
+            }
+        }
+        
+        if ($bool) {
             if (isset($_POST['submit'])) {
                 $newpassword = self::randomPassword();
                 $hnewpassword = md5($newpassword);

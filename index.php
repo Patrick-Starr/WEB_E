@@ -1,10 +1,6 @@
-<!--  Initialize all needed, Homepage is shown on home.php  -->
-
 <?php
 
-header('location: view/tester.php');
-
-
-// header('location: view/home.php');
+// starts the page
+header('location: view/home.php');
 
 ?>
