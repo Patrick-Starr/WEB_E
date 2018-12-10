@@ -2,10 +2,15 @@
 
 include_once '../DAO/userDAO.php';
 
+echo "1";
 $mailFromDB = userDAO::getAllMails();
+echo "2";
 $mailArray = explode("?", $mailFromDB);
+echo "3";
 $in = $in_array($mail, $mailArray);
+echo "4";
 $in_array($mail, $mailArray);
+echo "5";
 
 try {
 $a = var_dump($mailFromDB);
