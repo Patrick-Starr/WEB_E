@@ -3,6 +3,9 @@
 include '../header.php';
 include_once '../DAO/EmailServiceClient.php';
 
+/*
+ * Sends an Email to sojo.nagaroor@students.fhnw.ch (Admin) to register the school
+ */
 if(isset($_POST['submit'])){
 
     if(($_POST['name'] =="" or $_POST['email']=="" or $_POST['password']="")){
@@ -12,7 +15,7 @@ if(isset($_POST['submit'])){
     }else {
 
 
-        EmailServiceClient::sendEmail('deran.surdez@students.fhnw.ch', 'Neue Registrierung: ' . $_POST['name'], 'Überprüfen Sie folgende Angaben und fügen Sie gegebenenfalls die Hochschule hinzu.'."<br>" .'Name: '. $_POST['name'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>");
+        EmailServiceClient::sendEmail('sojo.nagaroor@students.fhnw.ch', 'Neue Registrierung: ' . $_POST['name'], 'Überprüfen Sie folgende Angaben und fügen Sie gegebenenfalls die Hochschule hinzu.'."<br>" .'Name: '. $_POST['name'] . "<br>" . 'Email: ' . $_POST['email'] . "<br>");
         echo "<script type='text/javascript'>alert('Ihre Daten werden Überprüft. Bei erfolgreicher Registrierung werden Sie von uns informiert.');</script>";
 
     }

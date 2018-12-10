@@ -4,7 +4,9 @@ include '../DAO/CoursesDAO.php';
 include '../DAO/userDAO.php';
 include 'PDFfile.php';
 include '../DAO/EmailServiceClient.php';
-
+/*
+ * creates a new pdf and sends it as attachement
+ */
     $pdf = new PDFcreator();
 
     $user = $_SESSION['user'];

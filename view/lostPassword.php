@@ -15,6 +15,9 @@ if (isset($_POST['submit'])) {
 class lostPassword
 {
 
+    /*
+     *  resets password
+     */
     public static function reset()
     {
         $mailFromDB = userDAO::getAllMails();
@@ -43,6 +46,9 @@ class lostPassword
         }
     }
 
+    /*
+     * creates a randomPassword
+     */
     public static function randomPassword()
     {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';

@@ -11,7 +11,9 @@ include('../fpdf181/fpdf.php'); //Pfad zu fpdf.php
 
 Class PDFcreator extends FPDF
 {
-
+/*
+ * creates a new pdf file
+ */
     public function createPDF(int $id, $school,$street,$postcode,$address,$email)
     {
         $pdf = new PDFcreator();
@@ -28,9 +30,10 @@ Class PDFcreator extends FPDF
         $pdf->Output('F','invoice.pdf');
     }
 
-// utf8_decode(): $str = utf8_decode($str);
 
-
+/*
+ * puts text and items in the head of the pdf file
+ */
     function Kopf()
     {
         $this->Image('../Logo.png',10,6,30);
@@ -55,7 +58,7 @@ Class PDFcreator extends FPDF
         $this->cell(190, 15, '', 0, 1);
     }
 
-//Kunde beschreiben (Empfänger)
+//writes clientdata in pdf file
     function clientData($school,$street,$postcode,$address,$email)
     {
         $this->cell(130, 5, 'Rechnung an : ', 0, 1);
@@ -66,7 +69,7 @@ Class PDFcreator extends FPDF
         $this->cell(190, 10, '', 0, 1);
     }
 
-//Rechnung und Betrag
+//writes Invoice and amount in pdf file
     function invoiceBill()
     {
 
@@ -83,6 +86,9 @@ Class PDFcreator extends FPDF
 
     }
 
+    /*
+ * puts payment slip in the pdf document
+ */
     function ZahlungsSchein(){
         $this->Image('../ES.jpg',0,195,210,100);
     }
