@@ -11,6 +11,8 @@ echo $a;
     echo "a";
 }
 
+echo "<br/>";
+echo "<br/>";
 echo "2";
 try {
 $mailArray = explode("?", $mailFromDB);
@@ -20,24 +22,21 @@ echo $b;
     echo "b";
 }
 
+echo "<br/>";
+echo "<br/>";
 echo "3";
 try {
-$in = $in_array("admin@fhnw.ch", $mailArray);
+    if ($in_array("admin@fhnw.ch", $mailArray)) {
+        echo "FOCKEN WORKS";
+    }
 $c = var_dump($in_array);
 echo $c;
 } catch (Exception $e) {
     echo "c";
 }
 
-echo "4";
-try {
-$in_array("admin@fhnw.ch", $mailArray);
-$d = var_dump($in);
-echo $d;
-} catch (Exception $e) {
-    echo "d";
-}
-
+echo "<br/>";
+echo "<br/>";
 echo "end";
 
 ?>
