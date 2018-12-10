@@ -35,7 +35,7 @@ class lostPassword
             if (isset($_POST['submit'])) {
                 $newpassword = self::randomPassword();
                 $hnewpassword = md5($newpassword);
-                EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword\nWir empfehlen Ihnen das Passwort sogleich zu wechseln, wenn Sie wieder eingeloggt sind.");
+                EmailServiceClient::sendEmail("$mail", "Ihr neues Passwort", "Guten Tag. Ihr Passwort wurde erfolgreich zurückgesetzt. Bitte Loggen Sie sich mit folgendem Passwort ein: $newpassword <br>Wir empfehlen Ihnen das Passwort sogleich zu wechseln, wenn Sie wieder eingeloggt sind.");
 
                 userDAO::updatePassword($mail, $hnewpassword);
                 // echo "<script type='text/javascript'>alert('Ihr Passwort wurde zurückgesetzt');</script>";
