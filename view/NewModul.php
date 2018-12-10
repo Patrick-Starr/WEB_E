@@ -17,11 +17,9 @@ include '../DAO/EmailServiceClient.php';
 
     $pdfdata =  $pdf->createPDF($ID,$user,$street,$postcode, $place,$email);
 
-//     EmailServiceClient::sendEmailAttachement($email,'Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
-//     Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['End'], $_POST['Form'], $_POST['Ort']);
+    EmailServiceClient::sendEmailAttachement($email,'Rechnung', "Guten Tag \n Anbei finden Sie Ihre Rechnung.\n Freundliche Grüsse \n StuKu Support",'invoice.pdf');
+    Courses::create($ID, $_POST['Modul'], $_POST['Link'], $_POST['Dauer'], $_POST['Start'], $_POST['End'], $_POST['Form'], $_POST['Ort']);
 
-var_dump($email);
-    
-//     header("location:Intranet.php");
+    header("location:Intranet.php");
 
 ?>
