@@ -94,7 +94,7 @@ include '../header.php';
             <form name="Passwortwechsel" action="changePassword.php" method="POST" onsubmit="return validation()">
                 <div class="form-group"><label>Neues Passwort</label><input class="form-control" type="password" name="newPW" id = "2" maxlength="20"></div>
                 <div class="form-group"><label>Passwort wiederholen</label><input class="form-control" type="password" name="newAgain" id = "3" maxlength="20" ></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Passwort ändern</button></div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Passwort wechseln</button></div>
             </form>
         </div>
     </section>
