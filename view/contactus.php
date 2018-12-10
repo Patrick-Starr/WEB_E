@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 
     if(($_POST['name'] =="" or $_POST['subject']=="" or $_POST['text']=" " or $_POST['email']="")){
 
-        echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
+//         echo "<script type='text/javascript'>alert('Bitte Formular komplett ausfüllen');</script>";
         
         Test::tst($_POST['subject'],$_POST['name'],$_POST['text'],$_POST['email']);
 
