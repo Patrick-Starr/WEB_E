@@ -6,37 +6,32 @@
 include_once '../header.php';
 include '../DAO/userDAO.php';
 
+/*
+ *  safes login dates into session
+ */
 
 $error = $user = $pass = "";
-if (isset($_POST['mail']))
-{
+if (isset($_POST['mail'])) {
     // username per email
     $email = sanitizeString($_POST['mail']);
     $user = userDAO::getUser($email);
     $pass = sanitizeString($_POST['pass']);
     $hpass = md5($pass);
-    
-    if ($email == "" || $pass == "")
-    {
+
+    if ($email == "" || $pass == "") {
         $error = "Not all fields were entered<br />";
-    }
-    else
-    {
-        
+    } else {
+
         $result = queryMySQL("SELECT users.Password FROM users
         WHERE email='$email' AND Password='$hpass'");
-        
-        
-        if ($result->num_rows == 0)
-        {
+
+        if ($result->num_rows == 0) {
             $error = "Invalid login attempt";
-        }
-        else
-        {
+        } else {
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
             header("location:home.php");
-            exit;
+            exit();
         }
     }
 }

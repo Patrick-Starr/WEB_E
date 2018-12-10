@@ -67,6 +67,9 @@ include '../header.php';
         <thead>
         
        <?php 
+       /*
+        *  creates table and shows every course of the logged in user
+        */
         include '../DAO/CoursesDAO.php';
         include '../DAO/userDAO.php';
         if($loggedin){

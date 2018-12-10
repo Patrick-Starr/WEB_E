@@ -67,6 +67,9 @@ include '../header.php';
         <thead>
         
        <?php 
+       /*
+        *  creates table with all courses in the database and shows them on the homepage
+        */
          include '../DAO/CoursesDAO.php';
         
         $result = Courses::readALL();

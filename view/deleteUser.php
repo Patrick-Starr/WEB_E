@@ -3,7 +3,7 @@
 include '../DAO/userDAO.php';
 
 /*
- * deletes User
+ * deletes User and gets Course ID over URL
  */
 userDAO::delete($_GET['wert']);
 
